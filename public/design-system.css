@@ -708,15 +708,19 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     background-position: center !important;
   }
 
-  /* Scroll indicator: more bottom space on mobile, below buttons */
+  /* Scroll indicator: keep centered at bottom of hero, shrink buttons instead */
   .ds-scroll-indicator {
-    position: relative !important;
-    bottom: auto !important;
-    left: auto !important;
-    transform: none !important;
-    margin-top: 32px !important;
-    display: flex !important;
-    justify-content: center !important;
+    bottom: 16px !important;
+  }
+
+  /* Hero CTA buttons: smaller on mobile so scroll indicator isn't covered */
+  .ds-hero-buttons {
+    gap: 10px !important;
+  }
+  .ds-hero-buttons a,
+  .ds-hero-buttons button {
+    padding: 10px 20px !important;
+    font-size: 0.8rem !important;
   }
 
   /* -- Journey image grid: full aspect ratio on mobile -- */
