@@ -79,7 +79,7 @@
     orange: '#e67e22',
     purple: '#8e44ad',
     darkRed: '#c0392b',
-    rutgers: '#d21034',
+    rutgers: '#CC0033',
     auc: '#003366',
     gold: '#C49A3C'
   };
@@ -236,29 +236,46 @@
     era: 'BSc',
     years: '2019 \u2013 2024',
     institution: 'The American University in Cairo',
-    degree: 'BSc Mechanical Engineering',
-    highlight: 'Graduated with Distinction',
+    degree: 'B.Sc. in Mechanical Engineering',
+    highlight: 'Concentrations: Design & Industrial Engineering',
     color: color.auc,
     image: 'assets/Home/auc.jpg',
-    achievements: ['CFRP composite aerostructures thesis', 'CFD analysis of NACA 0024 airfoil', 'Additive manufacturing research', 'Senior capstone design project']
+    achievements: [
+      {text: 'Senior thesis: Design of an Electricity-Generating Tripod Turnstile with a 2-Stage Planetary Gearbox', link: 'thesis-showcase.html'},
+      {text: 'CFD analysis of NACA 0024 airfoil', link: 'naca0024-cfd-showcase.html'},
+      {text: 'Camshaft support cap failure analysis', link: 'failure-analysis-showcase.html'},
+      {text: 'Additive manufacturing research', link: 'am-showcase.html'},
+      {text: 'Senior capstone design project', link: 'design-ii-showcase.html'}
+    ]
   }, {
     era: 'MSc',
     years: '2024 \u2013 2026',
     institution: 'Rutgers, The State University of New Jersey',
-    degree: 'MSc Industrial & Systems Engineering',
-    highlight: 'Optimization & Machine Learning',
+    degree: 'M.S. in Industrial and Systems Engineering',
+    highlight: 'Concentration: System Analytics',
     color: color.rutgers,
     image: 'assets/Home/CoreBuilding.jpeg',
-    achievements: ['LMP forecasting (SARIMA-X, 1st place)', 'Spatial statistics & geostatistics', 'System dynamics modeling', 'Teaching assistant for ISE 338 & ISE 540']
+    achievements: [
+      {text: 'LMP forecasting (ISARIMA-X, 1st place)', link: 'ise530-showcase.html'},
+      {text: 'Graduate Research Assistant \u2014 RIA Lab, Advisor: Dr. Aziz'},
+      {text: 'Graduate Teaching Assistant for ISE 338 & ISE 540'},
+      {text: 'Spatial statistics & geostatistics', link: 'ise694-showcase.html'},
+      {text: 'System dynamics modeling', link: 'ise507-showcase.html'}
+    ]
   }, {
     era: 'PhD',
     years: '2026 \u2013 Present',
     institution: 'Rutgers, The State University of New Jersey',
-    degree: 'PhD Industrial & Systems Engineering',
+    degree: 'Ph.D. in Industrial and Systems Engineering',
     highlight: 'Renewables & Industrial Analytics',
-    color: color.accent,
+    color: color.rutgers,
     image: 'assets/Home/Rutgers-Weeks-Hall_30-sm.webp',
-    achievements: ['POSYDON framework: offshore wind O&M', 'Stochastic MILP optimization', 'AI-based energy forecasting', 'RIA Lab with Dr. Ezzat']
+    achievements: [
+      {text: 'POSYDON framework: offshore wind O&M', link: 'research-showcase.html'},
+      {text: 'Stochastic MILP optimization'},
+      {text: 'AI-based energy forecasting'},
+      {text: 'RIA Lab with Dr. Aziz'}
+    ]
   }];
 
   // ============================================================================
@@ -289,14 +306,14 @@
     label: 'Portfolio Showcases',
     value: '10+'
   }, {
-    label: 'Equations Authored',
-    value: '62+'
+    label: 'Kaggle Competition',
+    value: 'Top 0.6%'
   }, {
     label: 'Lecture Slides',
     value: '330+'
   }, {
-    label: 'Research Frameworks',
-    value: '3'
+    label: 'GPA \u2014 M.S. in ISE',
+    value: '4.0'
   }];
 
   // ============================================================================
@@ -880,7 +897,7 @@
       fontWeight: 400,
       animation: 'fadeInUp 0.8s ease 0.6s both'
     }
-  }, 'Industrial & Systems Engineering at Rutgers University. Specializing in stochastic optimization, machine learning, and AI-driven decision systems for renewable energy operations.'),
+  }, 'Industrial & Systems Engineering at Rutgers University. Specializing in deterministic & stochastic optimization, machine learning, and AI-driven decision systems for renewable energy operations & maintenance.'),
   /*#__PURE__*/
   // Stat chips row
   _react.default.createElement('div', {
@@ -920,27 +937,30 @@
       background: '#0071e3',
       color: '#ffffff',
       textDecoration: 'none',
-      boxShadow: '0 4px 16px rgba(0,113,227,0.3)',
+      boxShadow: '0 4px 20px rgba(0,113,227,0.3)',
       transition: 'all 0.3s ease',
       display: 'inline-flex',
       alignItems: 'center',
-      gap: '6px'
+      gap: '6px',
+      animation: 'pulseGlow 3s ease-in-out infinite'
     }
   }, 'View Portfolio \u2192'), /*#__PURE__*/_react.default.createElement('a', {
     href: 'research-showcase.html',
+    className: 'btn-primary-hover',
     style: {
       padding: '14px 32px',
       borderRadius: '980px',
       fontSize: '0.95rem',
       fontWeight: 600,
-      background: 'transparent',
-      border: '1.5px solid rgba(255,255,255,0.4)',
-      color: '#ffffff',
+      background: '#0071e3',
+      color: '#fff',
       textDecoration: 'none',
+      boxShadow: '0 4px 20px rgba(0,113,227,0.3)',
       transition: 'all 0.3s ease',
       display: 'inline-flex',
       alignItems: 'center',
-      gap: '6px'
+      gap: '6px',
+      animation: 'pulseGlow 3s ease-in-out infinite'
     }
   }, 'Explore Research \u2192'))),
   /*#__PURE__*/
@@ -966,30 +986,23 @@
     subtitle: 'From Cairo to New Jersey \u2014 a trajectory through mechanical engineering, optimization, and AI-driven research.'
   }),
   /*#__PURE__*/
-  // Journey triptych with blending
+  // Journey triptych — separate image cards
   _react.default.createElement('div', {
     className: 'scroll-reveal',
     style: {
-      position: 'relative',
-      borderRadius: '20px',
-      overflow: 'hidden',
-      height: '320px',
-      marginBottom: '56px',
-      boxShadow: '0 8px 40px rgba(0,0,0,0.1)'
-    }
-  }, /*#__PURE__*/_react.default.createElement('div', {
-    style: {
-      display: 'flex',
-      height: '100%',
-      position: 'relative'
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      gap: '20px',
+      marginBottom: '48px'
     }
   }, JOURNEY.map((j, i) => /*#__PURE__*/_react.default.createElement('div', {
     key: j.era,
-    className: 'journey-image-hover',
     style: {
-      flex: 1,
       position: 'relative',
-      overflow: 'hidden'
+      borderRadius: '16px',
+      overflow: 'hidden',
+      height: '320px',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
     }
   }, /*#__PURE__*/_react.default.createElement('img', {
     src: j.image,
@@ -998,28 +1011,6 @@
       width: '100%',
       height: '100%',
       objectFit: 'cover'
-    }
-  }),
-  // Gradient blending overlays
-  i < JOURNEY.length - 1 && /*#__PURE__*/_react.default.createElement('div', {
-    style: {
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      width: '60px',
-      height: '100%',
-      background: 'linear-gradient(to right, transparent, rgba(0,0,0,0.3))',
-      zIndex: 2
-    }
-  }), i > 0 && /*#__PURE__*/_react.default.createElement('div', {
-    style: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '60px',
-      height: '100%',
-      background: 'linear-gradient(to left, transparent, rgba(0,0,0,0.3))',
-      zIndex: 2
     }
   }),
   /*#__PURE__*/
@@ -1039,7 +1030,7 @@
       display: 'inline-block',
       padding: '3px 10px',
       borderRadius: '6px',
-      background: j.color,
+      background: i === 0 ? '#003366' : i === 1 ? '#CC0033' : '#CC0033',
       color: color.white,
       fontSize: '0.7rem',
       fontWeight: 700,
@@ -1058,7 +1049,7 @@
       fontSize: '0.75rem',
       marginTop: '2px'
     }
-  }, j.institution)))))),
+  }, j.institution))))),
   /*#__PURE__*/
   // Journey detail cards
   _react.default.createElement('div', {
@@ -1125,7 +1116,7 @@
       margin: 0
     }
   }, j.achievements.map(a => /*#__PURE__*/_react.default.createElement('li', {
-    key: a,
+    key: typeof a === 'string' ? a : a.text,
     style: {
       fontSize: '0.8rem',
       color: color.secondary,
@@ -1144,7 +1135,10 @@
       borderRadius: '50%',
       background: j.color
     }
-  }), a)))))),
+  }), typeof a === 'string' ? a : (a.link ? /*#__PURE__*/_react.default.createElement('a', {
+    href: a.link,
+    style: { color: '#0071e3', textDecoration: 'none' }
+  }, a.text) : a.text))))))),
   /*#__PURE__*/
   // Graduation photo
   _react.default.createElement('div', {
@@ -1177,7 +1171,32 @@
       marginTop: '12px',
       fontStyle: 'italic'
     }
-  }, 'Commencement Ceremony \u2014 The American University in Cairo, Class of 2024'))));
+  }, 'Commencement Ceremony \u2014 The American University in Cairo, Class of 2024'), /*#__PURE__*/_react.default.createElement('div', {
+    style: { marginTop: '4px' }
+  }, /*#__PURE__*/_react.default.createElement('a', {
+    href: 'https://www.youtube.com/watch?v=xgcqQGeRRAU&t=4515s',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      padding: '10px 20px',
+      background: '#FF0000',
+      color: '#fff',
+      borderRadius: '980px',
+      fontSize: '0.85rem',
+      fontWeight: 600,
+      textDecoration: 'none',
+      transition: 'all 0.3s ease',
+      marginTop: '16px',
+      boxShadow: '0 2px 8px rgba(255,0,0,0.2)'
+    }
+  },
+  /*#__PURE__*/_react.default.createElement('svg', { width: 20, height: 20, viewBox: '0 0 24 24', fill: 'white' },
+    /*#__PURE__*/_react.default.createElement('path', { d: 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z' })
+  ),
+  'Watch My Commencement')))));
 
   // ============================================================================
   // SECTION: RESUME / CV
@@ -1329,10 +1348,10 @@
   // POSYDON card
   _react.default.createElement(GlassCard, {
     style: {
-      borderLeft: `4px solid ${color.red}`
+      borderLeft: '4px solid #CC0033'
     }
   }, /*#__PURE__*/_react.default.createElement(Pill, {
-    clr: color.red,
+    clr: '#CC0033',
     style: {
       marginBottom: '12px'
     }
@@ -1369,10 +1388,10 @@
   // RIA Lab card
   _react.default.createElement(GlassCard, {
     style: {
-      borderLeft: `4px solid ${color.accent}`
+      borderLeft: '4px solid #CC0033'
     }
   }, /*#__PURE__*/_react.default.createElement(Pill, {
-    clr: color.accent,
+    clr: '#CC0033',
     style: {
       marginBottom: '12px'
     }
@@ -1415,22 +1434,42 @@
     style: {
       ...glass.surface,
       padding: '10px',
-      textAlign: 'center'
+      textAlign: 'center',
+      background: 'rgba(204,0,51,0.08)'
     }
   }, /*#__PURE__*/_react.default.createElement('div', {
     style: {
       fontSize: '0.95rem',
       fontWeight: 700,
-      color: color.text
+      color: '#CC0033'
     }
   }, s.value), /*#__PURE__*/_react.default.createElement('div', {
     style: {
       fontSize: '0.7rem',
       color: color.tertiary
     }
-  }, s.label)))), /*#__PURE__*/_react.default.createElement(LinkButton, {
-    href: 'https://sites.rutgers.edu/azizezzat/research/'
-  }, 'RIA Lab \u2192'))),
+  }, s.label)))), /*#__PURE__*/_react.default.createElement('a', {
+    href: 'research-showcase.html',
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      padding: '8px 16px',
+      background: 'rgba(204,0,51,0.06)',
+      border: '1px solid rgba(204,0,51,0.15)',
+      borderRadius: '12px',
+      textDecoration: 'none',
+      transition: 'all 0.3s ease'
+    }
+  },
+  /*#__PURE__*/_react.default.createElement('img', {
+    src: 'assets/Home/RIA_logo.png',
+    alt: 'RIA Lab',
+    style: { height: '28px', objectFit: 'contain' }
+  }),
+  /*#__PURE__*/_react.default.createElement('span', {
+    style: { fontSize: '0.8rem', fontWeight: 600, color: '#CC0033' }
+  }, 'Visit Lab \u2192')))),
   /*#__PURE__*/
   // Key formula callout
   _react.default.createElement('div', {
@@ -1439,8 +1478,8 @@
       ...glass.card,
       padding: '24px 32px',
       textAlign: 'center',
-      borderTop: `2px solid ${color.red}`,
-      borderBottom: `2px solid ${color.accent}`
+      borderTop: '2px solid #CC0033',
+      borderBottom: '2px solid #CC0033'
     }
   }, /*#__PURE__*/_react.default.createElement('div', {
     style: {
