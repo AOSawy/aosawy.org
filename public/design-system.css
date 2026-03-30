@@ -261,6 +261,165 @@ body {
 }
 
 
+/* -----------------------------------------------------------------------------
+   8.1 ANIMATED HAMBURGER ICON (Apple-style)
+----------------------------------------------------------------------------- */
+.ds-hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+.ds-hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 22px;
+}
+.ds-hamburger-lines span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+/* Open state: X animation */
+.ds-hamburger.open .ds-hamburger-lines span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.ds-hamburger.open .ds-hamburger-lines span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.ds-hamburger.open .ds-hamburger-lines span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* -----------------------------------------------------------------------------
+   8.2 UNIFIED SITE HEADER (injected on showcase/research/teaching pages)
+----------------------------------------------------------------------------- */
+.ds-site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--color-border);
+  height: 56px;
+}
+.ds-header-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+.ds-header-logo {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.ds-site-header .ds-nav-links {
+  display: flex;
+  gap: 24px;
+}
+.ds-site-header .ds-nav-links a {
+  font-family: var(--font-body);
+  font-size: var(--fs-nav);
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.ds-site-header .ds-nav-links a:hover {
+  color: var(--color-accent);
+}
+/* Drawer close button */
+.ds-drawer-close {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+/* Pages with injected site header need top padding */
+body:has(.ds-site-header) #root {
+  padding-top: 56px;
+}
+/* Adjust back-nav position when header is present */
+body:has(.ds-site-header) .site-back-nav {
+  top: 72px;
+}
+
+
+/* -----------------------------------------------------------------------------
+   8.3 SCROLL INDICATOR (mouse icon with bouncing dot)
+----------------------------------------------------------------------------- */
+.ds-scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+.ds-scroll-indicator:hover { opacity: 1; }
+
+.ds-scroll-mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid currentColor;
+  border-radius: 12px;
+  position: relative;
+}
+.ds-scroll-mouse::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 3px;
+  animation: scrollBounce 1.5s ease-in-out infinite;
+}
+.ds-scroll-indicator span {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: currentColor;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.3; transform: translateX(-50%) translateY(10px); }
+}
+
+/* Color variants for different hero backgrounds */
+.ds-scroll-indicator--light { color: rgba(255,255,255,0.7); }
+.ds-scroll-indicator--dark { color: rgba(29,29,31,0.5); }
+
+
 /* =============================================================================
    9. RESPONSIVE BREAKPOINTS
    ============================================================================= */

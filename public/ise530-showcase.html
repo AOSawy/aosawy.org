@@ -160,6 +160,29 @@ mae <- mean(abs(actual_24h - fc_values))
 </script>
 </head>
 <body>
+<!-- Unified Site Header -->
+<nav class="ds-site-header" id="siteHeader">
+  <div class="ds-header-inner">
+    <a href="index.html" class="ds-header-logo">A. Sawy</a>
+    <div class="ds-nav-links">
+      <a href="index.html">Home</a>
+      <a href="research-showcase.html">Research</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="teaching-showcase.html">Teaching</a>
+    </div>
+    <button class="ds-hamburger" onclick="document.getElementById('siteMobileDrawer').classList.toggle('open'); this.classList.toggle('open');">
+      <div class="ds-hamburger-lines"><span></span><span></span><span></span></div>
+    </button>
+  </div>
+</nav>
+<div class="ds-mobile-drawer" id="siteMobileDrawer">
+  <button class="ds-drawer-close" onclick="document.getElementById('siteMobileDrawer').classList.remove('open'); document.querySelector('.ds-hamburger').classList.remove('open');">&times;</button>
+  <a href="index.html" onclick="document.getElementById('siteMobileDrawer').classList.remove('open');">Home</a>
+  <a href="research-showcase.html" onclick="document.getElementById('siteMobileDrawer').classList.remove('open');">Research</a>
+  <a href="portfolio.html" onclick="document.getElementById('siteMobileDrawer').classList.remove('open');">Portfolio</a>
+  <a href="teaching-showcase.html" onclick="document.getElementById('siteMobileDrawer').classList.remove('open');">Teaching</a>
+</div>
+
   <div id="root"></div>
 <!-- Site Back-Navigation -->
 <div class="site-back-nav" id="siteBackNav">

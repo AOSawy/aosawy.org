@@ -133,13 +133,16 @@
     label: 'Resume'
   }, {
     id: 'research',
-    label: 'Research'
+    label: 'Research',
+    page: 'research-showcase.html'
   }, {
     id: 'portfolio',
-    label: 'Portfolio'
+    label: 'Portfolio',
+    page: 'portfolio.html'
   }, {
     id: 'teaching',
-    label: 'Teaching'
+    label: 'Teaching',
+    page: 'teaching-showcase.html'
   }, {
     id: 'publications',
     label: 'Publications'
@@ -656,22 +659,14 @@
     /*#__PURE__*/
     // Hamburger button (mobile only)
     _react.default.createElement('button', {
-      className: 'ds-hamburger',
+      className: 'ds-hamburger' + (mobileOpen ? ' open' : ''),
       onClick: () => setMobileOpen(!mobileOpen),
-      'aria-label': 'Open menu',
-      style: {
-        background: 'rgba(255,255,255,0.65)',
-        backdropFilter: 'saturate(180%) blur(20px)',
-        WebkitBackdropFilter: 'saturate(180%) blur(20px)',
-        border: '0.5px solid rgba(0,0,0,0.06)',
-        borderRadius: '8px',
-        padding: '6px 10px',
-        fontSize: '1.3rem',
-        cursor: 'pointer',
-        color: color.text,
-        lineHeight: 1
-      }
-    }, '\u2261'),
+      'aria-label': mobileOpen ? 'Close menu' : 'Open menu'
+    }, _react.default.createElement('div', { className: 'ds-hamburger-lines' },
+      _react.default.createElement('span'),
+      _react.default.createElement('span'),
+      _react.default.createElement('span')
+    )),
     /*#__PURE__*/
     // Center: nav links (desktop)
     _react.default.createElement('div', {
@@ -683,7 +678,7 @@
       }
     }, NAV_SECTIONS.map(s => /*#__PURE__*/_react.default.createElement('a', {
       key: s.id,
-      href: `#${s.id}`,
+      href: s.page ? s.page : `#${s.id}`,
       className: 'nav-link-hover',
       style: {
         padding: '6px 14px',
@@ -747,7 +742,7 @@
       }
     }, NAV_SECTIONS.map(s => /*#__PURE__*/_react.default.createElement('a', {
       key: s.id,
-      href: '#' + s.id,
+      href: s.page ? s.page : '#' + s.id,
       onClick: () => setMobileOpen(false),
       style: {
         padding: '12px 32px',
@@ -954,33 +949,10 @@
   /*#__PURE__*/
   // Scroll indicator
   _react.default.createElement('div', {
-    style: {
-      position: 'absolute',
-      bottom: '32px',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      animation: 'heroFloat 2.5s ease-in-out infinite',
-      zIndex: 10
-    }
-  }, /*#__PURE__*/_react.default.createElement('div', {
-    style: {
-      width: '24px',
-      height: '40px',
-      borderRadius: '12px',
-      border: '2px solid rgba(255,255,255,0.3)',
-      display: 'flex',
-      justifyContent: 'center',
-      paddingTop: '8px'
-    }
-  }, /*#__PURE__*/_react.default.createElement('div', {
-    style: {
-      width: '3px',
-      height: '8px',
-      borderRadius: '2px',
-      background: 'rgba(255,255,255,0.5)',
-      animation: 'fadeInUp 1.5s ease infinite'
-    }
-  })))));
+    className: 'ds-scroll-indicator ds-scroll-indicator--light'
+  }, _react.default.createElement('div', { className: 'ds-scroll-mouse' }),
+     _react.default.createElement('span', null, 'Scroll')
+  )));
 
   // ============================================================================
   // SECTION 2: ABOUT / ACADEMIC JOURNEY
@@ -1911,8 +1883,8 @@
   }, [{
     icon: '\u{2709}\u{FE0F}',
     label: 'Email',
-    value: 'aosawy@gmail.com',
-    href: 'mailto:aosawy@gmail.com',
+    value: 'a.sawy@rutgers.edu',
+    href: 'mailto:a.sawy@rutgers.edu',
     color: color.accent
   }, {
     icon: '\u{1F517}',
