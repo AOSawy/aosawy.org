@@ -1,0 +1,16 @@
+# Clean URL rewrites — Cloudflare Pages
+# Format: /clean-path  /actual-file.html  200 (rewrite, not redirect)
+
+/research          /research-showcase.html          200
+/portfolio         /portfolio.html                  200
+/teaching          /teaching-showcase.html          200
+/thesis            /thesis-showcase.html            200
+/cfd               /naca0024-cfd-showcase.html       200
+/failure-analysis  /failure-analysis-showcase.html   200
+/design            /design-ii-showcase.html          200
+/fem               /fem-showcase.html                200
+/additive          /am-showcase.html                 200
+/dynamics          /system-dynamics-showcase.html     200
+/data-analytics    /ise507-showcase.html             200
+/forecasting       /ise530-showcase.html             200
+/data-mining       /ise694-showcase.html             200

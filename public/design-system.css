@@ -157,6 +157,15 @@ body {
   }
 }
 
+@keyframes heroButtonGlow {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(255,255,255,0.15), 0 0 12px rgba(255,255,255,0.05);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255,255,255,0.35), 0 0 24px rgba(255,255,255,0.12);
+  }
+}
+
 
 /* -----------------------------------------------------------------------------
    5. SCROLL-REVEAL UTILITY
@@ -693,8 +702,11 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     height: auto !important;
   }
 
-  /* Ensure no horizontal overflow from any element */
-  #root, main, section, article, .scroll-reveal {
+  /* Ensure no horizontal overflow — use clip on #root to preserve sticky */
+  #root {
+    overflow-x: clip;
+  }
+  main, section, article, .scroll-reveal {
     overflow-x: hidden;
   }
 
@@ -702,7 +714,303 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     overflow-x: hidden;
   }
 
-  /* -- Hero section mobile -- */
+  /* -- Hero section mobile: stack content + scroll indicator vertically -- */
+  #hero {
+    flex-direction: column !important;
+  }
+
+  /* -- Research showcase hero: stack on mobile -- */
+  #research-hero {
+    height: auto !important;
+    min-height: 100vh;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: 56px 20px 24px !important;
+    margin-top: -56px !important;
+    overflow: visible !important;
+  }
+
+  #research-hero video,
+  #research-hero > div:first-of-type,
+  #research-hero > div:nth-of-type(2) {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .research-hero-stats {
+    position: static !important;
+    order: 1;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-bottom: 16px;
+    z-index: 5;
+  }
+
+  .research-hero-stats > div {
+    padding: 8px 12px !important;
+    flex: 1;
+    max-width: 110px;
+  }
+
+  .research-hero-stats > div > div:first-child {
+    font-size: 1rem !important;
+  }
+
+  .research-hero-stats > div > div:last-child {
+    font-size: 0.55rem !important;
+  }
+
+  .research-hero-content {
+    position: static !important;
+    order: 2;
+    z-index: 5;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .research-hero-content > div:first-child {
+    padding: 1.25rem !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Logo links row — move to bottom of card */
+  .research-hero-content > div:first-child > div:first-child {
+    order: 10 !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-bottom: 0 !important;
+    margin-top: 1rem !important;
+  }
+
+  /* Logo buttons — darker background + glow animation */
+  .research-hero-content > div:first-child > div:first-child a {
+    padding: 6px 12px 6px 8px !important;
+    border-radius: 12px !important;
+    background: rgba(0,0,0,0.55) !important;
+    border: 0.5px solid rgba(255,255,255,0.2) !important;
+    animation: heroButtonGlow 3s ease-in-out infinite !important;
+  }
+
+  .research-hero-content > div:first-child > div:first-child img {
+    height: 26px !important;
+    width: auto !important;
+    filter: brightness(1.3) !important;
+  }
+
+  .research-hero-content h1 {
+    font-size: 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .research-hero-content p {
+    text-align: center !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Author/metadata row: center and wrap */
+  .research-hero-content > div:first-child > div:nth-child(4) {
+    justify-content: center !important;
+  }
+
+  /* Institution line */
+  .research-hero-content > div:first-child > div:last-child {
+    text-align: center !important;
+  }
+
+  /* Cap RIA logo in overview tab on mobile */
+  img[alt*="RIA - Renewables"] {
+    max-width: 160px !important;
+    width: auto !important;
+  }
+
+  /* Scroll indicator in research hero */
+  #research-hero .ds-scroll-indicator {
+    position: static !important;
+    order: 3;
+    margin: 16px auto 0 !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: fit-content !important;
+  }
+
+  /* =============================================
+     RESEARCH SHOWCASE — COMPREHENSIVE MOBILE FIXES
+     ============================================= */
+
+  /* Issue 1: Move hero logo buttons to bottom of card — side by side, centered
+     MUST use #root prefix to outweigh #root [style*="..."] broad rule (specificity 0,1,3,0 > 0,1,2,0) */
+  #root .research-hero-content > div:first-child > div:first-child {
+    order: 10 !important;
+    margin-bottom: 0 !important;
+    margin-top: 0.75rem !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  /* Issue 2: Stat/config cards — 2 per row on mobile */
+  /* Target grids with small minmax (stat chips, config cards, cost structure) */
+  #root [style*="display: grid"][style*="minmax(160px"],
+  #root [style*="display: grid"][style*="minmax(180px"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* Grids with medium minmax (250px) — also 2 per row */
+  #root [style*="display: grid"][style*="minmax(250px"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* Grids with large minmax (280px+, 320px+, 340px+) — keep single column */
+  /* These contain long-text cards (research thrusts, datasets) */
+  #root [style*="display: grid"][style*="minmax(280px"],
+  #root [style*="display: grid"][style*="minmax(320px"],
+  #root [style*="display: grid"][style*="minmax(340px"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Compact stat card text */
+  #root [style*="display: grid"][style*="minmax(180px"] > div,
+  #root [style*="display: grid"][style*="minmax(250px"] > div {
+    padding: 0.75rem !important;
+  }
+
+  /* Issue 3: Research-specific footer — separate from dark footer */
+  .ds-site-footer {
+    margin-top: 0 !important;
+  }
+
+  /* Issue 4: Tab bar — wrap buttons, not scrollable */
+  [style*="position: sticky"][style*="top: 56px"] > div {
+    white-space: normal !important;
+    overflow-x: visible !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    justify-content: center !important;
+  }
+
+  [style*="position: sticky"][style*="top: 56px"] > div > button {
+    padding: 0.4rem 0.7rem !important;
+    font-size: 0.7rem !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Multi-column fixed grids → 2 per row on mobile */
+  #root [style*="display: grid"][style*="repeat(5"],
+  #root [style*="display: grid"][style*="repeat(6"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* Issue 5: Sponsor/funding logos — much smaller, side by side */
+  [style*="Supported By"] + div img,
+  [style*="gap: 2.5rem"] > a img {
+    height: 28px !important;
+    width: auto !important;
+  }
+
+  [style*="gap: 2.5rem"] {
+    gap: 1rem !important;
+  }
+
+  /* Issue 7: Dataset Engineering cards — fix layout on mobile */
+
+  /* Title row (title + pills): stack vertically on mobile */
+  #root [style*="justify-content: space-between"][style*="align-items: flex-start"],
+  #root [style*="justify-content: space-between"][style*="align-items: center"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  /* Monospace filenames: allow wrapping + truncate */
+  #root h4[style*="Courier"] {
+    word-break: break-all !important;
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* 3-column detail grids inside cards: vertical single column on mobile */
+  #root [style*="display: grid"][style*="1fr 1fr 1fr"]:not([style*="repeat"]) {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  /* Overflow containers — enable horizontal scroll */
+  #root [style*="overflow-x: auto"],
+  #root [style*="overflowX"] {
+    max-width: 100% !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Tables inside scrollable containers — readable min-width */
+  #root [style*="overflow"] table {
+    min-width: 600px !important;
+    font-size: 0.78rem !important;
+  }
+
+  #root [style*="overflow"] table th,
+  #root [style*="overflow"] table td {
+    padding: 0.6rem 0.75rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* All tables and code blocks inside cards — scroll */
+  #root table, #root pre, #root code {
+    font-size: 0.7rem !important;
+    word-break: break-all;
+  }
+
+  /* Issue 8: Figures/flowcharts — make scrollable when too wide */
+  #root [style*="display: grid"][style*="1fr 1fr 1fr"],
+  #root [style*="display: grid"][style*="repeat(3"],
+  #root [style*="display: grid"][style*="repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* SVG and canvas figures — full width + scrollable container */
+  #root svg[viewBox] {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Image figures (flowcharts, diagrams) — scrollable */
+  #root img[alt*="framework"],
+  #root img[alt*="Framework"],
+  #root img[alt*="POSYDON"],
+  #root img[alt*="pipeline"],
+  #root img[alt*="Pipeline"] {
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+  }
+
+  /* Generic: any figure container inside research cards */
+  #root [style*="overflow: hidden"] {
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* =============================================
+     END RESEARCH SHOWCASE MOBILE FIXES
+     ============================================= */
+
   [style*="background-image"] {
     background-size: cover !important;
     background-position: center !important;
@@ -716,7 +1024,6 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     transform: none !important;
     width: fit-content !important;
     margin: 24px auto 16px !important;
-    align-self: center !important;
   }
 
   /* Hero CTA buttons: smaller on mobile */
@@ -756,7 +1063,7 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   }
 
   /* -- University logos in degree cards -- */
-  [alt*="AUC"], [alt*="Rutgers ISE"] {
+  [alt*="AUC School"], [alt*="Rutgers ISE"] {
     max-height: 60px !important;
     margin-top: 12px !important;
   }
