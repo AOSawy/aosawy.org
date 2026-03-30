@@ -988,7 +988,7 @@
   /*#__PURE__*/
   // Journey triptych — separate image cards
   _react.default.createElement('div', {
-    className: 'scroll-reveal',
+    className: 'scroll-reveal ds-journey-grid',
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
@@ -1211,6 +1211,7 @@
   'Watch My Commencement')),
   // People in the photo
   /*#__PURE__*/_react.default.createElement('div', {
+    className: 'ds-people-row',
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -1584,13 +1585,16 @@
       border: '1px solid rgba(204,0,51,0.15)',
       borderRadius: '12px',
       textDecoration: 'none',
-      transition: 'all 0.3s ease'
+      transition: 'all 0.3s ease',
+      flexWrap: 'wrap',
+      maxWidth: '100%',
+      overflow: 'hidden'
     }
   },
   /*#__PURE__*/_react.default.createElement('img', {
     src: 'assets/Home/RIA_logo.png',
     alt: 'RIA Lab',
-    style: { height: '28px', objectFit: 'contain' }
+    style: { height: '28px', objectFit: 'contain', maxWidth: '100%' }
   }),
   /*#__PURE__*/_react.default.createElement('span', {
     style: { fontSize: '0.8rem', fontWeight: 600, color: '#CC0033' }
@@ -1867,15 +1871,18 @@
   /*#__PURE__*/
   // Teaching stats + link
   _react.default.createElement('div', {
-    className: 'scroll-reveal',
+    className: 'scroll-reveal ds-teaching-stats',
     style: {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       ...glass.card,
-      padding: '24px 32px'
+      padding: '24px 32px',
+      flexWrap: 'wrap',
+      gap: '16px'
     }
   }, /*#__PURE__*/_react.default.createElement('div', {
+    className: 'ds-teaching-stats-grid',
     style: {
       display: 'flex',
       gap: '32px'

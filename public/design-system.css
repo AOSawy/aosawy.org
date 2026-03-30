@@ -682,6 +682,140 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   [style*="display:flex"][style*="gap:3"] {
     flex-direction: column !important;
   }
+
+  /* =========================================================
+     MOBILE OPTIMIZATION — Reference: iPhone 17 Pro Max (440x956)
+     ========================================================= */
+
+  /* -- Images, videos, logos -- */
+  img, video, canvas, svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Ensure no horizontal overflow from any element */
+  #root, main, section, article, .scroll-reveal {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* -- Hero section mobile -- */
+  [style*="background-image"] {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  /* -- Journey image grid: fill width -- */
+  .ds-journey-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .ds-journey-grid > div {
+    min-height: 200px !important;
+  }
+  .ds-journey-grid img {
+    height: 200px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+  }
+
+  /* -- University logos in degree cards -- */
+  [alt*="AUC"], [alt*="Rutgers ISE"] {
+    max-height: 60px !important;
+    margin-top: 12px !important;
+  }
+
+  /* -- Commencement people info: stack on mobile -- */
+  .ds-people-row {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* -- RIA logo button: prevent overflow -- */
+  [alt="RIA Lab"] {
+    max-height: 24px !important;
+  }
+
+  /* -- Teaching stats: stack properly on mobile -- */
+  .ds-teaching-stats {
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: stretch !important;
+  }
+  .ds-teaching-stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  /* -- Teaching stats grid: ensure proper stacking -- */
+  [style*="gridTemplateColumns: 'repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  /* -- Contact cards: single column -- */
+  [style*="gridTemplateColumns: 'repeat(4, 1fr)'"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* -- Buttons: full width on mobile -- */
+  [style*="borderRadius: '980px'"],
+  [style*="border-radius: 980px"] {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* -- Resume/CV card: tone down glow -- */
+  [style*="boxShadow"][style*="rgba(0,113,227"] {
+    box-shadow: 0 2px 12px rgba(0,113,227,0.15) !important;
+  }
+
+  /* -- Section padding tighter on mobile -- */
+  section > div[style*="maxWidth"],
+  [style*="max-width: 1200px"],
+  [style*="maxWidth: '1200px'"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* -- Footer on mobile -- */
+  .ds-site-footer {
+    padding: 40px 16px 16px !important;
+  }
+
+  /* -- Prevent text overflow anywhere -- */
+  h1, h2, h3, h4, h5, h6, p, span, a, li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* -- Tab nav: horizontal scroll with momentum -- */
+  [style*="position: sticky"] {
+    padding: 8px 12px !important;
+  }
+  [style*="position: sticky"] button,
+  [style*="position: sticky"] a {
+    font-size: 0.75rem !important;
+    padding: 6px 12px !important;
+    white-space: nowrap;
+  }
+
+  /* -- 3D model viewers & canvas -- */
+  canvas {
+    max-width: 100% !important;
+    max-height: 60vh !important;
+  }
+  model-viewer {
+    max-width: 100% !important;
+    max-height: 300px !important;
+  }
 }
 
 
