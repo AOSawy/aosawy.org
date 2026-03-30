@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teaching Portfolio | Abdelrahman Sawy</title>
+    <link rel="stylesheet" href="design-system.css">
+  <title>Teaching — Abdelrahman O. Sawy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -2690,10 +2691,11 @@
       document.getElementById('root').innerHTML = '<p style="padding:2rem;color:red;">Error: Component not found</p>';
     }
   </script>
-  <!-- Floating Home Navigation -->
-  <div id="home-nav" style="position:fixed;top:16px;left:16px;z-index:9999;display:flex;gap:8px;">
-    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;font-size:0.8rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;color:#6e6e73;background:rgba(255,255,255,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:0.5px solid rgba(0,0,0,0.06);box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.2s ease;" onmouseover="this.style.color='#0071e3';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.06)'" onmouseout="this.style.color='#6e6e73';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.03)'">&larr; Home</a>
-    <a href="portfolio.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;font-size:0.8rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;color:#6e6e73;background:rgba(255,255,255,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:0.5px solid rgba(0,0,0,0.06);box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.2s ease;" onmouseover="this.style.color='#0071e3';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.06)'" onmouseout="this.style.color='#6e6e73';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.03)'">Portfolio</a>
-  </div>
+  
+<!-- Site Back-Navigation -->
+<div class="site-back-nav" id="siteBackNav">
+  <a href="index.html">&larr; Home</a>
+  <a href="portfolio.html">Portfolio</a>
+</div>
 </body>
 </html>

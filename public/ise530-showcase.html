@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Showcase Preview</title>
+    <link rel="stylesheet" href="design-system.css">
+  <title>ISE 530: Forecasting Analytics — A.O. Sawy</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body, #root { width: 100%; min-height: 100vh; }
@@ -160,5 +161,10 @@ mae <- mean(abs(actual_24h - fc_values))
 </head>
 <body>
   <div id="root"></div>
+<!-- Site Back-Navigation -->
+<div class="site-back-nav" id="siteBackNav">
+  <a href="index.html">&larr; Home</a>
+  <a href="portfolio.html">Portfolio</a>
+</div>
 </body>
 </html>
