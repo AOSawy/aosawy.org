@@ -177,14 +177,9 @@ body {
    6. FLOATING BACK-NAVIGATION COMPONENT
    Glass-style fixed button — shared across all showcase pages.
 ----------------------------------------------------------------------------- */
+/* Hidden — persistent site header now provides navigation on all pages */
 .site-back-nav {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: none !important;
 }
 
 .site-back-nav a,
@@ -359,9 +354,9 @@ body {
 body:has(.ds-site-header) #root {
   padding-top: 56px;
 }
-/* Adjust back-nav position when header is present */
-body:has(.ds-site-header) .site-back-nav {
-  top: 72px;
+/* Sticky elements below the fixed header */
+body:has(.ds-site-header) [style*="position: sticky"] {
+  top: 56px !important;
 }
 
 

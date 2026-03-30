@@ -122,15 +122,14 @@
   // ============================================================================
   // NAVIGATION ITEMS
   // ============================================================================
+  // Full sections list — used for scroll-spy observer only
+  const ALL_SECTIONS = ['hero','about','resume','research','portfolio','teaching','publications','awards','contact'];
+
+  // Nav bar shows only 4 page-level links (same as all other pages)
   const NAV_SECTIONS = [{
     id: 'hero',
-    label: 'Home'
-  }, {
-    id: 'about',
-    label: 'About'
-  }, {
-    id: 'resume',
-    label: 'Resume'
+    label: 'Home',
+    page: 'index.html'
   }, {
     id: 'research',
     label: 'Research',
@@ -143,15 +142,6 @@
     id: 'teaching',
     label: 'Teaching',
     page: 'teaching-showcase.html'
-  }, {
-    id: 'publications',
-    label: 'Publications'
-  }, {
-    id: 'awards',
-    label: 'Awards'
-  }, {
-    id: 'contact',
-    label: 'Contact'
   }];
 
   // ============================================================================
@@ -678,7 +668,7 @@
       }
     }, NAV_SECTIONS.map(s => /*#__PURE__*/_react.default.createElement('a', {
       key: s.id,
-      href: s.page ? s.page : `#${s.id}`,
+      href: s.id === 'hero' ? '#hero' : s.page,
       className: 'nav-link-hover',
       style: {
         padding: '6px 14px',
@@ -742,7 +732,7 @@
       }
     }, NAV_SECTIONS.map(s => /*#__PURE__*/_react.default.createElement('a', {
       key: s.id,
-      href: s.page ? s.page : '#' + s.id,
+      href: s.id === 'hero' ? '#hero' : s.page,
       onClick: () => setMobileOpen(false),
       style: {
         padding: '12px 32px',
@@ -920,32 +910,39 @@
       animation: 'fadeInUp 0.8s ease 1.4s both'
     }
   }, /*#__PURE__*/_react.default.createElement('a', {
-    href: '#portfolio',
+    href: 'portfolio.html',
     className: 'btn-primary-hover',
     style: {
       padding: '14px 32px',
-      borderRadius: '14px',
+      borderRadius: '980px',
       fontSize: '0.95rem',
       fontWeight: 600,
-      background: color.accent,
-      color: color.white,
+      background: '#0071e3',
+      color: '#ffffff',
       textDecoration: 'none',
       boxShadow: '0 4px 16px rgba(0,113,227,0.3)',
-      transition: 'all 0.3s ease'
+      transition: 'all 0.3s ease',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px'
     }
   }, 'View Portfolio \u2192'), /*#__PURE__*/_react.default.createElement('a', {
-    href: '#research',
+    href: 'research-showcase.html',
     style: {
       padding: '14px 32px',
-      borderRadius: '14px',
+      borderRadius: '980px',
       fontSize: '0.95rem',
       fontWeight: 600,
-      ...glass.hero,
-      color: color.white,
+      background: 'transparent',
+      border: '1.5px solid rgba(255,255,255,0.4)',
+      color: '#ffffff',
       textDecoration: 'none',
-      transition: 'all 0.3s ease'
+      transition: 'all 0.3s ease',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px'
     }
-  }, 'Explore Research'))),
+  }, 'Explore Research \u2192'))),
   /*#__PURE__*/
   // Scroll indicator
   _react.default.createElement('div', {
@@ -1977,8 +1974,8 @@
         threshold: 0.3,
         rootMargin: '-56px 0px 0px 0px'
       });
-      NAV_SECTIONS.forEach(s => {
-        const el = document.getElementById(s.id);
+      ALL_SECTIONS.forEach(id => {
+        const el = document.getElementById(id);
         if (el) observer.observe(el);
       });
       return () => observer.disconnect();
