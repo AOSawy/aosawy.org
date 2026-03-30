@@ -708,12 +708,18 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     background-position: center !important;
   }
 
-  /* Scroll indicator: keep centered at bottom of hero, shrink buttons instead */
+  /* Scroll indicator: static flow on mobile, centered */
   .ds-scroll-indicator {
-    bottom: 16px !important;
+    position: static !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: fit-content !important;
+    margin: 24px auto 16px !important;
+    align-self: center !important;
   }
 
-  /* Hero CTA buttons: smaller on mobile so scroll indicator isn't covered */
+  /* Hero CTA buttons: smaller on mobile */
   .ds-hero-buttons {
     gap: 10px !important;
   }
