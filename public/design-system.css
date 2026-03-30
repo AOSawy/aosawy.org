@@ -318,7 +318,17 @@ body {
   justify-content: space-between;
   padding: 0 24px;
 }
+.ds-header-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  vertical-align: middle;
+}
 .ds-header-logo {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 600;
@@ -349,6 +359,12 @@ body {
   font-size: 1.8rem;
   color: var(--color-text);
   cursor: pointer;
+}
+/* Scroll-lock when mobile drawer is open */
+body.drawer-open {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
 }
 /* Pages with injected site header need top padding */
 body:has(.ds-site-header) #root {

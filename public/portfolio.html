@@ -516,6 +516,10 @@
       window.addEventListener('scroll', fn);
       return () => window.removeEventListener('scroll', fn);
     }, []);
+    (0, _react.useEffect)(function() {
+      if (mobileOpen) document.body.classList.add('drawer-open');
+      else document.body.classList.remove('drawer-open');
+    }, [mobileOpen]);
     const links = [{
       label: 'Home',
       href: 'index.html'
@@ -641,16 +645,16 @@
       'aria-label': 'Close menu',
       style: {
         position: 'absolute',
-        top: '18px',
-        right: '20px',
+        top: '16px',
+        right: '24px',
         background: 'none',
         border: 'none',
         fontSize: '1.8rem',
-        color: color.text,
+        color: '#1d1d1f',
         cursor: 'pointer',
         lineHeight: 1
       }
-    }, '\u2715'),
+    }, '\u00D7'),
     /*#__PURE__*/
     // Drawer nav links
     _react.default.createElement('nav', {
@@ -658,24 +662,20 @@
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '8px',
-        marginTop: '72px'
+        gap: '28px'
       }
     }, links.map(l => /*#__PURE__*/_react.default.createElement('a', {
       key: l.label,
       href: l.href,
       onClick: () => setMobileOpen(false),
       style: {
-        padding: '12px 32px',
-        fontSize: '1.05rem',
-        fontWeight: 500,
+        fontFamily: "'Playfair Display', Georgia, serif",
+        fontSize: '1.4rem',
+        fontWeight: 600,
         textDecoration: 'none',
-        color: color.text,
-        borderRadius: '10px',
-        background: 'transparent',
-        transition: 'all 0.2s ease',
-        width: '80%',
-        textAlign: 'center'
+        color: '#1d1d1f',
+        letterSpacing: '0.01em',
+        transition: 'color 0.15s ease'
       }
     }, l.label)))));
   };
@@ -814,28 +814,13 @@
     }
   }, s.label)))),
   /*#__PURE__*/
-  // Scroll hint
+  // Scroll indicator (standardized)
   _react.default.createElement('div', {
-    style: {
-      marginTop: '48px',
-      animation: 'heroFloat 2.5s ease-in-out infinite'
-    }
-  }, /*#__PURE__*/_react.default.createElement('div', {
-    style: {
-      fontSize: '0.75rem',
-      color: 'rgba(255,255,255,0.3)',
-      letterSpacing: '2px',
-      textTransform: 'uppercase',
-      marginBottom: '8px'
-    }
-  }, 'Begin the journey'), /*#__PURE__*/_react.default.createElement('div', {
-    style: {
-      width: '1px',
-      height: '40px',
-      background: 'linear-gradient(rgba(255,255,255,0.3), transparent)',
-      margin: '0 auto'
-    }
-  })))));
+    className: 'ds-scroll-indicator ds-scroll-indicator--light',
+    style: { position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)' }
+  }, _react.default.createElement('div', { className: 'ds-scroll-mouse' }),
+     _react.default.createElement('span', null, 'Scroll'))
+  )));
 
   // ============================================================================
   // CHAPTER TRANSITION — narrative bridge between chapters
