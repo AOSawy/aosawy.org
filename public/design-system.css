@@ -445,7 +445,7 @@ body:has(.ds-site-header) [style*="position: sticky"] {
    ============================================================================= */
 
 /* -----------------------------------------------------------------------------
-   8a. TABLET  (640px – 1024px)
+   9a. TABLET  (640px - 1024px)
 ----------------------------------------------------------------------------- */
 @media (min-width: 640px) and (max-width: 1024px) {
   :root {
@@ -509,9 +509,17 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 
 
 /* -----------------------------------------------------------------------------
-   8b. MOBILE  (< 640px)
+   9b. MOBILE  (< 640px)
+   Structure: SHARED > PAGE-HOME > PAGE-RESEARCH > PAGE-TEACHING > PAGE-SHOWCASE
+   Each page section is scoped with body.page-xxx so rules ONLY affect that page.
 ----------------------------------------------------------------------------- */
 @media (max-width: 639px) {
+
+  /* =========================================================================
+     SHARED MOBILE — applies to ALL pages
+     ========================================================================= */
+
+  /* -- Variable overrides -- */
   :root {
     --fs-h1:            clamp(1.6rem, 6vw, 2.4rem);
     --fs-h2:            1.5rem;
@@ -519,53 +527,51 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     --card-padding:     16px;
   }
 
-  /* -- Layout grids → single column -- */
+  /* -- Layout grids (class-based) -- */
   .ds-grid-2,
   .ds-grid-3,
   .ds-grid-4 {
     grid-template-columns: 1fr !important;
   }
-
-  /* -- Stats grid → 2 columns -- */
   .ds-stats-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  /* -- Hero flex stacking -- */
+  /* -- Hero flex stacking (class-based) -- */
   .ds-hero-flex {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
   }
-
   .ds-hero-photo {
     width: 140px !important;
     height: 140px !important;
     margin: 0 auto 20px !important;
   }
-
   .ds-hero-buttons {
     flex-direction: column !important;
     width: 100% !important;
     gap: 10px !important;
   }
-
   .ds-hero-buttons > * {
     width: 100% !important;
     text-align: center !important;
+  }
+  .ds-hero-buttons a,
+  .ds-hero-buttons button {
+    padding: 10px 20px !important;
+    font-size: 0.8rem !important;
   }
 
   /* -- Navigation: hamburger visible, links hidden -- */
   .ds-hamburger {
     display: flex !important;
   }
-
   .ds-nav-links {
     display: none !important;
   }
 
-  /* -- Mobile navigation drawer --
-     Full-screen glass overlay with centered Playfair links */
+  /* -- Mobile navigation drawer -- */
   .ds-mobile-drawer {
     position: fixed;
     inset: 0;
@@ -582,12 +588,10 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     pointer-events: none;
     transition: opacity 0.25s ease;
   }
-
   .ds-mobile-drawer.open {
     opacity: 1;
     pointer-events: all;
   }
-
   .ds-mobile-drawer a {
     font-family: var(--font-heading);
     font-size: 1.4rem;
@@ -597,7 +601,6 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     letter-spacing: 0.01em;
     transition: color 0.15s ease;
   }
-
   .ds-mobile-drawer a:hover {
     color: var(--color-accent);
   }
@@ -609,118 +612,120 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     font-size: 0.75rem;
   }
 
-  /* -------------------------------------------------------------------------
-     Pipeline B inline-style overrides (attribute selectors + !important)
-     These target Vite-bundled React components that set styles via inline
-     style attributes. Attribute selectors are more specific than class
-     selectors but less specific than id or !important.
-  ------------------------------------------------------------------------- */
-
-  /* Prevent horizontal overflow on root */
-  #root {
-    overflow-x: hidden;
-  }
-
-  /* Prevent media overflow */
-  img, video, canvas {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Grid columns → single column */
-  [style*="grid-template-columns"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Large paddings → reduced */
-  [style*="padding: 3rem"],
-  [style*="padding:3rem"],
-  [style*="padding: 4rem"],
-  [style*="padding:4rem"],
-  [style*="padding: 100px"],
-  [style*="padding:100px"] {
-    padding: 24px 16px !important;
-  }
-
-  [style*="padding: 80px"],
-  [style*="padding:80px"] {
-    padding: 48px 16px !important;
-  }
-
-  [style*="padding: 64px"],
-  [style*="padding:64px"] {
-    padding: 40px 16px !important;
-  }
-
-  [style*="padding: 60px"],
-  [style*="padding:60px"] {
-    padding: 36px 16px !important;
-  }
-
-  [style*="padding: 48px"],
-  [style*="padding:48px"] {
-    padding: 32px 16px !important;
-  }
-
-  /* 100vh sections → auto height on mobile, with breathing room */
-  [style*="height: 100vh"],
-  [style*="height:100vh"],
-  [style*="min-height: 100vh"],
-  [style*="min-height:100vh"] {
-    height: auto !important;
-    min-height: auto !important;
-    padding-top: 60px !important;
-    padding-bottom: 40px !important;
-  }
-
-  /* Large inline font-sizes → clamped */
-  [style*="font-size: 3"],
-  [style*="font-size:3"] {
-    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
-  }
-
-  [style*="font-size: 2"],
-  [style*="font-size:2"] {
-    font-size: clamp(1.2rem, 5vw, 1.75rem) !important;
-  }
-
-  /* Wide-gap flex rows → column stack */
-  [style*="display: flex"][style*="gap: 4"],
-  [style*="display:flex"][style*="gap:4"],
-  [style*="display: flex"][style*="gap: 3"],
-  [style*="display:flex"][style*="gap:3"] {
-    flex-direction: column !important;
-  }
-
-  /* =========================================================
-     MOBILE OPTIMIZATION — Reference: iPhone 17 Pro Max (440x956)
-     ========================================================= */
-
-  /* -- Images, videos, logos -- */
-  img, video, canvas, svg {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Ensure no horizontal overflow — use clip on #root to preserve sticky */
+  /* -- Overflow prevention -- */
   #root {
     overflow-x: clip;
   }
   main, section, article, .scroll-reveal {
     overflow-x: hidden;
   }
-
   body {
     overflow-x: hidden;
   }
 
-  /* -- Hero section mobile: stack content + scroll indicator vertically -- */
-  #hero {
+  /* -- Media overflow (images, video, etc.) -- */
+  img, video, canvas, svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* -- Text wrapping -- */
+  h1, h2, h3, h4, h5, h6, p, span, a, li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* -- Scroll indicator: static flow on mobile -- */
+  .ds-scroll-indicator {
+    position: static !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: fit-content !important;
+    margin: 24px auto 16px !important;
+  }
+
+  /* -- Footer mobile -- */
+  .ds-site-footer {
+    padding: 40px 16px 16px !important;
+  }
+  .ds-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ds-footer-bar {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+
+  /* =========================================================================
+     PAGE-HOME MOBILE — .page-home scoped
+     Only affects index.html (homepage)
+     ========================================================================= */
+
+  /* Hero section: stack content + scroll indicator vertically */
+  .page-home #hero {
     flex-direction: column !important;
   }
 
-  /* -- Research showcase hero: stack on mobile -- */
-  #research-hero {
+  /* Journey image grid: full aspect ratio */
+  .page-home .ds-journey-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .page-home .ds-journey-grid > div {
+    min-height: auto !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+  .page-home .ds-journey-grid img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    border-radius: 16px !important;
+  }
+
+  /* Commencement photo: full width */
+  .page-home img[alt*="Commencement"],
+  .page-home img[alt*="commencement"],
+  .page-home img[alt*="graduation"],
+  .page-home img[alt*="Graduation"],
+  .page-home img[alt*="Class of 2024"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 12px !important;
+  }
+
+  /* University logos in degree cards */
+  .page-home [alt*="AUC School"],
+  .page-home [alt*="Rutgers ISE"] {
+    max-height: 60px !important;
+    margin-top: 12px !important;
+  }
+
+  /* Commencement people info: stack */
+  .page-home .ds-people-row {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* RIA logo button: prevent overflow */
+  .page-home [alt="RIA Lab"] {
+    max-height: 24px !important;
+  }
+
+
+  /* =========================================================================
+     PAGE-RESEARCH MOBILE — .page-research scoped
+     Only affects research-showcase.html
+     ========================================================================= */
+
+  /* -- Research hero: stack on mobile -- */
+  .page-research #research-hero {
     height: auto !important;
     min-height: 100vh;
     display: flex !important;
@@ -731,16 +736,16 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     overflow: visible !important;
   }
 
-  #research-hero video,
-  #research-hero > div:first-of-type,
-  #research-hero > div:nth-of-type(2) {
+  .page-research #research-hero video,
+  .page-research #research-hero > div:first-of-type,
+  .page-research #research-hero > div:nth-of-type(2) {
     position: absolute !important;
     inset: 0 !important;
     width: 100% !important;
     height: 100% !important;
   }
 
-  .research-hero-stats {
+  .page-research .research-hero-stats {
     position: static !important;
     order: 1;
     display: flex !important;
@@ -749,30 +754,26 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     margin-bottom: 16px;
     z-index: 5;
   }
-
-  .research-hero-stats > div {
+  .page-research .research-hero-stats > div {
     padding: 8px 12px !important;
     flex: 1;
     max-width: 110px;
   }
-
-  .research-hero-stats > div > div:first-child {
+  .page-research .research-hero-stats > div > div:first-child {
     font-size: 1rem !important;
   }
-
-  .research-hero-stats > div > div:last-child {
+  .page-research .research-hero-stats > div > div:last-child {
     font-size: 0.55rem !important;
   }
 
-  .research-hero-content {
+  .page-research .research-hero-content {
     position: static !important;
     order: 2;
     z-index: 5;
     max-width: 100% !important;
     text-align: center !important;
   }
-
-  .research-hero-content > div:first-child {
+  .page-research .research-hero-content > div:first-child {
     padding: 1.25rem !important;
     border-radius: 16px !important;
     display: flex !important;
@@ -780,7 +781,7 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   }
 
   /* Logo links row — move to bottom of card */
-  .research-hero-content > div:first-child > div:first-child {
+  .page-research .research-hero-content > div:first-child > div:first-child {
     order: 10 !important;
     justify-content: center !important;
     flex-wrap: wrap !important;
@@ -788,66 +789,8 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     margin-bottom: 0 !important;
     margin-top: 1rem !important;
   }
-
-  /* Logo buttons — darker background + glow animation */
-  .research-hero-content > div:first-child > div:first-child a {
-    padding: 6px 12px 6px 8px !important;
-    border-radius: 12px !important;
-    background: rgba(0,0,0,0.55) !important;
-    border: 0.5px solid rgba(255,255,255,0.2) !important;
-    animation: heroButtonGlow 3s ease-in-out infinite !important;
-  }
-
-  .research-hero-content > div:first-child > div:first-child img {
-    height: 26px !important;
-    width: auto !important;
-    filter: brightness(1.3) !important;
-  }
-
-  .research-hero-content h1 {
-    font-size: 1.5rem !important;
-    text-align: center !important;
-  }
-
-  .research-hero-content p {
-    text-align: center !important;
-    font-size: 0.85rem !important;
-  }
-
-  /* Author/metadata row: center and wrap */
-  .research-hero-content > div:first-child > div:nth-child(4) {
-    justify-content: center !important;
-  }
-
-  /* Institution line */
-  .research-hero-content > div:first-child > div:last-child {
-    text-align: center !important;
-  }
-
-  /* Cap RIA logo in overview tab on mobile */
-  img[alt*="RIA - Renewables"] {
-    max-width: 160px !important;
-    width: auto !important;
-  }
-
-  /* Scroll indicator in research hero */
-  #research-hero .ds-scroll-indicator {
-    position: static !important;
-    order: 3;
-    margin: 16px auto 0 !important;
-    bottom: auto !important;
-    left: auto !important;
-    transform: none !important;
-    width: fit-content !important;
-  }
-
-  /* =============================================
-     RESEARCH SHOWCASE — COMPREHENSIVE MOBILE FIXES
-     ============================================= */
-
-  /* Issue 1: Move hero logo buttons to bottom of card — side by side, centered
-     MUST use #root prefix to outweigh #root [style*="..."] broad rule (specificity 0,1,3,0 > 0,1,2,0) */
-  #root .research-hero-content > div:first-child > div:first-child {
+  /* Higher specificity version for #root override */
+  .page-research #root .research-hero-content > div:first-child > div:first-child {
     order: 10 !important;
     margin-bottom: 0 !important;
     margin-top: 0.75rem !important;
@@ -858,42 +801,86 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     gap: 8px !important;
   }
 
-  /* Issue 2: Stat/config cards — 2 per row on mobile */
-  /* Target grids with small minmax (stat chips, config cards, cost structure) */
-  #root [style*="display: grid"][style*="minmax(160px"],
-  #root [style*="display: grid"][style*="minmax(180px"] {
+  /* Logo buttons — darker background + glow */
+  .page-research .research-hero-content > div:first-child > div:first-child a {
+    padding: 6px 12px 6px 8px !important;
+    border-radius: 12px !important;
+    background: rgba(0,0,0,0.55) !important;
+    border: 0.5px solid rgba(255,255,255,0.2) !important;
+    animation: heroButtonGlow 3s ease-in-out infinite !important;
+  }
+  .page-research .research-hero-content > div:first-child > div:first-child img {
+    height: 26px !important;
+    width: auto !important;
+    filter: brightness(1.3) !important;
+  }
+
+  .page-research .research-hero-content h1 {
+    font-size: 1.5rem !important;
+    text-align: center !important;
+  }
+  .page-research .research-hero-content p {
+    text-align: center !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Author/metadata row: center and wrap */
+  .page-research .research-hero-content > div:first-child > div:nth-child(4) {
+    justify-content: center !important;
+  }
+  /* Institution line */
+  .page-research .research-hero-content > div:first-child > div:last-child {
+    text-align: center !important;
+  }
+
+  /* Cap RIA logo in overview tab */
+  .page-research img[alt*="RIA - Renewables"] {
+    max-width: 160px !important;
+    width: auto !important;
+  }
+
+  /* Scroll indicator in research hero */
+  .page-research #research-hero .ds-scroll-indicator {
+    position: static !important;
+    order: 3;
+    margin: 16px auto 0 !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: fit-content !important;
+  }
+
+  /* -- Research grid controls by minmax value -- */
+  /* Stat/config cards (small minmax) — 2 per row */
+  .page-research #root [style*="display: grid"][style*="minmax(160px"],
+  .page-research #root [style*="display: grid"][style*="minmax(180px"] {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
   }
-
-  /* Grids with medium minmax (250px) — also 2 per row */
-  #root [style*="display: grid"][style*="minmax(250px"] {
+  .page-research #root [style*="display: grid"][style*="minmax(250px"] {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
   }
-
-  /* Grids with large minmax (280px+, 320px+, 340px+) — keep single column */
-  /* These contain long-text cards (research thrusts, datasets) */
-  #root [style*="display: grid"][style*="minmax(280px"],
-  #root [style*="display: grid"][style*="minmax(320px"],
-  #root [style*="display: grid"][style*="minmax(340px"] {
+  /* Long-text cards (large minmax) — single column */
+  .page-research #root [style*="display: grid"][style*="minmax(280px"],
+  .page-research #root [style*="display: grid"][style*="minmax(320px"],
+  .page-research #root [style*="display: grid"][style*="minmax(340px"] {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
-
   /* Compact stat card text */
-  #root [style*="display: grid"][style*="minmax(180px"] > div,
-  #root [style*="display: grid"][style*="minmax(250px"] > div {
+  .page-research #root [style*="display: grid"][style*="minmax(180px"] > div,
+  .page-research #root [style*="display: grid"][style*="minmax(250px"] > div {
     padding: 0.75rem !important;
   }
 
-  /* Issue 3: Research-specific footer — separate from dark footer */
-  .ds-site-footer {
+  /* Research-specific footer margin */
+  .page-research .ds-site-footer {
     margin-top: 0 !important;
   }
 
-  /* Issue 4: Tab bar — wrap buttons, not scrollable */
-  [style*="position: sticky"][style*="top: 56px"] > div {
+  /* Tab bar — wrap buttons, not scrollable */
+  .page-research [style*="position: sticky"][style*="top: 56px"] > div {
     white-space: normal !important;
     overflow-x: visible !important;
     display: flex !important;
@@ -901,8 +888,7 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     gap: 6px !important;
     justify-content: center !important;
   }
-
-  [style*="position: sticky"][style*="top: 56px"] > div > button {
+  .page-research [style*="position: sticky"][style*="top: 56px"] > div > button {
     padding: 0.4rem 0.7rem !important;
     font-size: 0.7rem !important;
     margin-right: 0 !important;
@@ -910,252 +896,249 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     white-space: nowrap !important;
   }
 
-  /* Multi-column fixed grids → 2 per row on mobile */
-  #root [style*="display: grid"][style*="repeat(5"],
-  #root [style*="display: grid"][style*="repeat(6"] {
+  /* Multi-column fixed grids — 2 per row */
+  .page-research #root [style*="display: grid"][style*="repeat(5"],
+  .page-research #root [style*="display: grid"][style*="repeat(6"] {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
   }
 
-  /* Issue 5: Sponsor/funding logos — much smaller, side by side */
-  [style*="Supported By"] + div img,
-  [style*="gap: 2.5rem"] > a img {
+  /* Sponsor/funding logos — smaller */
+  .page-research [style*="Supported By"] + div img,
+  .page-research [style*="gap: 2.5rem"] > a img {
     height: 28px !important;
     width: auto !important;
   }
-
-  [style*="gap: 2.5rem"] {
+  .page-research [style*="gap: 2.5rem"] {
     gap: 1rem !important;
   }
 
-  /* Issue 7: Dataset Engineering cards — fix layout on mobile */
-
-  /* Title row (title + pills): stack vertically on mobile */
-  #root [style*="justify-content: space-between"][style*="align-items: flex-start"],
-  #root [style*="justify-content: space-between"][style*="align-items: center"] {
+  /* Dataset Engineering cards — stack title + pills */
+  .page-research #root [style*="justify-content: space-between"][style*="align-items: flex-start"],
+  .page-research #root [style*="justify-content: space-between"][style*="align-items: center"] {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 6px !important;
   }
 
-  /* Monospace filenames: allow wrapping + truncate */
-  #root h4[style*="Courier"] {
+  /* Monospace filenames: wrap + truncate */
+  .page-research #root h4[style*="Courier"] {
     word-break: break-all !important;
     font-size: 0.78rem !important;
     line-height: 1.4 !important;
   }
 
-  /* 3-column detail grids inside cards: vertical single column on mobile */
-  #root [style*="display: grid"][style*="1fr 1fr 1fr"]:not([style*="repeat"]) {
+  /* 3-column detail grids: single column */
+  .page-research #root [style*="display: grid"][style*="1fr 1fr 1fr"]:not([style*="repeat"]) {
     grid-template-columns: 1fr !important;
     gap: 6px !important;
   }
 
-  /* Overflow containers — enable horizontal scroll */
-  #root [style*="overflow-x: auto"],
-  #root [style*="overflowX"] {
+  /* Overflow containers — horizontal scroll */
+  .page-research #root [style*="overflow-x: auto"],
+  .page-research #root [style*="overflowX"] {
     max-width: 100% !important;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Tables inside scrollable containers — readable min-width */
-  #root [style*="overflow"] table {
+  /* Tables — readable min-width */
+  .page-research #root [style*="overflow"] table {
     min-width: 600px !important;
     font-size: 0.78rem !important;
   }
-
-  #root [style*="overflow"] table th,
-  #root [style*="overflow"] table td {
+  .page-research #root [style*="overflow"] table th,
+  .page-research #root [style*="overflow"] table td {
     padding: 0.6rem 0.75rem !important;
     white-space: nowrap !important;
   }
-
-  /* All tables and code blocks inside cards — scroll */
-  #root table, #root pre, #root code {
+  .page-research #root table,
+  .page-research #root pre,
+  .page-research #root code {
     font-size: 0.7rem !important;
     word-break: break-all;
   }
 
-  /* Issue 8: Figures/flowcharts — make scrollable when too wide */
-  #root [style*="display: grid"][style*="1fr 1fr 1fr"],
-  #root [style*="display: grid"][style*="repeat(3"],
-  #root [style*="display: grid"][style*="repeat(4"] {
+  /* Multi-column grids — 2 per row */
+  .page-research #root [style*="display: grid"][style*="repeat(3"],
+  .page-research #root [style*="display: grid"][style*="repeat(4"] {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
   }
 
-  /* SVG and canvas figures — full width + scrollable container */
-  #root svg[viewBox] {
+  /* SVG figures */
+  .page-research #root svg[viewBox] {
     max-width: 100% !important;
     height: auto !important;
   }
 
-  /* Image figures (flowcharts, diagrams) — scrollable */
-  #root img[alt*="framework"],
-  #root img[alt*="Framework"],
-  #root img[alt*="POSYDON"],
-  #root img[alt*="pipeline"],
-  #root img[alt*="Pipeline"] {
+  /* Image figures (flowcharts, diagrams) */
+  .page-research #root img[alt*="framework"],
+  .page-research #root img[alt*="Framework"],
+  .page-research #root img[alt*="POSYDON"],
+  .page-research #root img[alt*="pipeline"],
+  .page-research #root img[alt*="Pipeline"] {
     width: 100% !important;
     height: auto !important;
     max-width: none !important;
   }
 
-  /* Generic: any figure container inside research cards */
-  #root [style*="overflow: hidden"] {
+  /* Figure containers — scrollable */
+  .page-research #root [style*="overflow: hidden"] {
     overflow: auto !important;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* =============================================
-     END RESEARCH SHOWCASE MOBILE FIXES
-     ============================================= */
 
-  [style*="background-image"] {
-    background-size: cover !important;
-    background-position: center !important;
-  }
+  /* =========================================================================
+     PAGE-PORTFOLIO MOBILE — .page-portfolio scoped
+     Only affects portfolio.html
+     (Placeholder — to be filled during portfolio mobile optimization)
+     ========================================================================= */
 
-  /* Scroll indicator: static flow on mobile, centered */
-  .ds-scroll-indicator {
-    position: static !important;
-    bottom: auto !important;
-    left: auto !important;
-    transform: none !important;
-    width: fit-content !important;
-    margin: 24px auto 16px !important;
-  }
 
-  /* Hero CTA buttons: smaller on mobile */
-  .ds-hero-buttons {
-    gap: 10px !important;
-  }
-  .ds-hero-buttons a,
-  .ds-hero-buttons button {
-    padding: 10px 20px !important;
-    font-size: 0.8rem !important;
-  }
+  /* =========================================================================
+     PAGE-TEACHING MOBILE — .page-teaching scoped
+     Only affects teaching-showcase.html
+     ========================================================================= */
 
-  /* -- Journey image grid: full aspect ratio on mobile -- */
-  .ds-journey-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  .ds-journey-grid > div {
-    min-height: auto !important;
-    border-radius: 16px !important;
-    overflow: hidden !important;
-  }
-  .ds-journey-grid img {
-    width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
-    object-fit: contain !important;
-    border-radius: 16px !important;
-  }
-
-  /* Commencement photo: full width on mobile */
-  img[alt*="Commencement"], img[alt*="commencement"], img[alt*="graduation"], img[alt*="Graduation"], img[alt*="Class of 2024"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    border-radius: 12px !important;
-  }
-
-  /* -- University logos in degree cards -- */
-  [alt*="AUC School"], [alt*="Rutgers ISE"] {
-    max-height: 60px !important;
-    margin-top: 12px !important;
-  }
-
-  /* -- Commencement people info: stack on mobile -- */
-  .ds-people-row {
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-
-  /* -- RIA logo button: prevent overflow -- */
-  [alt="RIA Lab"] {
-    max-height: 24px !important;
-  }
-
-  /* -- Teaching stats: stack properly on mobile -- */
-  .ds-teaching-stats {
+  /* Teaching stats: stack properly */
+  .page-teaching .ds-teaching-stats {
     flex-direction: column !important;
     gap: 16px !important;
     align-items: stretch !important;
   }
-  .ds-teaching-stats-grid {
+  .page-teaching .ds-teaching-stats-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
   }
-
-  /* -- Teaching stats grid: ensure proper stacking -- */
-  [style*="gridTemplateColumns: 'repeat(4"] {
+  .page-teaching [style*="gridTemplateColumns: 'repeat(4"] {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
   }
 
-  /* -- Contact cards: single column -- */
-  [style*="gridTemplateColumns: 'repeat(4, 1fr)'"] {
+  /* Contact cards: single column */
+  .page-teaching [style*="gridTemplateColumns: 'repeat(4, 1fr)'"] {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
 
-  /* -- Buttons: full width on mobile -- */
-  [style*="borderRadius: '980px'"],
-  [style*="border-radius: 980px"] {
+
+  /* =========================================================================
+     PAGE-SHOWCASE MOBILE — .page-showcase scoped
+     Only affects the 10 Vite-bundled Pipeline B showcase pages.
+     These use broad attribute selectors to override inline styles.
+     ========================================================================= */
+
+  /* Grid columns — single column */
+  .page-showcase [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Large paddings — reduced */
+  .page-showcase [style*="padding: 3rem"],
+  .page-showcase [style*="padding:3rem"],
+  .page-showcase [style*="padding: 4rem"],
+  .page-showcase [style*="padding:4rem"],
+  .page-showcase [style*="padding: 100px"],
+  .page-showcase [style*="padding:100px"] {
+    padding: 24px 16px !important;
+  }
+  .page-showcase [style*="padding: 80px"],
+  .page-showcase [style*="padding:80px"] {
+    padding: 48px 16px !important;
+  }
+  .page-showcase [style*="padding: 64px"],
+  .page-showcase [style*="padding:64px"] {
+    padding: 40px 16px !important;
+  }
+  .page-showcase [style*="padding: 60px"],
+  .page-showcase [style*="padding:60px"] {
+    padding: 36px 16px !important;
+  }
+  .page-showcase [style*="padding: 48px"],
+  .page-showcase [style*="padding:48px"] {
+    padding: 32px 16px !important;
+  }
+
+  /* 100vh sections — auto height */
+  .page-showcase [style*="height: 100vh"],
+  .page-showcase [style*="height:100vh"],
+  .page-showcase [style*="min-height: 100vh"],
+  .page-showcase [style*="min-height:100vh"] {
+    height: auto !important;
+    min-height: auto !important;
+    padding-top: 60px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* Large font-sizes — clamped */
+  .page-showcase [style*="font-size: 3"],
+  .page-showcase [style*="font-size:3"] {
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+  }
+  .page-showcase [style*="font-size: 2"],
+  .page-showcase [style*="font-size:2"] {
+    font-size: clamp(1.2rem, 5vw, 1.75rem) !important;
+  }
+
+  /* Wide-gap flex rows — column stack */
+  .page-showcase [style*="display: flex"][style*="gap: 4"],
+  .page-showcase [style*="display:flex"][style*="gap:4"],
+  .page-showcase [style*="display: flex"][style*="gap: 3"],
+  .page-showcase [style*="display:flex"][style*="gap:3"] {
+    flex-direction: column !important;
+  }
+
+  /* Background images */
+  .page-showcase [style*="background-image"] {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  /* Buttons: full width */
+  .page-showcase [style*="borderRadius: '980px'"],
+  .page-showcase [style*="border-radius: 980px"] {
     width: 100% !important;
     text-align: center !important;
     justify-content: center !important;
   }
 
-  /* -- Resume/CV card: tone down glow -- */
-  [style*="boxShadow"][style*="rgba(0,113,227"] {
+  /* Resume/CV card: tone down glow */
+  .page-showcase [style*="boxShadow"][style*="rgba(0,113,227"] {
     box-shadow: 0 2px 12px rgba(0,113,227,0.15) !important;
   }
 
-  /* -- Section padding tighter on mobile -- */
-  section > div[style*="maxWidth"],
-  [style*="max-width: 1200px"],
-  [style*="maxWidth: '1200px'"] {
+  /* Section padding tighter */
+  .page-showcase section > div[style*="maxWidth"],
+  .page-showcase [style*="max-width: 1200px"],
+  .page-showcase [style*="maxWidth: '1200px'"] {
     padding-left: 16px !important;
     padding-right: 16px !important;
   }
 
-  /* -- Footer on mobile -- */
-  .ds-site-footer {
-    padding: 40px 16px 16px !important;
-  }
-
-  /* -- Prevent text overflow anywhere -- */
-  h1, h2, h3, h4, h5, h6, p, span, a, li {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* -- Tab nav: horizontal scroll with momentum -- */
-  [style*="position: sticky"] {
+  /* Tab nav: horizontal scroll with momentum */
+  .page-showcase [style*="position: sticky"] {
     padding: 8px 12px !important;
   }
-  [style*="position: sticky"] button,
-  [style*="position: sticky"] a {
+  .page-showcase [style*="position: sticky"] button,
+  .page-showcase [style*="position: sticky"] a {
     font-size: 0.75rem !important;
     padding: 6px 12px !important;
     white-space: nowrap;
   }
 
-  /* -- 3D model viewers & canvas -- */
-  canvas {
+  /* 3D model viewers & canvas */
+  .page-showcase canvas {
     max-width: 100% !important;
     max-height: 60vh !important;
   }
-  model-viewer {
+  .page-showcase model-viewer {
     max-width: 100% !important;
     max-height: 300px !important;
   }
-}
+
+} /* end @media (max-width: 639px) */
 
 
 /* -----------------------------------------------------------------------------
@@ -1220,16 +1203,4 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 }
 .ds-footer-bar a:hover {
   color: #0071e3;
-}
-
-@media (max-width: 639px) {
-  .ds-footer-inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .ds-footer-bar {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
 }
