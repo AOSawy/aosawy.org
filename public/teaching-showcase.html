@@ -1,0 +1,2699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching Portfolio | Abdelrahman Sawy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body, #root { width: 100%; min-height: 100vh; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script>
+    // UMD module expects global.react (lowercase) but React UMD sets window.React (capitalized)
+    window.react = window.React;
+  </script>
+  <script>
+(function (global, factory) {
+  if (typeof define === "function" && define.amd) {
+    define(["exports", "react"], factory);
+  } else if (typeof exports !== "undefined") {
+    factory(exports, require("react"));
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod.exports, global.react);
+    global.teachingShowcase = mod.exports;
+  }
+})(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : this, function (_exports, _react) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  _react = _interopRequireWildcard(_react);
+  function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
+  /**
+   * Teaching Showcase — Apple Liquid Glass Design
+   *
+   * Teaching Assistant Experience at Rutgers University
+   * Department of Industrial & Systems Engineering
+   *
+   * 1. ISE 338: Probabilistic Models in Operations Research (Fall 2025)
+   *    Instructor: Dr. Ahmed Aziz Ezzat
+   *
+   * 2. ISE 540: Computational Methods in Industrial Engineering (Spring 2026)
+   *    Instructor: Dr. Myong K. (MK) Jeong
+   *    Sections: 01 (In-Person) & 91 (Online)
+   *
+   * Student: Abdelrahman Sawy
+   * Built: March 2026
+   */
+
+  // ============================================================================
+  // DESIGN TOKENS — Apple Liquid Glass
+  // ============================================================================
+  const color = {
+    bg: '#f5f5f7',
+    text: '#1d1d1f',
+    secondary: '#6e6e73',
+    tertiary: '#86868b',
+    accent: '#0071e3',
+    accentLight: 'rgba(0,113,227,0.06)',
+    accentBorder: 'rgba(0,113,227,0.15)',
+    border: 'rgba(0,0,0,0.06)',
+    white: '#ffffff',
+    red: '#CC0000',
+    green: '#2E7D32',
+    orange: '#e67e22',
+    purple: '#8e44ad',
+    darkRed: '#c0392b',
+    rutgers: '#d21034'
+  };
+  const glass = {
+    card: {
+      background: 'rgba(255,255,255,0.65)',
+      backdropFilter: 'saturate(180%) blur(20px)',
+      WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+      border: '0.5px solid rgba(0,0,0,0.06)',
+      borderRadius: '16px',
+      boxShadow: '0 1px 4px rgba(0,0,0,0.03)'
+    },
+    cardHover: {
+      boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+      transform: 'translateY(-2px)'
+    },
+    nav: {
+      background: 'rgba(255,255,255,0.72)',
+      backdropFilter: 'saturate(180%) blur(20px)',
+      WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+      borderBottom: '0.5px solid rgba(0,0,0,0.06)'
+    },
+    surface: {
+      background: 'rgba(255,255,255,0.45)',
+      backdropFilter: 'saturate(120%) blur(12px)',
+      WebkitBackdropFilter: 'saturate(120%) blur(12px)',
+      border: '0.5px solid rgba(0,0,0,0.04)',
+      borderRadius: '14px'
+    }
+  };
+  const mathFont = "'Cambria Math', 'Latin Modern Math', 'STIX Two Math', 'Georgia', 'Times New Roman', serif";
+
+  // ============================================================================
+  // PROJECT META
+  // ============================================================================
+  const PROJECT_META = {
+    title: "Teaching Portfolio",
+    subtitle: "Graduate Teaching Assistant, Department of Industrial & Systems Engineering",
+    student: "Abdelrahman Sawy",
+    institution: "Rutgers, The State University of New Jersey",
+    department: "Industrial & Systems Engineering",
+    period: "Fall 2025 \u2013 Spring 2026"
+  };
+
+  // ============================================================================
+  // TABS
+  // ============================================================================
+  const TABS = [{
+    id: 'overview',
+    label: 'Overview'
+  }, {
+    id: 'ise338',
+    label: 'ISE 338'
+  }, {
+    id: 'ise540',
+    label: 'ISE 540'
+  }, {
+    id: 'slides',
+    label: 'Lecture Slides'
+  }, {
+    id: 'equations',
+    label: 'Mathematical Foundations'
+  }, {
+    id: 'advanced',
+    label: 'Advanced Topics'
+  }, {
+    id: 'impact',
+    label: 'Impact & Growth'
+  }];
+
+  // ============================================================================
+  // DATA: ISE 338 — Probabilistic Models in OR
+  // ============================================================================
+  const ISE338 = {
+    code: '14:540:338',
+    title: 'Probabilistic Models in Operations Research',
+    semester: 'Fall 2025',
+    instructor: {
+      name: 'Dr. Ahmed Aziz Ezzat',
+      role: 'Assistant Professor, ISE',
+      linkedin: 'https://www.linkedin.com/in/ahmed-aziz-ezzat-60114271/'
+    },
+    role: 'Course Grader & Teaching Assistant',
+    schedule: 'Tuesdays & Thursdays, 3:50\u20135:10 PM',
+    location: 'TIL Hall, Busch Campus',
+    students: '~40',
+    modules: [{
+      id: 'M1-M2',
+      title: 'Introduction to OR & Modeling',
+      weeks: '1\u20132',
+      topics: ['Deterministic vs. probabilistic modeling', 'Decision variables, objectives, constraints', 'OR paradigms and applications']
+    }, {
+      id: 'M3-M5',
+      title: 'Probability Foundations',
+      weeks: '3\u20134',
+      topics: ['Discrete and continuous distributions', 'Conditional probability and Bayes\' theorem', 'Expected value and variance']
+    }, {
+      id: 'M6-M10',
+      title: 'Markov Chains',
+      weeks: '5\u20138',
+      topics: ['State transitions and transition matrices', 'Chapman\u2013Kolmogorov equations', 'Steady-state distributions', 'Expected recurrence and passage times', 'Absorbing and ergodic chains']
+    }, {
+      id: 'M12-M15',
+      title: 'Advanced Markov Applications',
+      weeks: '9\u201310',
+      topics: ['n-step transition probabilities', 'Markovian system properties', 'Excel-based Markov chain analysis']
+    }, {
+      id: 'M16-M19',
+      title: 'Queuing Theory',
+      weeks: '11\u201312',
+      topics: ['M/M/1 and M/M/s systems', 'Little\u2019s Law: L = \u03BBW', 'System utilization \u03C1 = \u03BB/\u03BC', 'Service and arrival distributions', 'Advanced queuing models']
+    }, {
+      id: 'M20-M22',
+      title: 'Decision Theory',
+      weeks: '13\u201314',
+      topics: ['Decision-making under uncertainty', 'Expected value of perfect information', 'Decision trees and utility theory']
+    }],
+    assessments: {
+      homeworks: 7,
+      exams: 2,
+      project: 1
+    },
+    grading: {
+      hw: 35,
+      exam1: 17.5,
+      exam2: 17.5,
+      project: 30
+    },
+    keyFormulas: {
+      chapmanKolmogorov: '\u03C0\u207F = \u03C0\u2070 \u00B7 P\u207F',
+      steadyState: '\u03C0* = \u03C0* \u00B7 P, \u03A3\u03C0\u1D62* = 1',
+      recurrenceTime: '\u03B7\u1D62\u1D62 = 1 / \u03C0\u1D62*',
+      passageTime: '\u03BC\u1D62\u2C7C = 1 + \u03A3\u2096\u2260\u2C7C p\u1D62\u2096\u03BC\u2096\u2C7C',
+      littlesLaw: 'L = \u03BB \u00B7 W',
+      mm1Utilization: '\u03C1 = \u03BB / \u03BC',
+      mm1QueueLength: 'L\u2096 = \u03C1\u00B2 / (1 \u2212 \u03C1)',
+      poissonPMF: 'P(X=x) = e\u207B\u03BBt(\u03BBt)\u02E3 / x!',
+      exponentialCDF: 'P(X > x) = e\u207B\u03BCx'
+    },
+    taContributions: ['Graded 7 homework assignments with detailed feedback and rubrics', 'Created comprehensive formula sheets for Exam 1 (Markov Chains) and Exam 2 (Queuing Theory)', 'Designed grading rubrics with comments for both midterm and final exams', 'Developed Excel-based solution templates for Markov chains, queuing, and decision theory', 'Held regular office hours and provided one-on-one student support', 'Assisted with exam proctoring and grade management']
+  };
+
+  // ============================================================================
+  // DATA: ISE 540 — Computational Methods in IE
+  // ============================================================================
+  const ISE540 = {
+    code: 'ISE 540',
+    title: 'Computational Methods in Industrial Engineering',
+    semester: 'Spring 2026',
+    instructor: {
+      name: 'Dr. Myong K. (MK) Jeong',
+      role: 'Professor, ISE',
+      email: 'mjeong@rutgers.edu'
+    },
+    role: 'Teaching Assistant (Two Sections)',
+    sections: [{
+      id: '01',
+      type: 'In-Person',
+      location: 'CORE 601',
+      time: 'Monday, 6:00\u20139:00 PM'
+    }, {
+      id: '91',
+      type: 'Online',
+      location: 'Canvas/Zoom',
+      time: 'Asynchronous + Live Sessions'
+    }],
+    schedule: 'Monday, 6:00\u20139:00 PM',
+    location: 'CORE 601',
+    textbooks: [{
+      title: 'Applied Multivariate Statistical Analysis',
+      authors: 'Johnson & Wichern',
+      role: 'Primary Reference'
+    }, {
+      title: 'Applied Multivariate Techniques',
+      authors: 'Sharma',
+      role: 'Supplementary'
+    }],
+    grading: {
+      hw: 30,
+      midterm: 25,
+      final: 25,
+      project: 20
+    },
+    weeklySchedule: [{
+      week: 1,
+      topic: 'Introduction to Data Mining & Machine Learning',
+      details: 'Data structures, classification, regression, clustering problems'
+    }, {
+      week: 2,
+      topic: 'Review of Multivariate Statistics',
+      details: 'Mean vector, covariance matrix, correlation matrix, estimation'
+    }, {
+      week: 3,
+      topic: 'PCA Part I: Eigenvalues & Eigenvectors',
+      details: 'Constrained optimization formulation, derivation of principal components'
+    }, {
+      week: 4,
+      topic: 'PCA Part II: Regression Applications',
+      details: 'MLR vs. PCR, sparse PCA, supervised PCA'
+    }, {
+      week: 5,
+      topic: 'MVN & Missing Data Imputation',
+      details: 'Multivariate normal distribution, conditional distributions, Bayesian classification'
+    }, {
+      week: 6,
+      topic: 'Recommender Systems',
+      details: 'Collaborative filtering, user-based & item-based prediction'
+    }, {
+      week: 7,
+      topic: 'Midterm Review',
+      details: 'Project guidelines and exam preparation'
+    }, {
+      week: 8,
+      topic: 'Midterm Exam',
+      details: '180-min open notes exam covering Weeks 1\u20136'
+    }, {
+      week: 9,
+      topic: 'Graph Mining Part I',
+      details: 'Network data, adjacency matrices, degree distributions'
+    }, {
+      week: 10,
+      topic: 'Graph Mining Parts II & III',
+      details: 'Centrality measures, node similarity, community detection'
+    }, {
+      week: 11,
+      topic: 'Monte Carlo Methods',
+      details: 'Monte Carlo integration, importance sampling, rejection sampling'
+    }, {
+      week: 12,
+      topic: 'MCMC Methods',
+      details: 'Metropolis-Hastings, Gibbs sampling from high-dimensional distributions'
+    }, {
+      week: 13,
+      topic: 'Spatial Data Mining',
+      details: 'Spatial point patterns, autocorrelation, kriging'
+    }, {
+      week: 14,
+      topic: 'Final Review & Project Presentations',
+      details: 'Comprehensive review and group presentations'
+    }],
+    taContributions: ['Authored 6 complete lecture slide decks in LaTeX/Beamer (330+ slides)', 'Constructed material from multiple textbooks, research papers, and references', 'Designed 3 worksheets with real-world datasets (Madison PD, Auto MPG, Trade Flow)', 'Created homework assignments with computational and analytical components', 'Designed and graded the Midterm Exam (5 questions, 100 points)', 'Managed grading for two sections using Claude-assisted rubrics', 'Recorded and managed course content for online Section 91', 'Provided weekly office hours and Canvas support']
+  };
+
+  // ============================================================================
+  // DATA: LATEX SLIDE MODULES (authored by Sawy)
+  // ============================================================================
+  const LATEX_MODULES = [{
+    id: 'pca1',
+    number: 1,
+    title: 'PCA, Eigenvalues & Eigenvectors',
+    subtitle: 'Part I: Spectral Theory & Dimensionality Reduction',
+    slides: 71,
+    lines: 3166,
+    color: '#0071e3',
+    topics: ['Eigenvalue problem: Ax = \u03BBx', 'Characteristic equation: |A \u2212 \u03BBI| = 0', 'Spectral decomposition', 'PCA constrained optimization', 'Lagrangian derivation of PCs', 'Proportion of variance explained', 'Scree plot analysis'],
+    keyEquations: [{
+      label: 'Eigenvalue Problem',
+      eq: 'Ax = \u03BBx, where |A \u2212 \u03BBI\u209A| = 0'
+    }, {
+      label: 'Spectral Properties',
+      eq: 'Tr(A) = \u03A3\u03BB\u1D62, |A| = \u220F\u03BB\u1D62'
+    }, {
+      label: 'Diagonalization',
+      eq: '\u03A6\u207B\u00B9A\u03A6 = diag(\u03BB\u2081, \u03BB\u2082, ..., \u03BB\u209A)'
+    }, {
+      label: '1st PC Optimization',
+      eq: 'max a\u2081\u1D40\u03A3a\u2081  s.t. a\u2081\u1D40a\u2081 = 1'
+    }, {
+      label: 'Lagrangian',
+      eq: 'L(a\u2081) = a\u2081\u1D40\u03A3a\u2081 \u2212 \u03BB(a\u2081\u1D40a\u2081 \u2212 1)'
+    }, {
+      label: 'Variance of PC',
+      eq: 'V(Z\u1D62) = a\u1D62\u1D40\u03A3a\u1D62 = \u03BB\u1D62'
+    }, {
+      label: 'Variance Explained',
+      eq: '(\u03BB\u2081+...+\u03BB\u2096) / Tr(\u03A3\u2093)'
+    }]
+  }, {
+    id: 'pca2',
+    number: 2,
+    title: 'Regression & PCR',
+    subtitle: 'Part II: MLR, PCR & Extensions',
+    slides: 73,
+    lines: 2800,
+    color: '#2E7D32',
+    topics: ['Multiple Linear Regression (MLR)', 'Least squares estimation', 'Multicollinearity and VIF', 'Principal Component Regression (PCR)', 'Sparse PCA', 'Supervised PCA'],
+    keyEquations: [{
+      label: 'MLR Model',
+      eq: 'Y = \u03B2\u2080 + \u03B2\u2081X\u2081 + ... + \u03B2\u209AX\u209A + \u03B5'
+    }, {
+      label: 'LSE Estimator',
+      eq: '\u03B2\u0302 = (X\u1D40X)\u207B\u00B9X\u1D40Y'
+    }, {
+      label: 'PC Transformation',
+      eq: 'Z\u1D62 = a\u1D62\u1D40X = a\u1D62\u2081X\u2081 + ... + a\u1D62\u209AX\u209A'
+    }, {
+      label: 'PCR Model',
+      eq: 'Y = \u03B3\u2080 + \u03B3\u2081Z\u2081 + ... + \u03B3\u2096Z\u2096 + \u03B5, q \u226A p'
+    }, {
+      label: 'Orthogonality',
+      eq: 'Cov(Z\u1D62, Z\u2C7C) = a\u1D62\u1D40\u03A3a\u2C7C = 0, i \u2260 j'
+    }]
+  }, {
+    id: 'mvn',
+    number: 3,
+    title: 'MVN & Missing Data',
+    subtitle: 'Conditional Distributions, Bayesian Classification & Imputation',
+    slides: 62,
+    lines: 2645,
+    color: '#CC0000',
+    topics: ['Multivariate Normal Distribution', 'Mahalanobis distance', 'Conditional distributions', 'Bayesian classification (LDA/QDA)', 'Missing data imputation', 'Mean vs. conditional imputation'],
+    keyEquations: [{
+      label: 'MVN PDF',
+      eq: 'p(X) = (2\u03C0)\u207B\u1D56\u00B2|\u03A3|\u207B\u00BD exp(\u22120.5(X\u2212\u03BC)\u1D40\u03A3\u207B\u00B9(X\u2212\u03BC))'
+    }, {
+      label: 'Mahalanobis Distance',
+      eq: 'd\u00B2 = (X\u2212\u03BC)\u1D40\u03A3\u207B\u00B9(X\u2212\u03BC)'
+    }, {
+      label: 'Conditional Mean',
+      eq: 'E[X\u2081|X\u2082=x\u2082] = \u03BC\u2081 + \u03A3\u2081\u2082\u03A3\u2082\u2082\u207B\u00B9(x\u2082\u2212\u03BC\u2082)'
+    }, {
+      label: 'Conditional Variance',
+      eq: 'Var(X\u2081|X\u2082) = \u03A3\u2081\u2081 \u2212 \u03A3\u2081\u2082\u03A3\u2082\u2082\u207B\u00B9\u03A3\u2082\u2081'
+    }, {
+      label: 'Sample Covariance',
+      eq: 'S = (1/n)\u03A3(X\u2096\u2212X\u0304)(X\u2096\u2212X\u0304)\u1D40'
+    }, {
+      label: 'BVN Conditional',
+      eq: 'X\u2081|X\u2082 ~ N(\u03BC\u2081+\u03C1\u03C3\u2081/\u03C3\u2082(x\u2082\u2212\u03BC\u2082), \u03C3\u2081\u00B2(1\u2212\u03C1\u00B2))'
+    }]
+  }, {
+    id: 'recsys',
+    number: 4,
+    title: 'Recommender Systems',
+    subtitle: 'Collaborative Filtering & Neighborhood Methods',
+    slides: 47,
+    lines: 1800,
+    color: '#e67e22',
+    topics: ['User-based collaborative filtering', 'Item-based collaborative filtering', 'Pearson correlation similarity', 'Cosine similarity', 'Mean-centered ratings', 'Sparsity analysis', 'RMSE evaluation'],
+    keyEquations: [{
+      label: 'Sparsity',
+      eq: '1 \u2212 |\u03A9| / (m \u00D7 n)'
+    }, {
+      label: 'Pearson Similarity',
+      eq: 'sim(i,k) = \u03A3(y\u1D62\u2C7C\u2212\u0233\u1D62)(y\u2096\u2C7C\u2212\u0233\u2096) / \u221A[\u03A3(y\u1D62\u2C7C\u2212\u0233\u1D62)\u00B2\u03A3(y\u2096\u2C7C\u2212\u0233\u2096)\u00B2]'
+    }, {
+      label: 'Cosine Similarity',
+      eq: 'sim(i,k) = y\u1D62 \u00B7 y\u2096 / (||y\u1D62|| \u00B7 ||y\u2096||)'
+    }, {
+      label: 'User-CF Prediction',
+      eq: '\u0177\u1D62\u2C7C = \u0233\u1D62 + \u03A3sim(i,k)(y\u2096\u2C7C\u2212\u0233\u2096) / \u03A3|sim(i,k)|'
+    }, {
+      label: 'Item-CF Prediction',
+      eq: '\u0177\u1D64\u2C7C = \u0233\u2C7C + \u03A3sim(j,\u2113)(y\u1D64\u2113\u2212\u0233\u2113) / \u03A3|sim(j,\u2113)|'
+    }, {
+      label: 'RMSE',
+      eq: '\u221A[(1/|\u03A9|)\u03A3(y\u1D64\u1D62 \u2212 \u0177\u1D64\u1D62)\u00B2]'
+    }]
+  }, {
+    id: 'graph',
+    number: 5,
+    title: 'Graph Mining & Network Analysis',
+    subtitle: 'Network Data, Centrality & Community Detection',
+    slides: 120,
+    lines: 4200,
+    color: '#8e44ad',
+    topics: ['Adjacency and Laplacian matrices', 'Degree, closeness, betweenness centrality', 'Eigenvector centrality & Katz centrality', 'PageRank algorithm', 'Co-citation & bibliographic coupling', 'Jaccard similarity', 'Modularity & community detection'],
+    keyEquations: [{
+      label: 'Adjacency Matrix',
+      eq: 'A = [a\u1D62\u2C7C], a\u1D62\u2C7C \u2208 {0,1}'
+    }, {
+      label: 'Laplacian',
+      eq: 'L = D \u2212 A'
+    }, {
+      label: 'Degree Centrality',
+      eq: 'c\u0044(v\u1D62) = d\u1D62 / (n\u22121)'
+    }, {
+      label: 'Closeness Centrality',
+      eq: 'c\u0043(v\u1D62) = (n\u22121) / \u03A3d(v\u1D62,v\u2C7C)'
+    }, {
+      label: 'Betweenness',
+      eq: 'c\u0042(v\u1D62) = \u03A3 \u03B7\u2C7C\u2096(v\u1D62) / \u03B7\u2C7C\u2096'
+    }, {
+      label: 'Eigenvector Centrality',
+      eq: 'x = A\u1D40x / \u03BB\u2081'
+    }, {
+      label: 'Katz Centrality',
+      eq: 'c = ((I \u2212 \u03B1A\u1D40)\u207B\u00B9 \u2212 I) \u00B7 1'
+    }, {
+      label: 'PageRank',
+      eq: 'p = M\u1D40p, M = (1\u2212\u03B1)N + \u03B1N\u1D63'
+    }, {
+      label: 'Modularity',
+      eq: 'Q = (1/2m)\u03A3(A\u1D62\u2C7C \u2212 d\u1D62d\u2C7C/2m)\u03B4(c\u1D62,c\u2C7C)'
+    }]
+  }, {
+    id: 'spatial',
+    number: 6,
+    title: 'Spatial Data Mining',
+    subtitle: 'Point Patterns, Autocorrelation & Kriging',
+    slides: 179,
+    lines: 6500,
+    color: '#d21034',
+    topics: ['Spatial point patterns & CSR', 'Ripley\u2019s K-function', 'Moran\u2019s I & Geary\u2019s C', 'Spatial weight matrices', 'SAR, SEM, SDM, CAR models', 'Semivariogram & variogram models', 'Ordinary, Simple & Universal Kriging', 'Cokriging'],
+    keyEquations: [{
+      label: 'Ripley\u2019s K',
+      eq: 'K\u0302(d) = (1/\u03BB\u0302n)\u03A3\u03A31{||s\u1D62\u2212s\u2C7C|| \u2264 d}'
+    }, {
+      label: 'L-function',
+      eq: 'L(d) = \u221A(K(d)/\u03C0) \u2212 d'
+    }, {
+      label: 'Moran\u2019s I',
+      eq: 'I = (n/S\u2080)\u03A3w\u1D62\u2C7Cz\u1D62z\u2C7C / \u03A3z\u1D62\u00B2'
+    }, {
+      label: 'Geary\u2019s C',
+      eq: 'C = ((n\u22121)\u03A3w\u1D62\u2C7C(y\u1D62\u2212y\u2C7C)\u00B2) / (2S\u2080\u03A3(y\u1D62\u2212\u0233)\u00B2)'
+    }, {
+      label: 'SAR Model',
+      eq: 'y = \u03C1Wy + X\u03B2 + \u03B5'
+    }, {
+      label: 'SEM Model',
+      eq: 'y = X\u03B2 + u, u = \u03BBWu + \u03B5'
+    }, {
+      label: 'Semivariogram',
+      eq: '\u03B3(h) = \u00BD E[(Z(s+h)\u2212Z(s))\u00B2]'
+    }, {
+      label: 'Spherical Model',
+      eq: '\u03B3(h) = \u03B3\u2080 + \u03C3\u00B2[3h/2a \u2212 \u00BD(h/a)\u00B3], h\u2264a'
+    }, {
+      label: 'Ordinary Kriging',
+      eq: 'Z\u0302(s\u2080) = \u03A3\u03BB\u1D62Z(s\u1D62), \u03A3\u03BB\u1D62 = 1'
+    }, {
+      label: 'Kriging Variance',
+      eq: '\u03C3\u2096\u00B2(s\u2080) = C(0) \u2212 \u03BB\u1D40c\u2080 + \u03C8'
+    }]
+  }];
+
+  // ============================================================================
+  // DATA: WORKSHEETS
+  // ============================================================================
+  const WORKSHEETS = [{
+    number: 1,
+    title: 'Multivariate Statistics & PCA',
+    dataset: 'Madison Police Department Overtime Hours',
+    source: 'Johnson & Wichern Textbook',
+    variables: 5,
+    observations: 16,
+    topics: ['Sample mean vector', 'Covariance matrix', 'Correlation matrix', 'Centered data matrix', 'PCA formulation']
+  }, {
+    number: 2,
+    title: 'MLR, PCR & MVN Imputation',
+    dataset: 'Auto MPG Dataset',
+    source: 'UCI Machine Learning Repository',
+    variables: 4,
+    observations: 398,
+    topics: ['OLS estimation', 'VIF and multicollinearity', 'PCA for regression', 'Conditional mean imputation', 'Method comparison']
+  }, {
+    number: 3,
+    title: 'Graph Mining & Network Analysis',
+    dataset: 'International Trade Flow Network',
+    source: 'World Bank WITS Database',
+    variables: 'Graph',
+    observations: '170+ countries',
+    topics: ['Degree centrality', 'Closeness centrality', 'Betweenness centrality', 'Co-citation similarity', 'HITS & diffusion kernel']
+  }];
+
+  // ============================================================================
+  // DATA: HOMEWORK ASSIGNMENTS
+  // ============================================================================
+  const HOMEWORKS_540 = [{
+    num: 1,
+    title: 'Mean Vector & Covariance Estimation',
+    dataset: 'Combined Cycle Power Plant',
+    focus: 'Multivariate statistics fundamentals'
+  }, {
+    num: 2,
+    title: 'Principal Component Analysis',
+    dataset: 'Housing & Loan datasets',
+    focus: 'Eigendecomposition, variance explained, OLS vs PCR'
+  }, {
+    num: 3,
+    title: 'MLR & PCR Application',
+    dataset: 'Auto MPG',
+    focus: 'VIF, multicollinearity, conditional distributions'
+  }, {
+    num: 4,
+    title: 'Recommender Systems',
+    dataset: 'Rating matrices',
+    focus: 'Pearson, cosine similarity, CF prediction'
+  }, {
+    num: 5,
+    title: 'Graph Mining & Centrality',
+    dataset: 'International Trade Flow',
+    focus: 'Degree, closeness, betweenness, PageRank'
+  }];
+
+  // ============================================================================
+  // REUSABLE COMPONENTS
+  // ============================================================================
+  const GlassCard = ({
+    children,
+    style = {},
+    onClick = null
+  }) => /*#__PURE__*/_react.default.createElement("div", {
+    onClick: onClick,
+    style: {
+      ...glass.card,
+      padding: '1.5rem',
+      transition: 'all 0.3s ease',
+      cursor: onClick ? 'pointer' : 'default',
+      ...style
+    },
+    onMouseEnter: e => {
+      if (onClick) {
+        e.currentTarget.style.boxShadow = glass.cardHover.boxShadow;
+        e.currentTarget.style.transform = glass.cardHover.transform;
+      }
+    },
+    onMouseLeave: e => {
+      if (onClick) {
+        e.currentTarget.style.boxShadow = glass.card.boxShadow;
+        e.currentTarget.style.transform = 'translateY(0)';
+      }
+    }
+  }, children);
+  const SectionTitle = ({
+    children,
+    subtitle = null
+  }) => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      marginBottom: '2rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    style: {
+      fontSize: '2rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: subtitle ? '0.5rem' : 0,
+      letterSpacing: '-0.5px'
+    }
+  }, children), subtitle && /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '1rem',
+      color: color.secondary
+    }
+  }, subtitle));
+  const Pill = ({
+    children,
+    variant = 'default',
+    style = {}
+  }) => {
+    const variants = {
+      default: {
+        background: color.accentLight,
+        color: color.accent,
+        border: `0.5px solid ${color.accentBorder}`
+      },
+      secondary: {
+        background: 'rgba(110,110,115,0.1)',
+        color: color.secondary,
+        border: '0.5px solid rgba(110,110,115,0.2)'
+      },
+      success: {
+        background: 'rgba(46,125,50,0.1)',
+        color: '#2E7D32',
+        border: '0.5px solid rgba(46,125,50,0.2)'
+      },
+      danger: {
+        background: 'rgba(204,0,0,0.1)',
+        color: '#CC0000',
+        border: '0.5px solid rgba(204,0,0,0.2)'
+      },
+      warning: {
+        background: 'rgba(230,126,34,0.1)',
+        color: '#e67e22',
+        border: '0.5px solid rgba(230,126,34,0.2)'
+      },
+      rutgers: {
+        background: 'rgba(210,16,52,0.1)',
+        color: '#d21034',
+        border: '0.5px solid rgba(210,16,52,0.2)'
+      }
+    };
+    return /*#__PURE__*/_react.default.createElement("span", {
+      style: {
+        ...variants[variant],
+        padding: '0.375rem 0.875rem',
+        borderRadius: '8px',
+        fontSize: '0.875rem',
+        fontWeight: 500,
+        display: 'inline-block',
+        marginRight: '0.5rem',
+        marginBottom: '0.5rem',
+        ...style
+      }
+    }, children);
+  };
+  const StatCard = ({
+    value,
+    label,
+    unit = '',
+    accent = color.accent
+  }) => /*#__PURE__*/_react.default.createElement(GlassCard, null, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      textAlign: 'center'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '2.5rem',
+      fontWeight: 700,
+      color: accent,
+      marginBottom: '0.5rem',
+      fontVariantNumeric: 'tabular-nums'
+    }
+  }, value, unit && /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      fontSize: '1.5rem',
+      marginLeft: '0.25rem'
+    }
+  }, unit)), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.875rem',
+      color: color.secondary,
+      fontWeight: 500
+    }
+  }, label)));
+  const MathBlock = ({
+    children,
+    label = null,
+    accent = color.accent
+  }) => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      background: `${accent}08`,
+      border: `0.5px solid ${accent}25`,
+      borderRadius: '12px',
+      padding: '1.25rem 1.5rem',
+      marginBottom: '1rem'
+    }
+  }, label && /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, label), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '1.05rem',
+      fontFamily: mathFont,
+      color: color.text,
+      lineHeight: 2.2,
+      letterSpacing: '0.3px'
+    }
+  }, children));
+  const DataTable = ({
+    headers,
+    rows,
+    striped = true
+  }) => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      overflowX: 'auto',
+      marginBottom: '2rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("table", {
+    style: {
+      width: '100%',
+      borderCollapse: 'collapse',
+      fontSize: '0.9rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("thead", null, /*#__PURE__*/_react.default.createElement("tr", {
+    style: {
+      borderBottom: `1px solid ${color.border}`
+    }
+  }, headers.map((h, i) => /*#__PURE__*/_react.default.createElement("th", {
+    key: i,
+    style: {
+      padding: '1rem',
+      textAlign: 'left',
+      color: color.text,
+      fontWeight: 600
+    }
+  }, h)))), /*#__PURE__*/_react.default.createElement("tbody", null, rows.map((row, idx) => /*#__PURE__*/_react.default.createElement("tr", {
+    key: idx,
+    style: {
+      borderBottom: `0.5px solid ${color.border}`,
+      background: striped && idx % 2 === 1 ? color.accentLight : 'transparent'
+    }
+  }, row.map((cell, i) => /*#__PURE__*/_react.default.createElement("td", {
+    key: i,
+    style: {
+      padding: '1rem',
+      color: i === 0 ? color.text : color.secondary,
+      fontWeight: i === 0 ? 500 : 400
+    }
+  }, cell)))))));
+  const TabButton = ({
+    isActive,
+    onClick,
+    children
+  }) => /*#__PURE__*/_react.default.createElement("button", {
+    onClick: onClick,
+    style: {
+      background: isActive ? color.accent : 'transparent',
+      color: isActive ? color.white : color.text,
+      border: `0.5px solid ${isActive ? color.accent : color.border}`,
+      padding: '0.625rem 1.25rem',
+      borderRadius: '8px',
+      fontSize: '0.9375rem',
+      fontWeight: isActive ? 600 : 500,
+      cursor: 'pointer',
+      transition: 'all 0.2s ease',
+      marginRight: '0.5rem',
+      marginBottom: '0.5rem'
+    },
+    onMouseEnter: e => {
+      if (!isActive) e.target.style.background = 'rgba(0,113,227,0.05)';
+    },
+    onMouseLeave: e => {
+      if (!isActive) e.target.style.background = 'transparent';
+    }
+  }, children);
+  const EquationCard = ({
+    eq,
+    accent = color.accent
+  }) => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      background: `${accent}08`,
+      border: `0.5px solid ${accent}20`,
+      borderRadius: '12px',
+      padding: '1rem 1.25rem',
+      marginBottom: '0.75rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.7rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.5rem'
+    }
+  }, eq.label), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '1rem',
+      fontFamily: mathFont,
+      color: color.text,
+      lineHeight: 1.8,
+      letterSpacing: '0.3px'
+    }
+  }, eq.eq));
+
+  // ============================================================================
+  // TAB: OVERVIEW
+  // ============================================================================
+  const OverviewTab = () => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      animation: 'fadeInUp 0.6s ease both'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Two semesters of graduate teaching at Rutgers ISE"
+  }, "Teaching Experience"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(4, 1fr)',
+      gap: '1.25rem',
+      marginBottom: '3rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "2",
+    label: "Courses",
+    accent: color.rutgers
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "3",
+    label: "Sections",
+    accent: color.accent
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "330",
+    label: "Slides Authored",
+    unit: "+",
+    accent: color.green
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "6",
+    label: "LaTeX Slide Decks",
+    accent: color.purple
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '1.5rem',
+      marginBottom: '3rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      borderLeft: `3px solid ${color.accent}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.75rem',
+      marginBottom: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, null, "Fall 2025"), /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "secondary"
+  }, "Course Grader")), /*#__PURE__*/_react.default.createElement("h3", {
+    style: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "ISE 338: Probabilistic Models in OR"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      marginBottom: '1rem',
+      lineHeight: 1.6
+    }
+  }, "Markov chains, queuing theory, and decision analysis under uncertainty. Comprehensive grading of assignments and exams with detailed rubrics."), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.85rem',
+      color: color.tertiary
+    }
+  }, /*#__PURE__*/_react.default.createElement("strong", {
+    style: {
+      color: color.text
+    }
+  }, "Instructor:"), " Dr. Ahmed Aziz Ezzat"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.85rem',
+      color: color.tertiary,
+      marginTop: '0.25rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("strong", {
+    style: {
+      color: color.text
+    }
+  }, "Assessments:"), " 7 HWs, 2 Exams, 1 Project")), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      borderLeft: `3px solid ${color.rutgers}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.75rem',
+      marginBottom: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "rutgers"
+  }, "Spring 2026"), /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "success"
+  }, "Teaching Assistant")), /*#__PURE__*/_react.default.createElement("h3", {
+    style: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "ISE 540: Computational Methods in IE"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      marginBottom: '1rem',
+      lineHeight: 1.6
+    }
+  }, "Advanced multivariate analysis, PCA, recommender systems, graph mining, spatial statistics, and MCMC. Authored all LaTeX lecture slides from multiple textbooks and references."), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.85rem',
+      color: color.tertiary
+    }
+  }, /*#__PURE__*/_react.default.createElement("strong", {
+    style: {
+      color: color.text
+    }
+  }, "Instructor:"), " Dr. Myong K. (MK) Jeong"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.85rem',
+      color: color.tertiary,
+      marginTop: '0.25rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("strong", {
+    style: {
+      color: color.text
+    }
+  }, "Sections:"), " 01 (In-Person) & 91 (Online)"))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Bridging theory and application through rigorous mathematical exposition"
+  }, "Approach"), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      marginBottom: '2rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr 1fr',
+      gap: '2rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '1.5rem',
+      marginBottom: '0.75rem'
+    }
+  }, '\u{1F4D0}'), /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '1rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "Mathematical Rigor"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.85rem',
+      color: color.secondary,
+      lineHeight: 1.6
+    }
+  }, "Every concept derived from first principles with complete proofs. LaTeX slides feature step-by-step derivations, not just results.")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '1.5rem',
+      marginBottom: '0.75rem'
+    }
+  }, '\u{1F4BB}'), /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '1rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "Computational Thinking"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.85rem',
+      color: color.secondary,
+      lineHeight: 1.6
+    }
+  }, "Worksheets pair analytical derivations with Python/Excel implementations. Students verify equations against code output.")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '1.5rem',
+      marginBottom: '0.75rem'
+    }
+  }, '\u{1F30D}'), /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '1rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "Real-World Datasets"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.85rem',
+      color: color.secondary,
+      lineHeight: 1.6
+    }
+  }, "Assignments use real data: NYC payroll, international trade networks, power plant operations, and housing markets.")))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "6 complete LaTeX/Beamer slide decks authored for ISE 540"
+  }, "Lecture Slides Portfolio"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      gap: '1rem'
+    }
+  }, LATEX_MODULES.map((mod, idx) => /*#__PURE__*/_react.default.createElement(GlassCard, {
+    key: mod.id,
+    style: {
+      borderTop: `3px solid ${mod.color}`,
+      animation: `fadeInUp 0.5s ease ${idx * 0.1}s both`
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: '0.75rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      fontSize: '0.7rem',
+      fontWeight: 700,
+      color: mod.color,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px'
+    }
+  }, "Module ", mod.number), /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary
+    }
+  }, mod.slides, " slides")), /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '0.95rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.25rem'
+    }
+  }, mod.title), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.8rem',
+      color: color.secondary,
+      lineHeight: 1.5
+    }
+  }, mod.subtitle)))));
+
+  // ============================================================================
+  // TAB: ISE 338
+  // ============================================================================
+  const ISE338Tab = () => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      animation: 'fadeInUp 0.6s ease both'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: `${ISE338.code} \u2014 ${ISE338.semester} \u2014 ${ISE338.instructor.name}`
+  }, ISE338.title), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(4, 1fr)',
+      gap: '1.25rem',
+      marginBottom: '3rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "7",
+    label: "Assignments Graded",
+    accent: color.accent
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "2",
+    label: "Exams",
+    accent: color.green
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "22",
+    label: "Lecture Modules",
+    accent: color.purple
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "~40",
+    label: "Students",
+    accent: color.orange
+  })), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Topics covered across 14 weeks"
+  }, "Course Modules"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      marginBottom: '3rem'
+    }
+  }, ISE338.modules.map((mod, idx) => /*#__PURE__*/_react.default.createElement(GlassCard, {
+    key: mod.id,
+    style: {
+      marginBottom: '1rem',
+      borderLeft: `3px solid ${color.accent}`,
+      animation: `slideInLeft 0.5s ease ${idx * 0.1}s both`
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: '0.5rem',
+      marginBottom: '0.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, null, mod.id), /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "secondary"
+  }, "Weeks ", mod.weeks)), /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '1.1rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, mod.title), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '0.5rem'
+    }
+  }, mod.topics.map((t, i) => /*#__PURE__*/_react.default.createElement("span", {
+    key: i,
+    style: {
+      fontSize: '0.8rem',
+      color: color.secondary,
+      background: 'rgba(0,0,0,0.03)',
+      padding: '0.25rem 0.75rem',
+      borderRadius: '6px'
+    }
+  }, t)))))))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Core mathematical formulations from the course"
+  }, "Key Formulas"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '1rem',
+      marginBottom: '3rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Chapman\\u2013Kolmogorov Equation",
+    accent: color.accent
+  }, ISE338.keyFormulas.chapmanKolmogorov), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Steady-State Distribution",
+    accent: color.accent
+  }, ISE338.keyFormulas.steadyState), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Little's Law",
+    accent: color.green
+  }, ISE338.keyFormulas.littlesLaw), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "M/M/1 Utilization",
+    accent: color.green
+  }, ISE338.keyFormulas.mm1Utilization), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Expected Recurrence Time",
+    accent: color.purple
+  }, ISE338.keyFormulas.recurrenceTime), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Expected Passage Time",
+    accent: color.purple
+  }, ISE338.keyFormulas.passageTime), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Poisson PMF",
+    accent: color.orange
+  }, ISE338.keyFormulas.poissonPMF), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Exponential CDF",
+    accent: color.orange
+  }, ISE338.keyFormulas.exponentialCDF)), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Responsibilities and contributions as Course Grader"
+  }, "My Contributions"), /*#__PURE__*/_react.default.createElement(GlassCard, null, ISE338.taContributions.map((c, i) => /*#__PURE__*/_react.default.createElement("div", {
+    key: i,
+    style: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: '0.75rem',
+      padding: '0.75rem 0',
+      borderBottom: i < ISE338.taContributions.length - 1 ? `0.5px solid ${color.border}` : 'none'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      width: '24px',
+      height: '24px',
+      borderRadius: '50%',
+      background: color.accentLight,
+      border: `0.5px solid ${color.accentBorder}`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '0.7rem',
+      fontWeight: 700,
+      color: color.accent,
+      flexShrink: 0
+    }
+  }, i + 1), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      lineHeight: 1.6,
+      margin: 0
+    }
+  }, c)))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Assessment structure"
+  }, "Grading Breakdown"), /*#__PURE__*/_react.default.createElement(GlassCard, null, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '1.5rem',
+      flexWrap: 'wrap'
+    }
+  }, Object.entries(ISE338.grading).map(([key, val]) => {
+    const labels = {
+      hw: 'Homework',
+      exam1: 'Exam 1',
+      exam2: 'Exam 2',
+      project: 'Project'
+    };
+    const colors = {
+      hw: color.accent,
+      exam1: color.green,
+      exam2: color.purple,
+      project: color.orange
+    };
+    return /*#__PURE__*/_react.default.createElement("div", {
+      key: key,
+      style: {
+        textAlign: 'center'
+      }
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        width: '64px',
+        height: '64px',
+        borderRadius: '50%',
+        background: `${colors[key]}15`,
+        border: `2px solid ${colors[key]}`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '1.1rem',
+        fontWeight: 700,
+        color: colors[key],
+        margin: '0 auto 0.5rem'
+      }
+    }, val, "%"), /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        fontSize: '0.8rem',
+        color: color.secondary,
+        fontWeight: 500
+      }
+    }, labels[key]));
+  }))));
+
+  // ============================================================================
+  // TAB: ISE 540
+  // ============================================================================
+  const ISE540Tab = () => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      animation: 'fadeInUp 0.6s ease both'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: `${ISE540.code} \u2014 ${ISE540.semester} \u2014 ${ISE540.instructor.name}`
+  }, ISE540.title), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(4, 1fr)',
+      gap: '1.25rem',
+      marginBottom: '3rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "330",
+    label: "Slides Authored",
+    unit: "+",
+    accent: color.rutgers
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "6",
+    label: "LaTeX Slide Decks",
+    accent: color.accent
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "2",
+    label: "Sections Managed",
+    accent: color.green
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "15K",
+    label: "Lines of LaTeX",
+    unit: "+",
+    accent: color.purple
+  })), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Managing two concurrent sections"
+  }, "Course Sections"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '1.25rem',
+      marginBottom: '3rem'
+    }
+  }, ISE540.sections.map(sec => /*#__PURE__*/_react.default.createElement(GlassCard, {
+    key: sec.id,
+    style: {
+      borderLeft: `3px solid ${sec.type === 'In-Person' ? color.accent : color.green}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.75rem',
+      marginBottom: '0.75rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: sec.type === 'In-Person' ? 'default' : 'success'
+  }, "Section ", sec.id), /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "secondary"
+  }, sec.type)), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      margin: 0
+    }
+  }, /*#__PURE__*/_react.default.createElement("strong", {
+    style: {
+      color: color.text
+    }
+  }, sec.location), " \u2014 ", sec.time)))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "14-week course progression"
+  }, "Weekly Schedule"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      marginBottom: '3rem'
+    }
+  }, ISE540.weeklySchedule.map((w, idx) => /*#__PURE__*/_react.default.createElement("div", {
+    key: w.week,
+    style: {
+      display: 'flex',
+      gap: '1.25rem',
+      alignItems: 'flex-start',
+      padding: '1rem 0',
+      borderBottom: idx < ISE540.weeklySchedule.length - 1 ? `0.5px solid ${color.border}` : 'none',
+      animation: `fadeInUp 0.4s ease ${idx * 0.05}s both`
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      width: '40px',
+      height: '40px',
+      borderRadius: '10px',
+      background: w.week === 8 ? 'rgba(204,0,0,0.1)' : color.accentLight,
+      border: `0.5px solid ${w.week === 8 ? 'rgba(204,0,0,0.2)' : color.accentBorder}`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '0.85rem',
+      fontWeight: 700,
+      color: w.week === 8 ? color.red : color.accent,
+      flexShrink: 0
+    }
+  }, w.week), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '0.95rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.25rem'
+    }
+  }, w.topic), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.8rem',
+      color: color.secondary,
+      margin: 0
+    }
+  }, w.details))))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Comprehensive role across content creation, grading, and student support"
+  }, "My Contributions"), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      marginBottom: '3rem'
+    }
+  }, ISE540.taContributions.map((c, i) => /*#__PURE__*/_react.default.createElement("div", {
+    key: i,
+    style: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: '0.75rem',
+      padding: '0.75rem 0',
+      borderBottom: i < ISE540.taContributions.length - 1 ? `0.5px solid ${color.border}` : 'none'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      width: '24px',
+      height: '24px',
+      borderRadius: '50%',
+      background: i === 0 ? 'rgba(210,16,52,0.1)' : color.accentLight,
+      border: `0.5px solid ${i === 0 ? 'rgba(210,16,52,0.2)' : color.accentBorder}`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '0.7rem',
+      fontWeight: 700,
+      color: i === 0 ? color.rutgers : color.accent,
+      flexShrink: 0
+    }
+  }, i + 1), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      lineHeight: 1.6,
+      margin: 0
+    }
+  }, c)))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "In-class exercises pairing theory with computation"
+  }, "Worksheets Designed"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      gap: '1.25rem',
+      marginBottom: '3rem'
+    }
+  }, WORKSHEETS.map((ws, idx) => /*#__PURE__*/_react.default.createElement(GlassCard, {
+    key: ws.number,
+    style: {
+      animation: `fadeInUp 0.5s ease ${idx * 0.1}s both`
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      marginBottom: '0.75rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "rutgers"
+  }, "WS ", ws.number)), /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '1rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, ws.title), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.8rem',
+      color: color.secondary,
+      marginBottom: '0.75rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("strong", null, "Dataset:"), " ", ws.dataset, /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Source:"), " ", ws.source, /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Size:"), " ", ws.variables, " variables, ", ws.observations, " obs."), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '0.375rem'
+    }
+  }, ws.topics.map((t, i) => /*#__PURE__*/_react.default.createElement("span", {
+    key: i,
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      background: 'rgba(0,0,0,0.03)',
+      padding: '0.2rem 0.5rem',
+      borderRadius: '4px'
+    }
+  }, t)))))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Computational homework with real-world datasets"
+  }, "Homework Assignments"), /*#__PURE__*/_react.default.createElement(DataTable, {
+    headers: ['HW', 'Title', 'Dataset', 'Focus'],
+    rows: HOMEWORKS_540.map(hw => [`HW ${hw.num}`, hw.title, hw.dataset, hw.focus])
+  }));
+
+  // ============================================================================
+  // TAB: LECTURE SLIDES
+  // ============================================================================
+  const SlidesTab = () => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      animation: 'fadeInUp 0.6s ease both'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "6 complete LaTeX/Beamer slide decks constructed from textbooks, research papers, and original derivations"
+  }, "Lecture Slides Portfolio"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      gap: '1.25rem',
+      marginBottom: '3rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "552",
+    label: "Total Slides",
+    accent: color.rutgers
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "15K",
+    label: "Lines of LaTeX",
+    unit: "+",
+    accent: color.accent
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "62",
+    label: "Key Equations",
+    unit: "+",
+    accent: color.green
+  })), LATEX_MODULES.map((mod, modIdx) => /*#__PURE__*/_react.default.createElement("div", {
+    key: mod.id,
+    style: {
+      marginBottom: '3rem',
+      animation: `fadeInUp 0.6s ease ${modIdx * 0.1}s both`
+    }
+  }, /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      borderTop: `3px solid ${mod.color}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      marginBottom: '1.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: '0.5rem',
+      marginBottom: '0.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, {
+    style: {
+      background: `${mod.color}15`,
+      color: mod.color,
+      border: `0.5px solid ${mod.color}30`
+    }
+  }, "Module ", mod.number), /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "secondary"
+  }, mod.slides, " slides"), /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "secondary"
+  }, mod.lines.toLocaleString(), " lines")), /*#__PURE__*/_react.default.createElement("h3", {
+    style: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '0.25rem'
+    }
+  }, mod.title), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary
+    }
+  }, mod.subtitle))), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      marginBottom: '1.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, "Topics Covered"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '0.5rem'
+    }
+  }, mod.topics.map((t, i) => /*#__PURE__*/_react.default.createElement("span", {
+    key: i,
+    style: {
+      fontSize: '0.8rem',
+      color: color.secondary,
+      background: `${mod.color}08`,
+      padding: '0.3rem 0.75rem',
+      borderRadius: '6px',
+      border: `0.5px solid ${mod.color}15`
+    }
+  }, t)))), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, "Key Equations"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '0.75rem'
+    }
+  }, mod.keyEquations.map((eq, i) => /*#__PURE__*/_react.default.createElement(EquationCard, {
+    key: i,
+    eq: eq,
+    accent: mod.color
+  })))))));
+
+  // ============================================================================
+  // TAB: MATHEMATICAL FOUNDATIONS
+  // ============================================================================
+  const EquationsTab = () => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      animation: 'fadeInUp 0.6s ease both'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Core mathematical frameworks developed across 330+ slides of original LaTeX content"
+  }, "Mathematical Foundations"), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      marginBottom: '2.5rem',
+      borderLeft: `3px solid ${color.accent}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("h3", {
+    style: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "Principal Component Analysis: Derivation from First Principles"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      lineHeight: 1.7,
+      marginBottom: '1.5rem'
+    }
+  }, "PCA seeks directions of maximum variance in high-dimensional data. The i-th principal component is found by solving a constrained optimization problem where the objective is to maximize projected variance subject to unit-norm and orthogonality constraints."), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Step 1: Eigenvalue Problem",
+    accent: color.accent
+  }, "Given a p \\u00D7 p covariance matrix \\u03A3, find directions a that maximize projected variance:", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Objective:"), " max V(Z) = a\\u1D40\\u03A3a \xA0\xA0 subject to \xA0 a\\u1D40a = 1"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Step 2: Lagrangian Formulation",
+    accent: color.accent
+  }, "L(a, \\u03BB) = a\\u1D40\\u03A3a \\u2212 \\u03BB(a\\u1D40a \\u2212 1)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "FOC:"), " \\u2202L/\\u2202a = 2\\u03A3a \\u2212 2\\u03BBa = 0 \xA0 \\u21D2 \xA0 \\u03A3a = \\u03BBa"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Step 3: Solution",
+    accent: color.accent
+  }, "a\\u2081 = eigenvector of \\u03A3 corresponding to the largest eigenvalue \\u03BB\\u2081", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "V(Z\\u2081) = a\\u2081\\u1D40\\u03A3a\\u2081 = \\u03BB\\u2081 \xA0 (variance captured by 1st PC)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Step 4: Subsequent Components",
+    accent: color.accent
+  }, "For i-th PC: max a\\u1D62\\u1D40\\u03A3a\\u1D62 \xA0 s.t. \xA0 a\\u1D62\\u1D40a\\u1D62 = 1, \xA0 a\\u1D62\\u1D40a\\u2C7C = 0 for all j ", '<', " i", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Total variance preserved: \\u03A3V(Z\\u1D62) = \\u03A3\\u03BB\\u1D62 = Tr(\\u03A3)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Proportion of Variance Explained",
+    accent: color.accent
+  }, "PVE(q) = (\\u03BB\\u2081 + \\u03BB\\u2082 + ... + \\u03BB\\u2096) / Tr(\\u03A3\\u2093) \xA0\xA0 (select q via scree plot)")), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      marginBottom: '2.5rem',
+      borderLeft: `3px solid ${color.red}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("h3", {
+    style: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "Multivariate Normal Distribution & Conditional Inference"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      lineHeight: 1.7,
+      marginBottom: '1.5rem'
+    }
+  }, "The MVN distribution is the cornerstone of multivariate statistics. Its conditional distributions are analytically tractable, enabling optimal missing data imputation and Bayesian classification."), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "MVN Probability Density Function",
+    accent: color.red
+  }, "p(X) = (2\\u03C0)\\u207B\\u1D56\\u2044\\u00B2 |\\u03A3|\\u207B\\u00BD exp(\\u2212\\u00BD (X\\u2212\\u03BC)\\u1D40 \\u03A3\\u207B\\u00B9 (X\\u2212\\u03BC))", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "where (X\\u2212\\u03BC)\\u1D40\\u03A3\\u207B\\u00B9(X\\u2212\\u03BC) is the ", /*#__PURE__*/_react.default.createElement("strong", null, "Mahalanobis distance")), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Conditional Distribution (Partitioned MVN)",
+    accent: color.red
+  }, "X\\u2081 | X\\u2082 = x\\u2082 \xA0~\xA0 N(\\u03BC\\u2081|\\u2082, \\u03A3\\u2081|\\u2082)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Conditional mean:"), " \xA0 \\u03BC\\u2081|\\u2082 = \\u03BC\\u2081 + \\u03A3\\u2081\\u2082\\u03A3\\u2082\\u2082\\u207B\\u00B9(x\\u2082 \\u2212 \\u03BC\\u2082)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Conditional variance:"), " \xA0 \\u03A3\\u2081|\\u2082 = \\u03A3\\u2081\\u2081 \\u2212 \\u03A3\\u2081\\u2082\\u03A3\\u2082\\u2082\\u207B\\u00B9\\u03A3\\u2082\\u2081"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Bivariate Normal Special Case",
+    accent: color.red
+  }, "X\\u2081 | X\\u2082 = x\\u2082 \xA0~\xA0 N(\\u03BC\\u2081 + \\u03C1(\\u03C3\\u2081/\\u03C3\\u2082)(x\\u2082 \\u2212 \\u03BC\\u2082), \xA0\\u03C3\\u2081\\u00B2(1 \\u2212 \\u03C1\\u00B2))", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Note: conditional variance \\u03C3\\u2081\\u00B2(1\\u2212\\u03C1\\u00B2) \\u2264 \\u03C3\\u2081\\u00B2 (always reduces uncertainty)")), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      marginBottom: '2.5rem',
+      borderLeft: `3px solid ${color.green}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("h3", {
+    style: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "MLR vs. Principal Component Regression"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      lineHeight: 1.7,
+      marginBottom: '1.5rem'
+    }
+  }, "When predictors are highly correlated, the OLS estimator (X\\u1D40X)\\u207B\\u00B9 becomes ill-conditioned. PCR replaces the original correlated predictors with uncorrelated principal components, eliminating multicollinearity."), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Multiple Linear Regression",
+    accent: color.green
+  }, "Y = X\\u03B2 + \\u03B5", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "\\u03B2\\u0302 = (X\\u1D40X)\\u207B\\u00B9X\\u1D40Y", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Problem: if X\\u1D40X \\u2248 singular, \\u03B2\\u0302 is unstable"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Principal Component Regression",
+    accent: color.green
+  }, "Z = XW, \xA0 Y = Z\\u03B3 + \\u03B5", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "\\u03B3\\u0302 = (Z\\u1D40Z)\\u207B\\u00B9Z\\u1D40Y", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Since Cov(Z\\u1D62,Z\\u2C7C) = 0: stable, interpretable"))), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      marginBottom: '2.5rem',
+      borderLeft: `3px solid ${color.orange}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("h3", {
+    style: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "Collaborative Filtering: Prediction from Sparse Ratings"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      lineHeight: 1.7,
+      marginBottom: '1.5rem'
+    }
+  }, "Neighborhood-based collaborative filtering predicts missing ratings by identifying similar users (or items) and computing a weighted average of their known ratings, corrected for rating bias."), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "User-Based CF Prediction",
+    accent: color.orange
+  }, "\\u0177\\u1D62\\u2C7C = \\u0233\\u1D62 + \\u03A3\\u2096\\u2208N\\u1D62 sim(i,k) \\u00B7 (y\\u2096\\u2C7C \\u2212 \\u0233\\u2096) / \\u03A3\\u2096\\u2208N\\u1D62 |sim(i,k)|"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Pearson Correlation",
+    accent: color.orange
+  }, "sim(i,k) = \\u03A3(y\\u1D62\\u2C7C\\u2212\\u0233\\u1D62)(y\\u2096\\u2C7C\\u2212\\u0233\\u2096) / \\u221A[\\u03A3(y\\u1D62\\u2C7C\\u2212\\u0233\\u1D62)\\u00B2 \\u03A3(y\\u2096\\u2C7C\\u2212\\u0233\\u2096)\\u00B2]"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Cosine Similarity",
+    accent: color.orange
+  }, "sim(i,k) = (y\\u1D62 \\u00B7 y\\u2096) / (||y\\u1D62|| \\u00B7 ||y\\u2096||)"))));
+
+  // ============================================================================
+  // TAB: ADVANCED TOPICS
+  // ============================================================================
+  const AdvancedTab = () => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      animation: 'fadeInUp 0.6s ease both'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Graph mining, spatial statistics, and geostatistical prediction \\u2014 constructed from multiple textbooks and research papers"
+  }, "Advanced Topics"), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      marginBottom: '2.5rem',
+      borderLeft: `3px solid ${color.purple}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("h3", {
+    style: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "Graph Mining & Network Analysis"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      lineHeight: 1.7,
+      marginBottom: '0.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("strong", null, "3 lecture parts, 120 slides"), " covering network fundamentals through community detection. Applications span social networks, citation graphs, trade networks, and biological pathways."), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: '0.5rem',
+      marginBottom: '1.5rem',
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, {
+    style: {
+      background: 'rgba(142,68,173,0.1)',
+      color: color.purple,
+      border: '0.5px solid rgba(142,68,173,0.2)'
+    }
+  }, "Part 1: Network Fundamentals"), /*#__PURE__*/_react.default.createElement(Pill, {
+    style: {
+      background: 'rgba(142,68,173,0.1)',
+      color: color.purple,
+      border: '0.5px solid rgba(142,68,173,0.2)'
+    }
+  }, "Part 2: Node Centrality"), /*#__PURE__*/_react.default.createElement(Pill, {
+    style: {
+      background: 'rgba(142,68,173,0.1)',
+      color: color.purple,
+      border: '0.5px solid rgba(142,68,173,0.2)'
+    }
+  }, "Part 3: Similarity & Clustering")), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, "Centrality Measures"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '0.75rem',
+      marginBottom: '1.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Degree Centrality',
+      eq: 'c\u0044(v\u1D62) = d\u1D62 / (n \u2212 1)'
+    },
+    accent: color.purple
+  }), /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Closeness Centrality',
+      eq: 'c\u0043(v\u1D62) = (n\u22121) / \u03A3\u2C7C d(v\u1D62, v\u2C7C)'
+    },
+    accent: color.purple
+  }), /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Betweenness Centrality',
+      eq: 'c\u0042(v\u1D62) = \u03A3\u2C7C\u2260\u1D62,\u2096\u2260\u1D62 \u03B7\u2C7C\u2096(v\u1D62) / \u03B7\u2C7C\u2096'
+    },
+    accent: color.purple
+  }), /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Eigenvector Centrality',
+      eq: 'Ax = \u03BB\u2081x &nbsp; (dominant eigenvector)'
+    },
+    accent: color.purple
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, "Advanced Network Models"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '0.75rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Katz Centrality (Matrix Form)",
+    accent: color.purple
+  }, "c\\u2096\\u2090\\u209C\\u2093 = ((I \\u2212 \\u03B1A\\u1D40)\\u207B\\u00B9 \\u2212 I) \\u00B7 1", /*#__PURE__*/_react.default.createElement("br", null), "where \\u03B1 \\u2208 (0, 1/\\u03BB\\u2081) is attenuation factor"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "PageRank (Google's Algorithm)",
+    accent: color.purple
+  }, "p = M", '\u1D40', "p, \xA0 M = (1", '\u2212', '\u03B1', ")N + ", '\u03B1', "(1/n)", '\u00B7', "11", '\u1D40', /*#__PURE__*/_react.default.createElement("br", null), "where N = column-stochastic transition matrix")), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      marginTop: '1.5rem',
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, "Similarity & Community Detection"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr 1fr',
+      gap: '0.75rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Co-Citation',
+      eq: 'C\u2080(x,y) = (A\u1D40A)\u2093\u1D67'
+    },
+    accent: color.purple
+  }), /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Bibliographic Coupling',
+      eq: 'B(x,y) = (AA\u1D40)\u2093\u1D67'
+    },
+    accent: color.purple
+  }), /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Modularity',
+      eq: 'Q = (1/2m)\u03A3(A\u1D62\u2C7C \u2212 d\u1D62d\u2C7C/2m)\u03B4(c\u1D62,c\u2C7C)'
+    },
+    accent: color.purple
+  }))), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      marginBottom: '2.5rem',
+      borderLeft: `3px solid ${color.rutgers}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("h3", {
+    style: {
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '0.5rem'
+    }
+  }, "Spatial Data Mining"), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      lineHeight: 1.7,
+      marginBottom: '0.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("strong", null, "3 lecture parts, 179 slides"), " \\u2014 the most comprehensive module. Covers spatial point patterns, autocorrelation testing, autoregressive models, variogram analysis, and kriging \\u2014 the optimal spatial prediction technique."), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: '0.5rem',
+      marginBottom: '1.5rem',
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "rutgers"
+  }, "Part 1: Point Patterns & CSR"), /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "rutgers"
+  }, "Part 2: Autocorrelation & SAR/SEM"), /*#__PURE__*/_react.default.createElement(Pill, {
+    variant: "rutgers"
+  }, "Part 3: Variograms & Kriging")), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, "Spatial Point Pattern Analysis"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '0.75rem',
+      marginBottom: '1.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Ripley's K-Function (Estimated)",
+    accent: color.rutgers
+  }, "K\u0302(d) = (1/", '\u03BB', "\u0302n) ", '\u03A3', '\u1D62', " ", '\u03A3', '\u2C7C\u2260\u1D62', " 1", '{', '\u2016', "s", '\u1D62', " ", '\u2212', " s", '\u2C7C', '\u2016', " ", '\u2264', " d", '}'), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "L-Function (Variance Stabilizing)",
+    accent: color.rutgers
+  }, "L(d) = \\u221A(K(d) / \\u03C0) \\u2212 d", /*#__PURE__*/_react.default.createElement("br", null), "Under CSR: L(d) \\u2248 0 for all d")), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, "Spatial Autocorrelation"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '0.75rem',
+      marginBottom: '1.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Moran's I Statistic",
+    accent: color.rutgers
+  }, "I = (n / S\\u2080) \\u00B7 \\u03A3\\u1D62\\u03A3\\u2C7C w\\u1D62\\u2C7C z\\u1D62 z\\u2C7C / \\u03A3\\u1D62 z\\u1D62\\u00B2", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "E\\u2080[I] = \\u22121/(n\\u22121); \xA0 Z\\u1D38 = (I \\u2212 E[I]) / \\u221AVar(I)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Geary's C Statistic",
+    accent: color.rutgers
+  }, "C = ((n\\u22121) \\u03A3\\u1D62\\u03A3\\u2C7C w\\u1D62\\u2C7C(y\\u1D62\\u2212y\\u2C7C)\\u00B2) / (2S\\u2080 \\u03A3\\u1D62(y\\u1D62\\u2212\\u0233)\\u00B2)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "C ", '<', " 1: positive autocorrelation; C ", '>', " 1: negative")), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, "Spatial Regression Models"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '0.75rem',
+      marginBottom: '1.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Spatial Autoregressive Model (SAR)",
+    accent: '#7B1FA2'
+  }, "y = ", '\u03C1', "Wy + X", '\u03B2', " + ", '\u03B5', /*#__PURE__*/_react.default.createElement("br", null), "Outcome y depends on neighbors", '\u2019', " outcomes Wy"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Spatial Error Model (SEM)",
+    accent: '#7B1FA2'
+  }, "y = X\\u03B2 + u, \xA0 u = \\u03BBWu + \\u03B5", /*#__PURE__*/_react.default.createElement("br", null), "Errors are spatially correlated via W")), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Spatial Durbin Model (SDM)",
+    accent: '#7B1FA2'
+  }, "y = \\u03C1Wy + X\\u03B2 + WX\\u03B3 + \\u03B5 \xA0\xA0 (combines SAR + spatially lagged predictors)"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      marginTop: '1.5rem',
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '0.75rem'
+    }
+  }, "Geostatistics & Kriging"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Semivariogram",
+    accent: color.rutgers
+  }, "\\u03B3(h) = \\u00BD E[(Z(s+h) \\u2212 Z(s))\\u00B2]", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Parameters: Nugget \\u03B3\\u2080 (micro-scale variation), Sill \\u03C3\\u00B2+\\u03B3\\u2080 (total variance), Range a (correlation distance)"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr 1fr',
+      gap: '0.75rem',
+      marginBottom: '1.5rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Spherical Model',
+      eq: '\u03B3(h) = \u03B3\u2080+\u03C3\u00B2[3h/2a \u2212 \u00BD(h/a)\u00B3]'
+    },
+    accent: color.rutgers
+  }), /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Exponential Model',
+      eq: '\u03B3(h) = \u03B3\u2080+\u03C3\u00B2[1\u2212exp(\u22123h/a)]'
+    },
+    accent: color.rutgers
+  }), /*#__PURE__*/_react.default.createElement(EquationCard, {
+    eq: {
+      label: 'Gaussian Model',
+      eq: '\u03B3(h) = \u03B3\u2080+\u03C3\u00B2[1\u2212exp(\u22123h\u00B2/a\u00B2)]'
+    },
+    accent: color.rutgers
+  })), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Ordinary Kriging \\u2014 Best Linear Unbiased Predictor (BLUP)",
+    accent: color.rutgers
+  }, "Z\\u0302(s\\u2080) = \\u03A3\\u1D62 \\u03BB\\u1D62 Z(s\\u1D62), \xA0 subject to \xA0 \\u03A3\\u03BB\\u1D62 = 1 \xA0 (unbiasedness)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Kriging system: [\\u0393 | 1; 1\\u1D40 | 0] [\\u03BB; \\u03C8] = [\\u03B3\\u2080; 1]", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Prediction variance: \\u03C3\\u00B2\\u2096(s\\u2080) = C(0) \\u2212 \\u03BB\\u1D40c\\u2080 + \\u03C8"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '0.75rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Simple Kriging (Known Mean)",
+    accent: color.rutgers
+  }, "Z\\u0302(s\\u2080) = \\u03BC + \\u03A3\\u03BB\\u1D62(Z(s\\u1D62) \\u2212 \\u03BC)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+    label: "Universal Kriging (With Trend)",
+    accent: color.rutgers
+  }, "Z(s) = \\u03A3\\u03B2\\u209Af\\u209A(s) + R(s)", /*#__PURE__*/_react.default.createElement("br", null), "where R(s) is intrinsically stationary residual"))), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      marginBottom: '2rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      textTransform: 'uppercase',
+      letterSpacing: '1.5px',
+      fontWeight: 600,
+      marginBottom: '1rem'
+    }
+  }, "Semivariogram Structure"), /*#__PURE__*/_react.default.createElement("svg", {
+    viewBox: "0 0 500 250",
+    style: {
+      width: '100%',
+      maxWidth: '500px',
+      margin: '0 auto',
+      display: 'block'
+    }
+  }, /*#__PURE__*/_react.default.createElement("line", {
+    x1: "50",
+    y1: "200",
+    x2: "470",
+    y2: "200",
+    stroke: color.secondary,
+    strokeWidth: "1"
+  }), /*#__PURE__*/_react.default.createElement("line", {
+    x1: "50",
+    y1: "200",
+    x2: "50",
+    y2: "20",
+    stroke: color.secondary,
+    strokeWidth: "1"
+  }), /*#__PURE__*/_react.default.createElement("text", {
+    x: "260",
+    y: "235",
+    textAnchor: "middle",
+    fill: color.secondary,
+    fontSize: "11"
+  }, "Lag distance h"), /*#__PURE__*/_react.default.createElement("text", {
+    x: "15",
+    y: "110",
+    textAnchor: "middle",
+    fill: color.secondary,
+    fontSize: "11",
+    transform: "rotate(-90, 15, 110)"
+  }, '\u03B3(h)'), /*#__PURE__*/_react.default.createElement("circle", {
+    cx: "50",
+    cy: "180",
+    r: "3",
+    fill: color.rutgers
+  }), /*#__PURE__*/_react.default.createElement("line", {
+    x1: "52",
+    y1: "180",
+    x2: "80",
+    y2: "180",
+    stroke: color.tertiary,
+    strokeWidth: "0.5",
+    strokeDasharray: "4,4"
+  }), /*#__PURE__*/_react.default.createElement("text", {
+    x: "82",
+    y: "184",
+    fill: color.tertiary,
+    fontSize: "9"
+  }, "Nugget (\\u03B3\\u2080)"), /*#__PURE__*/_react.default.createElement("line", {
+    x1: "50",
+    y1: "60",
+    x2: "470",
+    y2: "60",
+    stroke: color.tertiary,
+    strokeWidth: "0.5",
+    strokeDasharray: "4,4"
+  }), /*#__PURE__*/_react.default.createElement("text", {
+    x: "440",
+    y: "54",
+    fill: color.tertiary,
+    fontSize: "9"
+  }, "Sill (\\u03C3\\u00B2+\\u03B3\\u2080)"), /*#__PURE__*/_react.default.createElement("line", {
+    x1: "320",
+    y1: "200",
+    x2: "320",
+    y2: "60",
+    stroke: color.accent,
+    strokeWidth: "0.5",
+    strokeDasharray: "4,4"
+  }), /*#__PURE__*/_react.default.createElement("text", {
+    x: "320",
+    y: "215",
+    textAnchor: "middle",
+    fill: color.accent,
+    fontSize: "9"
+  }, "Range (a)"), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M50,180 C120,120 220,75 320,62 L470,60",
+    fill: "none",
+    stroke: color.rutgers,
+    strokeWidth: "2"
+  }), /*#__PURE__*/_react.default.createElement("line", {
+    x1: "42",
+    y1: "60",
+    x2: "42",
+    y2: "180",
+    stroke: color.green,
+    strokeWidth: "1",
+    markerEnd: "url(#arrow)"
+  }), /*#__PURE__*/_react.default.createElement("text", {
+    x: "30",
+    y: "125",
+    fill: color.green,
+    fontSize: "8",
+    textAnchor: "middle",
+    transform: "rotate(-90, 30, 125)"
+  }, "Partial sill (\\u03C3\\u00B2)"))));
+
+  // ============================================================================
+  // TAB: IMPACT & GROWTH
+  // ============================================================================
+  const ImpactTab = () => /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      animation: 'fadeInUp 0.6s ease both'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Professional development through graduate teaching"
+  }, "Impact & Growth"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(4, 1fr)',
+      gap: '1.25rem',
+      marginBottom: '3rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "2",
+    label: "Semesters",
+    accent: color.accent
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "552",
+    label: "Total Slides",
+    accent: color.rutgers
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "62",
+    label: "Equations Derived",
+    unit: "+",
+    accent: color.green
+  }), /*#__PURE__*/_react.default.createElement(StatCard, {
+    value: "3",
+    label: "Real-World Datasets",
+    accent: color.orange
+  })), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Technical and professional capabilities strengthened through teaching"
+  }, "Skills Developed"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '1.25rem',
+      marginBottom: '3rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      borderLeft: `3px solid ${color.accent}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '1rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.75rem'
+    }
+  }, "Technical Depth"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '0.5rem'
+    }
+  }, ['LaTeX/Beamer', 'Multivariate Statistics', 'Spectral Theory', 'Spatial Statistics', 'Graph Theory', 'Stochastic Processes', 'Optimization', 'Geostatistics'].map(s => /*#__PURE__*/_react.default.createElement(Pill, {
+    key: s,
+    variant: "secondary"
+  }, s)))), /*#__PURE__*/_react.default.createElement(GlassCard, {
+    style: {
+      borderLeft: `3px solid ${color.green}`
+    }
+  }, /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '1rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.75rem'
+    }
+  }, "Professional Growth"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '0.5rem'
+    }
+  }, ['Curriculum Design', 'Assessment Creation', 'Rubric Development', 'Student Mentoring', 'Multi-Section Management', 'Content Delivery', 'Academic Writing', 'Time Management'].map(s => /*#__PURE__*/_react.default.createElement(Pill, {
+    key: s,
+    variant: "success"
+  }, s))))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Teaching journey at Rutgers ISE"
+  }, "Teaching Timeline"), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      position: 'relative',
+      marginBottom: '3rem',
+      paddingLeft: '2rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: '0.75rem',
+      top: 0,
+      bottom: 0,
+      width: '2px',
+      background: `linear-gradient(180deg, ${color.accent} 0%, ${color.rutgers} 100%)`
+    }
+  }), [{
+    date: 'September 2025',
+    title: 'Joined as Course Grader \u2014 ISE 338',
+    desc: 'Began grading assignments and exams for Dr. Ezzat\u2019s Probabilistic Models in OR course.',
+    clr: color.accent
+  }, {
+    date: 'October 2025',
+    title: 'Exam 1: Markov Chains',
+    desc: 'Designed grading rubric and detailed solution comments for ~40 students.',
+    clr: color.accent
+  }, {
+    date: 'November 2025',
+    title: 'Exam 2: Queuing Theory',
+    desc: 'Created comprehensive formula sheets and grading schemes for queuing and decision theory.',
+    clr: color.accent
+  }, {
+    date: 'December 2025',
+    title: 'Final Grades Submitted',
+    desc: 'Completed all grading for 7 homeworks, 2 exams, and project assessments.',
+    clr: color.accent
+  }, {
+    date: 'January 2026',
+    title: 'Began TA Role \u2014 ISE 540',
+    desc: 'Started constructing LaTeX slides for Dr. Jeong\u2019s Computational Methods course. Two sections.',
+    clr: color.rutgers
+  }, {
+    date: 'February 2026',
+    title: 'Modules 1\u20134 Completed',
+    desc: 'Delivered PCA (Parts I & II), MVN & Missing Data, and Recommender Systems \u2014 254 slides.',
+    clr: color.rutgers
+  }, {
+    date: 'March 2026',
+    title: 'Midterm Exam & Modules 5\u20136',
+    desc: 'Designed and graded midterm. Constructed Graph Mining (120 slides) and Spatial Data Mining (179 slides) modules.',
+    clr: color.rutgers
+  }, {
+    date: 'April 2026',
+    title: 'Course Completion (projected)',
+    desc: 'Final exam, project presentations, and grade submission for both sections.',
+    clr: color.rutgers
+  }].map((item, idx) => /*#__PURE__*/_react.default.createElement("div", {
+    key: idx,
+    style: {
+      position: 'relative',
+      marginBottom: '1.5rem',
+      animation: `fadeInUp 0.5s ease ${idx * 0.08}s both`
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: '-1.65rem',
+      top: '0.2rem',
+      width: '12px',
+      height: '12px',
+      borderRadius: '50%',
+      background: item.clr,
+      border: `2px solid ${color.white}`,
+      boxShadow: `0 0 0 2px ${item.clr}30`
+    }
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      marginLeft: '1rem'
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      fontSize: '0.75rem',
+      fontWeight: 600,
+      color: item.clr,
+      textTransform: 'uppercase',
+      letterSpacing: '1px',
+      marginBottom: '0.25rem'
+    }
+  }, item.date), /*#__PURE__*/_react.default.createElement("h4", {
+    style: {
+      fontSize: '1rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.25rem'
+    }
+  }, item.title), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.85rem',
+      color: color.secondary,
+      margin: 0,
+      lineHeight: 1.6
+    }
+  }, item.desc))))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    subtitle: "Key textbooks and references used in slide construction"
+  }, "Reference Materials"), /*#__PURE__*/_react.default.createElement(GlassCard, null, /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '1rem'
+    }
+  }, [{
+    title: 'Applied Multivariate Statistical Analysis',
+    authors: 'Johnson & Wichern',
+    use: 'Primary reference for PCA, MVN, multivariate theory'
+  }, {
+    title: 'Applied Multivariate Techniques',
+    authors: 'Sharma',
+    use: 'Supplementary examples and applications'
+  }, {
+    title: 'Matrix Analysis for Statistics',
+    authors: 'Schott',
+    use: 'Spectral theorem proofs, eigenvalue properties'
+  }, {
+    title: 'Spatial Statistics & Geostatistics',
+    authors: 'Cressie, Smith (UPenn)',
+    use: 'Variogram models, kriging, spatial autocorrelation'
+  }, {
+    title: 'Network Science',
+    authors: 'Barab\u00E1si',
+    use: 'Graph mining, centrality, PageRank foundations'
+  }, {
+    title: 'Recommender Systems Handbook',
+    authors: 'Ricci et al.',
+    use: 'Collaborative filtering algorithms and evaluation'
+  }].map((ref, i) => /*#__PURE__*/_react.default.createElement("div", {
+    key: i,
+    style: {
+      padding: '0.75rem',
+      background: 'rgba(0,0,0,0.02)',
+      borderRadius: '8px'
+    }
+  }, /*#__PURE__*/_react.default.createElement("h5", {
+    style: {
+      fontSize: '0.9rem',
+      fontWeight: 600,
+      color: color.text,
+      marginBottom: '0.25rem'
+    }
+  }, ref.title), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.8rem',
+      color: color.secondary,
+      margin: 0
+    }
+  }, ref.authors), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      margin: '0.25rem 0 0 0',
+      fontStyle: 'italic'
+    }
+  }, ref.use))))));
+
+  // ============================================================================
+  // MAIN APP
+  // ============================================================================
+  const TeachingShowcase = () => {
+    const [activeTab, setActiveTab] = (0, _react.useState)('overview');
+    (0, _react.useEffect)(() => {
+      const style = document.createElement('style');
+      style.textContent = `
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+      @keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+      @keyframes heroFloat { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+      @keyframes heroFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(210,16,52,0.7); } 50% { box-shadow: 0 0 0 10px rgba(210,16,52,0); } }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif; -webkit-font-smoothing: antialiased; }
+      a:hover { opacity: 0.8; }
+    `;
+      document.head.appendChild(style);
+      return () => document.head.removeChild(style);
+    }, []);
+    const tabContent = {
+      overview: /*#__PURE__*/_react.default.createElement(OverviewTab, null),
+      ise338: /*#__PURE__*/_react.default.createElement(ISE338Tab, null),
+      ise540: /*#__PURE__*/_react.default.createElement(ISE540Tab, null),
+      slides: /*#__PURE__*/_react.default.createElement(SlidesTab, null),
+      equations: /*#__PURE__*/_react.default.createElement(EquationsTab, null),
+      advanced: /*#__PURE__*/_react.default.createElement(AdvancedTab, null),
+      impact: /*#__PURE__*/_react.default.createElement(ImpactTab, null)
+    };
+    return /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        minHeight: '100vh',
+        background: color.bg,
+        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif"
+      }
+    }, /*#__PURE__*/_react.default.createElement("section", {
+      style: {
+        position: 'relative',
+        minHeight: '70vh',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #1d1d1f 0%, #2c2c2e 30%, #d21034 100%)'
+      }
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        opacity: 0.08
+      }
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        position: 'absolute',
+        top: '10%',
+        left: '5%',
+        width: '300px',
+        height: '300px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)'
+      }
+    }), /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        position: 'absolute',
+        bottom: '10%',
+        right: '10%',
+        width: '400px',
+        height: '400px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(210,16,52,0.4) 0%, transparent 70%)'
+      }
+    })), /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        position: 'relative',
+        zIndex: 5,
+        textAlign: 'center',
+        maxWidth: '800px',
+        padding: '0 2rem',
+        animation: 'heroFadeIn 1s ease 0.2s both'
+      }
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        display: 'inline-block',
+        padding: '8px 20px',
+        borderRadius: '980px',
+        background: 'rgba(255,255,255,0.1)',
+        border: '0.5px solid rgba(255,255,255,0.15)',
+        color: 'rgba(255,255,255,0.9)',
+        fontSize: '0.7rem',
+        fontWeight: 600,
+        letterSpacing: '2px',
+        textTransform: 'uppercase',
+        marginBottom: '1.5rem'
+      }
+    }, "Graduate Teaching Assistant \u2022 Rutgers University"), /*#__PURE__*/_react.default.createElement("h1", {
+      style: {
+        fontSize: '3rem',
+        fontWeight: 700,
+        fontFamily: "'Playfair Display', Georgia, serif",
+        letterSpacing: '-0.02em',
+        color: '#ffffff',
+        margin: '0 0 1rem 0',
+        lineHeight: 1.15
+      }
+    }, "Teaching Portfolio"), /*#__PURE__*/_react.default.createElement("p", {
+      style: {
+        fontSize: '1.1rem',
+        color: 'rgba(255,255,255,0.75)',
+        lineHeight: 1.65,
+        margin: '0 0 2rem 0',
+        maxWidth: '600px',
+        marginLeft: 'auto',
+        marginRight: 'auto'
+      }
+    }, "Two semesters of graduate teaching in the Department of Industrial & Systems Engineering, spanning probabilistic modeling, multivariate analysis, graph mining, and spatial statistics."), /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '1rem',
+        flexWrap: 'wrap'
+      }
+    }, [{
+      value: '2',
+      label: 'Courses'
+    }, {
+      value: '3',
+      label: 'Sections'
+    }, {
+      value: '330+',
+      label: 'Slides Authored'
+    }, {
+      value: '6',
+      label: 'LaTeX Decks'
+    }, {
+      value: '62+',
+      label: 'Equations'
+    }].map((s, i) => /*#__PURE__*/_react.default.createElement("div", {
+      key: i,
+      style: {
+        background: 'rgba(255,255,255,0.06)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        border: '0.5px solid rgba(255,255,255,0.08)',
+        borderRadius: '14px',
+        padding: '0.75rem 1.25rem',
+        animation: `heroFadeIn 0.8s ease ${0.4 + i * 0.1}s both`
+      }
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        fontSize: '1.2rem',
+        fontWeight: 700,
+        color: '#ffffff',
+        letterSpacing: '-0.02em'
+      }
+    }, s.value), /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        fontSize: '0.65rem',
+        color: 'rgba(255,255,255,0.5)',
+        textTransform: 'uppercase',
+        letterSpacing: '1.5px',
+        fontWeight: 500,
+        marginTop: '2px'
+      }
+    }, s.label))))), /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        position: 'absolute',
+        bottom: '4%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 10,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '6px',
+        opacity: 0.4,
+        animation: 'heroFloat 2s ease-in-out infinite'
+      }
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        width: '20px',
+        height: '32px',
+        borderRadius: '10px',
+        border: '1.5px solid rgba(255,255,255,0.4)',
+        display: 'flex',
+        justifyContent: 'center',
+        paddingTop: '6px'
+      }
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        width: '2px',
+        height: '8px',
+        borderRadius: '1px',
+        background: 'rgba(255,255,255,0.6)'
+      }
+    })), /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        fontSize: '0.55rem',
+        letterSpacing: '2px',
+        textTransform: 'uppercase',
+        color: 'rgba(255,255,255,0.4)',
+        fontWeight: 500
+      }
+    }, "Scroll"))), /*#__PURE__*/_react.default.createElement("nav", {
+      style: {
+        ...glass.nav,
+        position: 'sticky',
+        top: 0,
+        zIndex: 50,
+        padding: '12px 0'
+      }
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        maxWidth: '1200px',
+        margin: '0 auto',
+        display: 'flex',
+        gap: '0.5rem',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        padding: '0 2rem'
+      }
+    }, TABS.map(tab => /*#__PURE__*/_react.default.createElement(TabButton, {
+      key: tab.id,
+      isActive: activeTab === tab.id,
+      onClick: () => setActiveTab(tab.id)
+    }, tab.label)))), /*#__PURE__*/_react.default.createElement("main", {
+      style: {
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '3rem 2rem 4rem'
+      }
+    }, tabContent[activeTab]), /*#__PURE__*/_react.default.createElement("footer", {
+      style: {
+        borderTop: `0.5px solid ${color.border}`,
+        padding: '2rem',
+        textAlign: 'center'
+      }
+    }, /*#__PURE__*/_react.default.createElement("p", {
+      style: {
+        fontSize: '0.75rem',
+        color: color.tertiary,
+        margin: 0
+      }
+    }, "Teaching Portfolio \xB7 ", PROJECT_META.student, " \xB7 ", PROJECT_META.institution), /*#__PURE__*/_react.default.createElement("p", {
+      style: {
+        fontSize: '0.7rem',
+        color: color.tertiary,
+        margin: '8px 0 0 0',
+        opacity: 0.7
+      }
+    }, PROJECT_META.period, " \xB7 Department of Industrial & Systems Engineering")));
+  };
+  var _default = _exports.default = TeachingShowcase;
+});
+
+  </script>
+  <script>
+    // Mount the app - the UMD wrapper exports to window.teachingShowcase
+    var App = window.teachingShowcase && window.teachingShowcase.default
+              ? window.teachingShowcase.default
+              : window.teachingShowcase;
+    if (App) {
+      var root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(React.createElement(App));
+    } else {
+      document.getElementById('root').innerHTML = '<p style="padding:2rem;color:red;">Error: Component not found</p>';
+    }
+  </script>
+  <!-- Floating Home Navigation -->
+  <div id="home-nav" style="position:fixed;top:16px;left:16px;z-index:9999;display:flex;gap:8px;">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;font-size:0.8rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;color:#6e6e73;background:rgba(255,255,255,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:0.5px solid rgba(0,0,0,0.06);box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.2s ease;" onmouseover="this.style.color='#0071e3';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.06)'" onmouseout="this.style.color='#6e6e73';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.03)'">&larr; Home</a>
+    <a href="portfolio.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;font-size:0.8rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;color:#6e6e73;background:rgba(255,255,255,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:0.5px solid rgba(0,0,0,0.06);box-shadow:0 1px 4px rgba(0,0,0,0.03);transition:all 0.2s ease;" onmouseover="this.style.color='#0071e3';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.06)'" onmouseout="this.style.color='#6e6e73';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.03)'">Portfolio</a>
+  </div>
+</body>
+</html>

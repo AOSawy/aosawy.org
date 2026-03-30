@@ -1,0 +1,90 @@
+# ========================================
+# aosawy.org — Git Ignore
+# Precisely includes ONLY what the live site serves
+# ========================================
+
+# ----- JSX source files (build inputs, not served) -----
+*.jsx
+
+# ----- Build tools, pipeline, temp -----
+tools/
+content/
+design/
+src/
+showcase-build/
+node_modules/
+.superpowers/
+
+# ----- OS / editor -----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# ----- Raw 3D models (374MB STL + unoptimized GLB) -----
+public/models/*
+!public/models/optimized/
+
+# ----- Empty directories -----
+public/images/
+
+# =============================================
+# RAW SOURCE MATERIALS (39GB)
+# Showcase HTML files have content baked in via base64.
+# Only specific PDFs referenced externally are kept.
+# =============================================
+
+# --- AUC: Ignore EVERYTHING, then whitelist exact files ---
+public/assets/AUC/*
+
+# design-ii-showcase → 1 PDF
+!public/assets/AUC/design-ii-project/
+public/assets/AUC/design-ii-project/*
+!public/assets/AUC/design-ii-project/documents/
+public/assets/AUC/design-ii-project/documents/*
+!public/assets/AUC/design-ii-project/documents/project-report.pdf
+
+# fem-showcase → 1 PDF
+!public/assets/AUC/MENG-4553 FEM/
+public/assets/AUC/MENG-4553 FEM/*
+!public/assets/AUC/MENG-4553 FEM/PROJECT/
+public/assets/AUC/MENG-4553 FEM/PROJECT/*
+!public/assets/AUC/MENG-4553 FEM/PROJECT/MENG4553 Project Presentation.pdf
+
+# failure-analysis-showcase → notes PDFs + project report
+!public/assets/AUC/failure-analysis-project/
+public/assets/AUC/failure-analysis-project/*
+!public/assets/AUC/failure-analysis-project/documents/
+public/assets/AUC/failure-analysis-project/documents/*
+!public/assets/AUC/failure-analysis-project/documents/project-report.pdf
+!public/assets/AUC/failure-analysis-project/notes/
+public/assets/AUC/failure-analysis-project/notes/*
+!public/assets/AUC/failure-analysis-project/notes/*.pdf
+
+# --- RU: Ignore EVERYTHING, then whitelist exact PDFs ---
+public/assets/RU/*
+
+# ise507-showcase → 2 PDFs only
+!public/assets/RU/ISE507 Data Analytics In Engineering Systems/
+public/assets/RU/ISE507 Data Analytics In Engineering Systems/*
+!public/assets/RU/ISE507 Data Analytics In Engineering Systems/PROJECT/
+public/assets/RU/ISE507 Data Analytics In Engineering Systems/PROJECT/*
+!public/assets/RU/ISE507 Data Analytics In Engineering Systems/PROJECT/507ProjectPresentation.pdf
+!public/assets/RU/ISE507 Data Analytics In Engineering Systems/PROJECT/507ProjectReport.pdf
+
+# ise530-showcase → 4 PDFs only
+!public/assets/RU/ISE530 Forecasting Analytics/
+public/assets/RU/ISE530 Forecasting Analytics/*
+!public/assets/RU/ISE530 Forecasting Analytics/PROJECT/
+public/assets/RU/ISE530 Forecasting Analytics/PROJECT/*
+!public/assets/RU/ISE530 Forecasting Analytics/PROJECT/ISE530 Project Presentation.pdf
+!public/assets/RU/ISE530 Forecasting Analytics/PROJECT/ISE530 Project Report #1.pdf
+!public/assets/RU/ISE530 Forecasting Analytics/PROJECT/ISE530 Project Report #2.pdf
+!public/assets/RU/ISE530 Forecasting Analytics/PROJECT/ISE530 Project Report #3.pdf
+
+# ise694-showcase → 1 PDF only
+!public/assets/RU/ISE694 Data Mining I/
+public/assets/RU/ISE694 Data Mining I/*
+!public/assets/RU/ISE694 Data Mining I/Project/
+public/assets/RU/ISE694 Data Mining I/Project/*
+!public/assets/RU/ISE694 Data Mining I/Project/694ProjectPresentation.pdf

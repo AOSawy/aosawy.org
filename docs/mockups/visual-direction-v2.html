@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aosawy.org — Visual Direction</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page-title {
+    text-align: center;
+    padding: 40px 20px 20px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #1d1d1f;
+  }
+  .page-subtitle {
+    text-align: center;
+    padding: 0 20px 40px;
+    font-size: 0.95em;
+    color: #86868b;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* === MOCKUP CONTAINER === */
+  .site-mockup {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+    background: #ffffff;
+  }
+
+  /* === NAV — Liquid Glass === */
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid rgba(0,0,0,0.08);
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .glass-nav .logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.05em;
+    color: #1d1d1f;
+  }
+  .glass-nav .links {
+    display: flex;
+    gap: 24px;
+    font-size: 0.82em;
+    font-weight: 400;
+    color: #424245;
+  }
+  .glass-nav .links span:hover { color: #0071e3; }
+
+  /* === HERO === */
+  .hero {
+    padding: 56px 48px 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero-text { flex: 1; }
+  .hero-label {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #86868b;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.2em;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #1d1d1f;
+    margin-bottom: 12px;
+  }
+  .hero p {
+    font-size: 1em;
+    color: #6e6e73;
+    line-height: 1.65;
+    max-width: 480px;
+    margin-bottom: 20px;
+  }
+  .hero-photo {
+    width: 160px;
+    height: 200px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8e8ed 0%, #d2d2d7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    color: #86868b;
+    flex-shrink: 0;
+  }
+
+  /* === BUTTONS — Apple Style === */
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-primary {
+    background: #0071e3;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 980px;
+    font-size: 0.82em;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .btn-secondary {
+    background: transparent;
+    color: #0071e3;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 980px;
+    font-size: 0.82em;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* === STATS BAR — Liquid Glass Cards === */
+  .stats-bar {
+    padding: 0 48px 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: saturate(120%) blur(12px);
+    -webkit-backdrop-filter: saturate(120%) blur(12px);
+    border: 0.5px solid rgba(0,0,0,0.06);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  }
+  .stat-card .number {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #1d1d1f;
+    line-height: 1.2;
+  }
+  .stat-card .label {
+    font-size: 0.7em;
+    color: #86868b;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* === SECTION LABELS === */
+  .section-label {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #86868b;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  /* === RESEARCH INTEREST PILLS === */
+  .pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; padding: 0 48px; }
+  .pill {
+    background: rgba(0, 113, 227, 0.06);
+    color: #0071e3;
+    padding: 6px 16px;
+    border-radius: 980px;
+    font-size: 0.78em;
+    font-weight: 500;
+    border: 0.5px solid rgba(0, 113, 227, 0.12);
+  }
+
+  /* === FEATURED WORK — Glass Cards === */
+  .featured-section { padding: 0 48px 32px; }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: saturate(120%) blur(12px);
+    -webkit-backdrop-filter: saturate(120%) blur(12px);
+    border: 0.5px solid rgba(0,0,0,0.06);
+    border-radius: 14px;
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  }
+  .glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+  .glass-card .tag {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #86868b;
+    margin-bottom: 6px;
+  }
+  .glass-card h3 {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+  }
+  .glass-card p {
+    font-size: 0.8em;
+    color: #6e6e73;
+    line-height: 1.5;
+  }
+
+  /* === NEWS TIMELINE === */
+  .news-section { padding: 0 48px 32px; }
+  .news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .news-header a {
+    font-size: 0.8em;
+    color: #0071e3;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .news-list {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: saturate(120%) blur(12px);
+    -webkit-backdrop-filter: saturate(120%) blur(12px);
+    border: 0.5px solid rgba(0,0,0,0.06);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  }
+  .news-item {
+    padding: 14px 20px;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    border-bottom: 0.5px solid rgba(0,0,0,0.04);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-date {
+    font-size: 0.75em;
+    color: #86868b;
+    white-space: nowrap;
+    min-width: 70px;
+    font-weight: 500;
+  }
+  .news-text {
+    font-size: 0.85em;
+    color: #1d1d1f;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    padding: 20px 48px;
+    border-top: 0.5px solid rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72em;
+    color: #86868b;
+  }
+  .footer a { color: #0071e3; text-decoration: none; }
+
+  /* === APPROVE/REVISE SECTION === */
+  .decision {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+  }
+  .decision h2 {
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    color: #1d1d1f;
+  }
+  .decision .sub {
+    text-align: center;
+    font-size: 0.85em;
+    color: #86868b;
+    margin-bottom: 24px;
+  }
+  .design-notes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .design-note {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    border: 0.5px solid rgba(0,0,0,0.06);
+  }
+  .design-note h4 {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 8px;
+  }
+  .design-note ul {
+    padding-left: 16px;
+    font-size: 0.8em;
+    color: #6e6e73;
+    line-height: 1.8;
+  }
+  .choice-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  .choice-btn {
+    padding: 14px 32px;
+    border-radius: 14px;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    border: 0.5px solid rgba(0,0,0,0.06);
+    background: white;
+    color: #1d1d1f;
+    transition: all 0.2s;
+  }
+  .choice-btn:hover { background: #f5f5f7; }
+  .choice-btn.selected {
+    background: #0071e3;
+    color: white;
+    border-color: #0071e3;
+  }
+</style>
+<script>
+  function selectChoice(el, choice) {
+    document.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    if (window.__companion_emit) window.__companion_emit({ type: 'click', choice: choice, text: el.textContent.trim() });
+  }
+</script>
+</head>
+<body>
+
+<!-- FULL PAGE MOCKUP -->
+<h1 class="page-title">Light Academic + Apple Liquid Glass</h1>
+<p class="page-subtitle">Serif headings for scholarly authority. Apple's frosted glass surfaces, generous whitespace, and precise typography. iOS 26 translucency on cards and nav.</p>
+
+<div class="site-mockup">
+
+  <!-- Nav -->
+  <div class="glass-nav">
+    <span class="logo">A.O. Sawy</span>
+    <div class="links">
+      <span>Research</span>
+      <span>Portfolio</span>
+      <span>Teaching</span>
+      <span>CV</span>
+      <span>News</span>
+      <span>Contact</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-label">PhD Student · Rutgers University · ISE</div>
+      <h1>Abdelrahman O. Sawy</h1>
+      <p>Developing mathematical optimization and machine learning methods for renewable energy operations — with a focus on spatio-temporal analytics for offshore wind farms.</p>
+      <div class="btn-row">
+        <button class="btn-primary">Download CV</button>
+        <button class="btn-secondary">Google Scholar →</button>
+        <button class="btn-secondary">GitHub →</button>
+        <button class="btn-secondary">LinkedIn →</button>
+      </div>
+    </div>
+    <div class="hero-photo">Photo</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="number">4.0</div>
+      <div class="label">GPA · MS in ISE</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">Top 0.6%</div>
+      <div class="label">Kaggle · 3,724 teams</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">2</div>
+      <div class="label">TA Positions</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">3</div>
+      <div class="label">Degrees</div>
+    </div>
+  </div>
+
+  <!-- Research Interests -->
+  <div style="padding: 0 48px 8px;">
+    <div class="section-label">Research Interests</div>
+  </div>
+  <div class="pills">
+    <span class="pill">Mathematical Optimization</span>
+    <span class="pill">Machine Learning</span>
+    <span class="pill">Spatio-Temporal Analytics</span>
+    <span class="pill">Renewable Energy Systems</span>
+    <span class="pill">Operations Research</span>
+  </div>
+
+  <!-- Featured Work -->
+  <div class="featured-section">
+    <div class="section-label">Featured Work</div>
+    <div class="featured-grid">
+      <div class="glass-card">
+        <div class="tag">Research</div>
+        <h3>POSYDON Framework</h3>
+        <p>Offshore wind farm O&M simulation & optimization validated against Shoreline.io</p>
+      </div>
+      <div class="glass-card">
+        <div class="tag">Competition</div>
+        <h3>Kaggle · Loan Default</h3>
+        <p>Ranked 21/3,724 — XGBoost & stacked ensembles with feature engineering</p>
+      </div>
+      <div class="glass-card">
+        <div class="tag">Thesis</div>
+        <h3>Energy-Generating Turnstile</h3>
+        <p>BSc senior design — gearbox optimization & mechanical energy harvesting</p>
+      </div>
+      <div class="glass-card">
+        <div class="tag">Competition</div>
+        <h3>P&G · Price Forecasting</h3>
+        <p>Electricity spot-price forecasting with LMP data, ARIMA & gradient boosting</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- News -->
+  <div class="news-section">
+    <div class="news-header">
+      <div class="section-label" style="margin-bottom:0;">Latest News</div>
+      <a href="#">View all →</a>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-date">Mar 2026</span>
+        <span class="news-text">Graduate TA — Computational Methods in Industrial Engineering</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jan 2026</span>
+        <span class="news-text">Completed M.S. in ISE — 4.0 GPA, System Analytics concentration</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">2025</span>
+        <span class="news-text">Kaggle Loan Default Prediction — Ranked 21 out of 3,724 (top 0.6%)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>© 2026 Abdelrahman O. Sawy</span>
+    <span>Founder, <a href="#">The Agentic Lab®</a> · a.sawy@rutgers.edu</span>
+  </div>
+
+</div>
+
+<!-- Design Notes -->
+<div class="decision">
+  <h2>Design Language Applied</h2>
+  <p class="sub">How Apple + Liquid Glass principles shape every element</p>
+
+  <div class="design-notes">
+    <div class="design-note">
+      <h4>🍎 Apple Design Language</h4>
+      <ul>
+        <li>SF-inspired Inter font (closest web equivalent)</li>
+        <li>Pill-shaped buttons (border-radius: 980px)</li>
+        <li>Generous whitespace & breathing room</li>
+        <li>Blue-#0071e3 accent (Apple's exact link blue)</li>
+        <li>Hairline 0.5px borders throughout</li>
+        <li>Subtle hover lift on interactive cards</li>
+      </ul>
+    </div>
+    <div class="design-note">
+      <h4>✨ iOS 26 Liquid Glass</h4>
+      <ul>
+        <li>Frosted glass nav: backdrop-filter blur(20px)</li>
+        <li>Translucent card backgrounds (rgba white 0.65)</li>
+        <li>Saturate(180%) for that glass material depth</li>
+        <li>Ultra-thin borders with near-zero opacity</li>
+        <li>Soft shadows (0 1px 4px) — no hard edges</li>
+        <li>#f5f5f7 background (Apple's signature gray)</li>
+      </ul>
+    </div>
+    <div class="design-note">
+      <h4>📚 Academic Authority</h4>
+      <ul>
+        <li>Playfair Display serif for headings (name, page titles)</li>
+        <li>Inter sans-serif for body (readability, professionalism)</li>
+        <li>Scholarly section labels (uppercase, tracked out)</li>
+        <li>Publications with PDF/Code/BibTeX links</li>
+        <li>Research group affiliations prominent</li>
+      </ul>
+    </div>
+    <div class="design-note">
+      <h4>⚡ Technical Details</h4>
+      <ul>
+        <li>Tailwind CSS for utility classes (Apple-like precision)</li>
+        <li>CSS custom properties for theming</li>
+        <li>Scroll-triggered animations (Intersection Observer)</li>
+        <li>System font stack fallback for performance</li>
+        <li>Responsive: mobile-first, glass adapts to viewport</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="choice-row">
+    <button class="choice-btn" onclick="selectChoice(this, 'approve')">✓ Approve — this is the direction</button>
+    <button class="choice-btn" onclick="selectChoice(this, 'revise')">✎ Needs changes</button>
+  </div>
+</div>
+
+</body>
+</html>

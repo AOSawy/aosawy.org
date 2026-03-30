@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdelrahman Sawy | PhD Researcher &amp; Engineer</title>
+  <meta name="description" content="Abdelrahman Sawy — PhD student in Industrial & Systems Engineering at Rutgers University. Specializing in stochastic optimization, machine learning, and AI-driven decision systems for renewable energy." />
+  <meta name="author" content="Abdelrahman Sawy" />
+  <meta property="og:title" content="Abdelrahman Sawy | PhD Researcher & Engineer" />
+  <meta property="og:description" content="Industrial & Systems Engineering at Rutgers. Optimization, ML, and renewable energy research." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body, #root { width: 100%; min-height: 100vh; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif; -webkit-font-smoothing: antialiased; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script>
+    // UMD module expects global.react (lowercase) but React UMD sets window.React (capitalized)
+    window.react = window.React;
+  </script>
+  <script>
+(function (global, factory) {
+  if (typeof define === "function" && define.amd) {
+    define(["exports", "react"], factory);
+  } else if (typeof exports !== "undefined") {
+    factory(exports, require("react"));
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod.exports, global.react);
+    global.home = mod.exports;
+  }
+})(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : this, function (_exports, _react) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  _react = _interopRequireWildcard(_react);
+  function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
+  /**
+   * AOSAWY.ORG — Homepage
+   * Apple Liquid Glass Design System
+   *
+   * The most immersive landing page for a PhD student career website.
+   * Sections: Hero, About/Journey, Research, Portfolio, Teaching,
+   *           Publications & Talks, Awards & Funding, Contact
+   *
+   * Author: Abdelrahman Sawy
+   * Built: March 2026
+   */
+
+  // ============================================================================
+  // DESIGN TOKENS — Apple Liquid Glass
+  // ============================================================================
+  const color = {
+    bg: '#f5f5f7',
+    text: '#1d1d1f',
+    secondary: '#6e6e73',
+    tertiary: '#86868b',
+    accent: '#0071e3',
+    accentLight: 'rgba(0,113,227,0.06)',
+    accentBorder: 'rgba(0,113,227,0.15)',
+    border: 'rgba(0,0,0,0.06)',
+    white: '#ffffff',
+    red: '#CC0000',
+    green: '#2E7D32',
+    orange: '#e67e22',
+    purple: '#8e44ad',
+    darkRed: '#c0392b',
+    rutgers: '#d21034',
+    auc: '#003366',
+    gold: '#C49A3C'
+  };
+  const glass = {
+    card: {
+      background: 'rgba(255,255,255,0.65)',
+      backdropFilter: 'saturate(180%) blur(20px)',
+      WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+      border: '0.5px solid rgba(0,0,0,0.06)',
+      borderRadius: '16px',
+      boxShadow: '0 1px 4px rgba(0,0,0,0.03)'
+    },
+    cardHover: {
+      boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+      transform: 'translateY(-2px)'
+    },
+    nav: {
+      background: 'rgba(255,255,255,0.72)',
+      backdropFilter: 'saturate(180%) blur(20px)',
+      WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+      borderBottom: '0.5px solid rgba(0,0,0,0.06)'
+    },
+    surface: {
+      background: 'rgba(255,255,255,0.45)',
+      backdropFilter: 'saturate(120%) blur(12px)',
+      WebkitBackdropFilter: 'saturate(120%) blur(12px)',
+      border: '0.5px solid rgba(0,0,0,0.04)',
+      borderRadius: '14px'
+    },
+    hero: {
+      background: 'rgba(255,255,255,0.12)',
+      backdropFilter: 'saturate(180%) blur(30px)',
+      WebkitBackdropFilter: 'saturate(180%) blur(30px)',
+      border: '0.5px solid rgba(255,255,255,0.18)',
+      borderRadius: '20px',
+      boxShadow: '0 8px 32px rgba(0,0,0,0.12)'
+    }
+  };
+
+  // ============================================================================
+  // NAVIGATION ITEMS
+  // ============================================================================
+  const NAV_SECTIONS = [{
+    id: 'hero',
+    label: 'Home'
+  }, {
+    id: 'about',
+    label: 'About'
+  }, {
+    id: 'resume',
+    label: 'Resume'
+  }, {
+    id: 'research',
+    label: 'Research'
+  }, {
+    id: 'portfolio',
+    label: 'Portfolio'
+  }, {
+    id: 'teaching',
+    label: 'Teaching'
+  }, {
+    id: 'publications',
+    label: 'Publications'
+  }, {
+    id: 'awards',
+    label: 'Awards'
+  }, {
+    id: 'contact',
+    label: 'Contact'
+  }];
+
+  // ============================================================================
+  // PORTFOLIO SHOWCASES DATA
+  // ============================================================================
+  const SHOWCASES = [{
+    title: 'Offshore Wind Farm O&M',
+    subtitle: 'POSYDON: Joint Maintenance + Production + Yaw Optimization',
+    tags: ['Stochastic MILP', 'Gurobi', 'IEEE TSE'],
+    color: '#CC0000',
+    link: 'research-showcase.html',
+    category: 'research',
+    institution: 'Rutgers ISE'
+  }, {
+    title: 'LMP Forecasting',
+    subtitle: 'SARIMA-X + Box-Cox for PJM Electricity Markets',
+    tags: ['Time Series', 'Forecasting', '1st Place'],
+    color: '#0071e3',
+    link: 'ise530-showcase.html',
+    category: 'rutgers',
+    institution: 'ISE 530'
+  }, {
+    title: 'Spatial Statistics',
+    subtitle: 'Kriging, Variograms & Geospatial Analysis',
+    tags: ['Geostatistics', 'R', 'Spatial Modeling'],
+    color: '#2E7D32',
+    link: 'ise694-showcase.html',
+    category: 'rutgers',
+    institution: 'ISE 694'
+  }, {
+    title: 'System Dynamics',
+    subtitle: 'Renewable Energy Policy Feedback Modeling',
+    tags: ['Vensim', 'Feedback Loops', 'Policy'],
+    color: '#7B1FA2',
+    link: 'ise507-showcase.html',
+    category: 'rutgers',
+    institution: 'ISE 507'
+  }, {
+    title: 'NACA 0024 CFD Analysis',
+    subtitle: 'Computational Fluid Dynamics of Airfoil',
+    tags: ['ANSYS Fluent', 'CFD', 'Aerodynamics'],
+    color: '#003366',
+    link: 'naca0024-cfd-showcase.html',
+    category: 'auc',
+    institution: 'AUC'
+  }, {
+    title: 'Thesis: Composite Aerostructures',
+    subtitle: 'FEA & Optimization of CFRP Structures',
+    tags: ['ABAQUS', 'Composites', 'FEA'],
+    color: '#C49A3C',
+    link: 'thesis-showcase.html',
+    category: 'auc',
+    institution: 'AUC'
+  }, {
+    title: 'Finite Element Method',
+    subtitle: 'Structural Analysis & Element Formulation',
+    tags: ['FEM', 'MATLAB', 'Structural'],
+    color: '#e67e22',
+    link: 'fem-showcase.html',
+    category: 'auc',
+    institution: 'AUC'
+  }, {
+    title: 'Additive Manufacturing',
+    subtitle: 'FDM Process Parameters & Mechanical Testing',
+    tags: ['3D Printing', 'FDM', 'Testing'],
+    color: '#00838F',
+    link: 'am-showcase.html',
+    category: 'auc',
+    institution: 'AUC'
+  }, {
+    title: 'Failure Analysis',
+    subtitle: 'Metallography & Fractography Investigation',
+    tags: ['Microscopy', 'ASTM', 'Materials'],
+    color: '#5D4037',
+    link: 'failure-analysis-showcase.html',
+    category: 'auc',
+    institution: 'AUC'
+  }, {
+    title: 'Engineering Design II',
+    subtitle: 'Senior Capstone: Product Design & Prototyping',
+    tags: ['SolidWorks', 'Prototyping', 'Design'],
+    color: '#AD1457',
+    link: 'design-ii-showcase.html',
+    category: 'auc',
+    institution: 'AUC'
+  }];
+
+  // ============================================================================
+  // JOURNEY TIMELINE DATA
+  // ============================================================================
+  const JOURNEY = [{
+    era: 'BSc',
+    years: '2019 \u2013 2024',
+    institution: 'The American University in Cairo',
+    degree: 'BSc Mechanical Engineering',
+    highlight: 'Graduated with Distinction',
+    color: color.auc,
+    image: 'assets/Home/auc.jpg',
+    achievements: ['CFRP composite aerostructures thesis', 'CFD analysis of NACA 0024 airfoil', 'Additive manufacturing research', 'Senior capstone design project']
+  }, {
+    era: 'MSc',
+    years: '2024 \u2013 2026',
+    institution: 'Rutgers, The State University of New Jersey',
+    degree: 'MSc Industrial & Systems Engineering',
+    highlight: 'Optimization & Machine Learning',
+    color: color.rutgers,
+    image: 'assets/Home/CoreBuilding.jpeg',
+    achievements: ['LMP forecasting (SARIMA-X, 1st place)', 'Spatial statistics & geostatistics', 'System dynamics modeling', 'Teaching assistant for ISE 338 & ISE 540']
+  }, {
+    era: 'PhD',
+    years: '2026 \u2013 Present',
+    institution: 'Rutgers, The State University of New Jersey',
+    degree: 'PhD Industrial & Systems Engineering',
+    highlight: 'Renewables & Industrial Analytics',
+    color: color.accent,
+    image: 'assets/Home/Rutgers-Weeks-Hall_30-sm.webp',
+    achievements: ['POSYDON framework: offshore wind O&M', 'Stochastic MILP optimization', 'AI-based energy forecasting', 'RIA Lab with Dr. Ezzat']
+  }];
+
+  // ============================================================================
+  // TEACHING SUMMARY
+  // ============================================================================
+  const TEACHING_COURSES = [{
+    code: 'ISE 338',
+    title: 'Probabilistic Models in OR',
+    semester: 'Fall 2025',
+    instructor: 'Dr. Ahmed Aziz Ezzat',
+    topics: ['Markov Chains', 'Queuing Theory', 'Decision Theory'],
+    students: '~40',
+    color: color.accent
+  }, {
+    code: 'ISE 540',
+    title: 'Computational Methods in IE',
+    semester: 'Spring 2026',
+    instructor: 'Dr. Myong K. Jeong',
+    topics: ['Numerical Optimization', 'ML Algorithms', 'Monte Carlo'],
+    students: '~35',
+    color: color.rutgers
+  }];
+
+  // ============================================================================
+  // STATS
+  // ============================================================================
+  const STATS = [{
+    label: 'Portfolio Showcases',
+    value: '10+'
+  }, {
+    label: 'Equations Authored',
+    value: '62+'
+  }, {
+    label: 'Lecture Slides',
+    value: '330+'
+  }, {
+    label: 'Research Frameworks',
+    value: '3'
+  }];
+
+  // ============================================================================
+  // CSS KEYFRAMES (injected once)
+  // ============================================================================
+  const injectStyles = () => {
+    if (document.getElementById('home-animations')) return;
+    const style = document.createElement('style');
+    style.id = 'home-animations';
+    style.textContent = `
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0px); }
+      50%      { transform: translateY(-8px); }
+    }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(0,113,227,0.15); }
+      50%      { box-shadow: 0 0 40px rgba(0,113,227,0.3); }
+    }
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes typewriter {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes borderGlow {
+      0%, 100% { border-color: rgba(0,113,227,0.15); }
+      50%      { border-color: rgba(0,113,227,0.4); }
+    }
+    @keyframes orbitSlow {
+      from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+      to   { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+    }
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+      33%      { transform: translate(30px, -20px) scale(1.05); opacity: 0.5; }
+      66%      { transform: translate(-15px, 15px) scale(0.95); opacity: 0.35; }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+      50%      { transform: translate(-25px, -30px) scale(1.08); opacity: 0.45; }
+    }
+    @keyframes float3 {
+      0%, 100% { transform: translate(0, 0); opacity: 0.2; }
+      40%      { transform: translate(20px, 25px); opacity: 0.4; }
+      80%      { transform: translate(-10px, -15px); opacity: 0.3; }
+    }
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .nav-link-hover:hover {
+      color: ${color.accent} !important;
+    }
+    .card-hover-effect {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover-effect:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .showcase-card-hover:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+    .showcase-card-hover {
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn-primary-hover:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0,113,227,0.35);
+    }
+    .profile-glow {
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    .journey-image-hover:hover {
+      transform: scale(1.03);
+      filter: brightness(1.05);
+    }
+    .journey-image-hover {
+      transition: all 0.4s ease;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: ${color.bg};
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.15);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.25);
+    }
+  `;
+    document.head.appendChild(style);
+  };
+
+  // ============================================================================
+  // SCROLL REVEAL HOOK
+  // ============================================================================
+  const useScrollReveal = () => {
+    (0, _react.useEffect)(() => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+      document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+      return () => observer.disconnect();
+    }, []);
+  };
+
+  // ============================================================================
+  // REUSABLE COMPONENTS
+  // ============================================================================
+  const SectionTitle = ({
+    title,
+    subtitle,
+    align = 'center',
+    color: clr
+  }) => (/*#__PURE__*/_react.default.createElement('div', {
+    className: 'scroll-reveal',
+    style: {
+      textAlign: align,
+      marginBottom: '48px'
+    }
+  }, /*#__PURE__*/_react.default.createElement('h2', {
+    style: {
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontSize: '2.4rem',
+      fontWeight: 700,
+      color: clr || color.text,
+      marginBottom: '12px',
+      lineHeight: 1.2,
+      letterSpacing: '-0.02em'
+    }
+  }, title), subtitle && /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '1.05rem',
+      color: color.secondary,
+      maxWidth: '640px',
+      margin: align === 'center' ? '0 auto' : '0',
+      lineHeight: 1.6,
+      fontWeight: 400
+    }
+  }, subtitle)));
+  const GlassCard = ({
+    children,
+    style,
+    className = '',
+    onClick
+  }) => (/*#__PURE__*/_react.default.createElement('div', {
+    className: `card-hover-effect ${className}`,
+    onClick,
+    style: {
+      ...glass.card,
+      padding: '28px',
+      ...style
+    }
+  }, children));
+  const Pill = ({
+    children,
+    clr = color.accent,
+    style: extraStyle
+  }) => (/*#__PURE__*/_react.default.createElement('span', {
+    style: {
+      display: 'inline-block',
+      padding: '4px 12px',
+      borderRadius: '100px',
+      fontSize: '0.75rem',
+      fontWeight: 600,
+      background: `${clr}11`,
+      color: clr,
+      border: `1px solid ${clr}22`,
+      ...extraStyle
+    }
+  }, children));
+  const StatChip = ({
+    value,
+    label,
+    delay = 0
+  }) => (/*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      ...glass.hero,
+      padding: '16px 24px',
+      textAlign: 'center',
+      minWidth: '120px',
+      animation: `scaleIn 0.6s ease ${delay}s both`
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '1.6rem',
+      fontWeight: 700,
+      color: color.white,
+      lineHeight: 1
+    }
+  }, value), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.75rem',
+      color: 'rgba(255,255,255,0.7)',
+      marginTop: '4px',
+      fontWeight: 500
+    }
+  }, label)));
+  const LinkButton = ({
+    href,
+    children,
+    primary,
+    style: extraStyle
+  }) => (/*#__PURE__*/_react.default.createElement('a', {
+    href,
+    className: primary ? 'btn-primary-hover' : 'card-hover-effect',
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      padding: primary ? '12px 28px' : '10px 20px',
+      borderRadius: '12px',
+      fontSize: '0.9rem',
+      fontWeight: 600,
+      textDecoration: 'none',
+      transition: 'all 0.3s ease',
+      cursor: 'pointer',
+      ...(primary ? {
+        background: color.accent,
+        color: color.white,
+        border: 'none',
+        boxShadow: '0 2px 8px rgba(0,113,227,0.25)'
+      } : {
+        ...glass.card,
+        color: color.accent,
+        border: `1px solid ${color.accentBorder}`
+      }),
+      ...extraStyle
+    }
+  }, children));
+
+  // ============================================================================
+  // SECTION: NAVIGATION BAR
+  // ============================================================================
+  const NavBar = ({
+    activeSection
+  }) => {
+    const [scrolled, setScrolled] = (0, _react.useState)(false);
+    const [mobileOpen, setMobileOpen] = (0, _react.useState)(false);
+    (0, _react.useEffect)(() => {
+      const onScroll = () => setScrolled(window.scrollY > 60);
+      window.addEventListener('scroll', onScroll);
+      return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+    return /*#__PURE__*/_react.default.createElement('nav', {
+      style: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        ...glass.nav,
+        padding: '0 32px',
+        transition: 'all 0.3s ease',
+        boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.06)' : 'none',
+        background: scrolled ? 'rgba(255,255,255,0.88)' : 'rgba(255,255,255,0.72)'
+      }
+    }, /*#__PURE__*/_react.default.createElement('div', {
+      style: {
+        maxWidth: '1200px',
+        margin: '0 auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: '56px'
+      }
+    },
+    /*#__PURE__*/
+    // Left: profile pic + name
+    _react.default.createElement('a', {
+      href: '#hero',
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '10px',
+        textDecoration: 'none',
+        cursor: 'pointer'
+      }
+    }, /*#__PURE__*/_react.default.createElement('img', {
+      src: 'assets/Home/ProfilePicCircle.jpg',
+      alt: 'Abdelrahman Sawy',
+      style: {
+        width: '32px',
+        height: '32px',
+        borderRadius: '50%',
+        objectFit: 'cover',
+        border: '1.5px solid rgba(0,113,227,0.3)',
+        boxShadow: '0 1px 4px rgba(0,0,0,0.08)'
+      }
+    }), /*#__PURE__*/_react.default.createElement('span', {
+      style: {
+        fontFamily: "'Playfair Display', Georgia, serif",
+        fontSize: '1.05rem',
+        fontWeight: 700,
+        color: color.text,
+        letterSpacing: '-0.01em'
+      }
+    }, 'A. Sawy')),
+    /*#__PURE__*/
+    // Center: nav links (desktop)
+    _react.default.createElement('div', {
+      style: {
+        display: 'flex',
+        gap: '4px',
+        alignItems: 'center'
+      }
+    }, NAV_SECTIONS.map(s => /*#__PURE__*/_react.default.createElement('a', {
+      key: s.id,
+      href: `#${s.id}`,
+      className: 'nav-link-hover',
+      style: {
+        padding: '6px 14px',
+        borderRadius: '8px',
+        fontSize: '0.82rem',
+        fontWeight: 500,
+        textDecoration: 'none',
+        color: activeSection === s.id ? color.accent : color.secondary,
+        background: activeSection === s.id ? color.accentLight : 'transparent',
+        transition: 'all 0.2s ease'
+      }
+    }, s.label))),
+    /*#__PURE__*/
+    // Right: CV download
+    _react.default.createElement('a', {
+      href: '#contact',
+      style: {
+        padding: '7px 18px',
+        borderRadius: '8px',
+        fontSize: '0.8rem',
+        fontWeight: 600,
+        background: color.accent,
+        color: color.white,
+        textDecoration: 'none',
+        transition: 'all 0.2s ease'
+      }
+    }, 'Get in Touch')));
+  };
+
+  // ============================================================================
+  // SECTION 1: HERO
+  // ============================================================================
+  const HeroSection = () => (/*#__PURE__*/_react.default.createElement('section', {
+    id: 'hero',
+    style: {
+      position: 'relative',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      background: '#0a0a1a'
+    }
+  },
+  /*#__PURE__*/
+  // Background image
+  _react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      backgroundImage: 'url(assets/Home/An_abstract,_futuristic_202603292141.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      opacity: 0.55,
+      filter: 'brightness(0.7) saturate(1.3)'
+    }
+  }),
+  /*#__PURE__*/
+  // Gradient overlay
+  _react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      background: 'linear-gradient(180deg, rgba(10,10,26,0.5) 0%, rgba(10,10,26,0.3) 40%, rgba(10,10,26,0.7) 100%)'
+    }
+  }),
+  /*#__PURE__*/
+  // Floating ambient orbs
+  _react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      overflow: 'hidden',
+      pointerEvents: 'none'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      top: '15%',
+      left: '10%',
+      width: '200px',
+      height: '200px',
+      borderRadius: '50%',
+      background: 'radial-gradient(circle, rgba(0,113,227,0.12) 0%, transparent 70%)',
+      animation: 'float1 12s ease-in-out infinite'
+    }
+  }), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      top: '60%',
+      right: '15%',
+      width: '160px',
+      height: '160px',
+      borderRadius: '50%',
+      background: 'radial-gradient(circle, rgba(196,154,60,0.1) 0%, transparent 70%)',
+      animation: 'float2 15s ease-in-out infinite'
+    }
+  }), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      bottom: '20%',
+      left: '30%',
+      width: '180px',
+      height: '180px',
+      borderRadius: '50%',
+      background: 'radial-gradient(circle, rgba(210,16,52,0.08) 0%, transparent 70%)',
+      animation: 'float3 18s ease-in-out infinite'
+    }
+  })),
+  /*#__PURE__*/
+  // Main hero content
+  _react.default.createElement('div', {
+    style: {
+      position: 'relative',
+      zIndex: 10,
+      textAlign: 'center',
+      padding: '0 24px',
+      maxWidth: '900px',
+      animation: 'heroFadeIn 1.2s ease both'
+    }
+  },
+  /*#__PURE__*/
+  // Greeting line
+  _react.default.createElement('div', {
+    style: {
+      fontSize: '0.9rem',
+      fontWeight: 500,
+      color: 'rgba(255,255,255,0.5)',
+      letterSpacing: '3px',
+      textTransform: 'uppercase',
+      marginBottom: '20px',
+      animation: 'fadeInDown 0.8s ease 0.2s both'
+    }
+  }, 'PhD Researcher \u00B7 Engineer \u00B7 Educator'),
+  /*#__PURE__*/
+  // Name
+  _react.default.createElement('h1', {
+    style: {
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontSize: 'clamp(2.8rem, 6vw, 4.5rem)',
+      fontWeight: 700,
+      color: color.white,
+      lineHeight: 1.1,
+      marginBottom: '20px',
+      letterSpacing: '-0.03em',
+      animation: 'fadeInUp 0.8s ease 0.4s both'
+    }
+  }, 'Abdelrahman Sawy'),
+  /*#__PURE__*/
+  // Subtitle
+  _react.default.createElement('p', {
+    style: {
+      fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+      color: 'rgba(255,255,255,0.65)',
+      lineHeight: 1.7,
+      maxWidth: '680px',
+      margin: '0 auto 36px',
+      fontWeight: 400,
+      animation: 'fadeInUp 0.8s ease 0.6s both'
+    }
+  }, 'Industrial & Systems Engineering at Rutgers University. Specializing in stochastic optimization, machine learning, and AI-driven decision systems for renewable energy operations.'),
+  /*#__PURE__*/
+  // Stat chips row
+  _react.default.createElement('div', {
+    style: {
+      display: 'flex',
+      justifyContent: 'center',
+      gap: '16px',
+      flexWrap: 'wrap',
+      marginBottom: '40px'
+    }
+  }, STATS.map((s, i) => /*#__PURE__*/_react.default.createElement(StatChip, {
+    key: s.label,
+    value: s.value,
+    label: s.label,
+    delay: 0.8 + i * 0.15
+  }))),
+  /*#__PURE__*/
+  // CTA buttons
+  _react.default.createElement('div', {
+    style: {
+      display: 'flex',
+      gap: '16px',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
+      animation: 'fadeInUp 0.8s ease 1.4s both'
+    }
+  }, /*#__PURE__*/_react.default.createElement('a', {
+    href: '#portfolio',
+    className: 'btn-primary-hover',
+    style: {
+      padding: '14px 32px',
+      borderRadius: '14px',
+      fontSize: '0.95rem',
+      fontWeight: 600,
+      background: color.accent,
+      color: color.white,
+      textDecoration: 'none',
+      boxShadow: '0 4px 16px rgba(0,113,227,0.3)',
+      transition: 'all 0.3s ease'
+    }
+  }, 'View Portfolio \u2192'), /*#__PURE__*/_react.default.createElement('a', {
+    href: '#research',
+    style: {
+      padding: '14px 32px',
+      borderRadius: '14px',
+      fontSize: '0.95rem',
+      fontWeight: 600,
+      ...glass.hero,
+      color: color.white,
+      textDecoration: 'none',
+      transition: 'all 0.3s ease'
+    }
+  }, 'Explore Research'))),
+  /*#__PURE__*/
+  // Scroll indicator
+  _react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      bottom: '32px',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      animation: 'heroFloat 2.5s ease-in-out infinite',
+      zIndex: 10
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      width: '24px',
+      height: '40px',
+      borderRadius: '12px',
+      border: '2px solid rgba(255,255,255,0.3)',
+      display: 'flex',
+      justifyContent: 'center',
+      paddingTop: '8px'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      width: '3px',
+      height: '8px',
+      borderRadius: '2px',
+      background: 'rgba(255,255,255,0.5)',
+      animation: 'fadeInUp 1.5s ease infinite'
+    }
+  })))));
+
+  // ============================================================================
+  // SECTION 2: ABOUT / ACADEMIC JOURNEY
+  // ============================================================================
+  const AboutSection = () => (/*#__PURE__*/_react.default.createElement('section', {
+    id: 'about',
+    style: {
+      padding: '100px 24px',
+      maxWidth: '1200px',
+      margin: '0 auto'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    title: 'Academic Journey',
+    subtitle: 'From Cairo to New Jersey \u2014 a trajectory through mechanical engineering, optimization, and AI-driven research.'
+  }),
+  /*#__PURE__*/
+  // Journey triptych with blending
+  _react.default.createElement('div', {
+    className: 'scroll-reveal',
+    style: {
+      position: 'relative',
+      borderRadius: '20px',
+      overflow: 'hidden',
+      height: '320px',
+      marginBottom: '56px',
+      boxShadow: '0 8px 40px rgba(0,0,0,0.1)'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'flex',
+      height: '100%',
+      position: 'relative'
+    }
+  }, JOURNEY.map((j, i) => /*#__PURE__*/_react.default.createElement('div', {
+    key: j.era,
+    className: 'journey-image-hover',
+    style: {
+      flex: 1,
+      position: 'relative',
+      overflow: 'hidden'
+    }
+  }, /*#__PURE__*/_react.default.createElement('img', {
+    src: j.image,
+    alt: j.institution,
+    style: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover'
+    }
+  }),
+  // Gradient blending overlays
+  i < JOURNEY.length - 1 && /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      width: '60px',
+      height: '100%',
+      background: 'linear-gradient(to right, transparent, rgba(0,0,0,0.3))',
+      zIndex: 2
+    }
+  }), i > 0 && /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '60px',
+      height: '100%',
+      background: 'linear-gradient(to left, transparent, rgba(0,0,0,0.3))',
+      zIndex: 2
+    }
+  }),
+  /*#__PURE__*/
+  // Bottom label overlay
+  _react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      padding: '32px 20px 20px',
+      background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+      zIndex: 3
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'inline-block',
+      padding: '3px 10px',
+      borderRadius: '6px',
+      background: j.color,
+      color: color.white,
+      fontSize: '0.7rem',
+      fontWeight: 700,
+      letterSpacing: '1px',
+      marginBottom: '6px'
+    }
+  }, j.era), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      color: color.white,
+      fontSize: '0.85rem',
+      fontWeight: 600
+    }
+  }, j.years), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      color: 'rgba(255,255,255,0.7)',
+      fontSize: '0.75rem',
+      marginTop: '2px'
+    }
+  }, j.institution)))))),
+  /*#__PURE__*/
+  // Journey detail cards
+  _react.default.createElement('div', {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      gap: '24px'
+    }
+  }, JOURNEY.map((j, i) => /*#__PURE__*/_react.default.createElement(GlassCard, {
+    key: j.era,
+    className: 'scroll-reveal',
+    style: {
+      animationDelay: `${i * 0.15}s`,
+      borderTop: `3px solid ${j.color}`
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+      marginBottom: '12px'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      width: '36px',
+      height: '36px',
+      borderRadius: '10px',
+      background: `${j.color}15`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontWeight: 800,
+      fontSize: '0.8rem',
+      color: j.color
+    }
+  }, j.era), /*#__PURE__*/_react.default.createElement('div', null, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.95rem',
+      fontWeight: 700,
+      color: color.text
+    }
+  }, j.degree), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.78rem',
+      color: color.secondary
+    }
+  }, j.years))), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.82rem',
+      color: color.secondary,
+      marginBottom: '14px',
+      lineHeight: 1.5
+    }
+  }, j.institution), /*#__PURE__*/_react.default.createElement(Pill, {
+    clr: j.color,
+    style: {
+      marginBottom: '14px'
+    }
+  }, j.highlight), /*#__PURE__*/_react.default.createElement('ul', {
+    style: {
+      listStyle: 'none',
+      padding: 0,
+      margin: 0
+    }
+  }, j.achievements.map(a => /*#__PURE__*/_react.default.createElement('li', {
+    key: a,
+    style: {
+      fontSize: '0.8rem',
+      color: color.secondary,
+      padding: '4px 0',
+      paddingLeft: '14px',
+      position: 'relative',
+      lineHeight: 1.5
+    }
+  }, /*#__PURE__*/_react.default.createElement('span', {
+    style: {
+      position: 'absolute',
+      left: 0,
+      top: '8px',
+      width: '5px',
+      height: '5px',
+      borderRadius: '50%',
+      background: j.color
+    }
+  }), a)))))),
+  /*#__PURE__*/
+  // Graduation photo
+  _react.default.createElement('div', {
+    className: 'scroll-reveal',
+    style: {
+      marginTop: '48px',
+      textAlign: 'center'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      ...glass.card,
+      display: 'inline-block',
+      padding: '12px',
+      borderRadius: '20px'
+    }
+  }, /*#__PURE__*/_react.default.createElement('img', {
+    src: 'assets/Home/grad.jpeg',
+    alt: 'Graduation Ceremony, AUC Class of 2024',
+    style: {
+      borderRadius: '14px',
+      maxWidth: '480px',
+      width: '100%',
+      height: 'auto',
+      display: 'block'
+    }
+  })), /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.8rem',
+      color: color.tertiary,
+      marginTop: '12px',
+      fontStyle: 'italic'
+    }
+  }, 'Commencement Ceremony \u2014 The American University in Cairo, Class of 2024'))));
+
+  // ============================================================================
+  // SECTION: RESUME / CV
+  // ============================================================================
+  const RESUME_PATH = 'assets/Abdelrahman_O_Sawy_Resume.pdf';
+  const ResumeSection = () => (/*#__PURE__*/_react.default.createElement('section', {
+    id: 'resume',
+    className: 'scroll-reveal',
+    style: {
+      padding: '60px 24px 40px',
+      maxWidth: '800px',
+      margin: '0 auto'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      ...glass.card,
+      padding: '36px 40px',
+      textAlign: 'center',
+      borderTop: `3px solid ${color.accent}`,
+      borderBottom: `3px solid ${color.gold}`,
+      position: 'relative',
+      overflow: 'hidden'
+    }
+  },
+  /*#__PURE__*/
+  // Subtle background accent
+  _react.default.createElement('div', {
+    style: {
+      position: 'absolute',
+      top: '-40px',
+      right: '-40px',
+      width: '160px',
+      height: '160px',
+      borderRadius: '50%',
+      background: `radial-gradient(circle, ${color.accentLight}, transparent)`,
+      pointerEvents: 'none'
+    }
+  }), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      width: '56px',
+      height: '56px',
+      borderRadius: '16px',
+      background: color.accentLight,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '0 auto 16px',
+      fontSize: '1.5rem'
+    }
+  }, '\u{1F4C4}'), /*#__PURE__*/_react.default.createElement('h2', {
+    style: {
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontSize: '1.6rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '8px'
+    }
+  }, 'Resume / CV'), /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.88rem',
+      color: color.secondary,
+      lineHeight: 1.6,
+      marginBottom: '28px',
+      maxWidth: '480px',
+      margin: '0 auto 28px'
+    }
+  }, 'A one-page summary of education, research, skills, and experience.'),
+  /*#__PURE__*/
+  // Button row
+  _react.default.createElement('div', {
+    style: {
+      display: 'flex',
+      gap: '14px',
+      justifyContent: 'center',
+      flexWrap: 'wrap'
+    }
+  },
+  /*#__PURE__*/
+  // View in browser
+  _react.default.createElement('a', {
+    href: RESUME_PATH,
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    className: 'card-hover-effect',
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      padding: '12px 28px',
+      borderRadius: '12px',
+      fontSize: '0.9rem',
+      fontWeight: 600,
+      background: color.accent,
+      color: color.white,
+      textDecoration: 'none',
+      boxShadow: '0 2px 8px rgba(0,113,227,0.25)',
+      transition: 'all 0.3s ease'
+    }
+  }, /*#__PURE__*/_react.default.createElement('span', null, '\u{1F4CB}'), 'View Resume'),
+  /*#__PURE__*/
+  // Download
+  _react.default.createElement('a', {
+    href: RESUME_PATH,
+    download: 'Abdelrahman_O_Sawy_Resume.pdf',
+    className: 'card-hover-effect',
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      padding: '12px 28px',
+      borderRadius: '12px',
+      fontSize: '0.9rem',
+      fontWeight: 600,
+      ...glass.card,
+      color: color.accent,
+      textDecoration: 'none',
+      border: `1px solid ${color.accentBorder}`,
+      transition: 'all 0.3s ease'
+    }
+  }, /*#__PURE__*/_react.default.createElement('span', null, '\u2B07\uFE0F'), 'Download PDF')))));
+
+  // ============================================================================
+  // SECTION 3: RESEARCH
+  // ============================================================================
+  const ResearchSection = () => (/*#__PURE__*/_react.default.createElement('section', {
+    id: 'research',
+    style: {
+      padding: '100px 24px',
+      background: `linear-gradient(180deg, ${color.bg} 0%, rgba(0,113,227,0.03) 50%, ${color.bg} 100%)`
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      maxWidth: '1200px',
+      margin: '0 auto'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    title: 'Research',
+    subtitle: 'AI/OR-driven optimization for offshore wind energy systems at the Renewables & Industrial Analytics Lab.'
+  }), /*#__PURE__*/_react.default.createElement('div', {
+    className: 'scroll-reveal',
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '24px',
+      marginBottom: '32px'
+    }
+  },
+  /*#__PURE__*/
+  // POSYDON card
+  _react.default.createElement(GlassCard, {
+    style: {
+      borderLeft: `4px solid ${color.red}`
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, {
+    clr: color.red,
+    style: {
+      marginBottom: '12px'
+    }
+  }, 'IEEE TSE 2024'), /*#__PURE__*/_react.default.createElement('h3', {
+    style: {
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontSize: '1.3rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '8px'
+    }
+  }, 'POSYDON Framework'), /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.85rem',
+      color: color.secondary,
+      lineHeight: 1.7,
+      marginBottom: '16px'
+    }
+  }, 'Joint optimization of maintenance scheduling, power production, and yaw misalignment angles for offshore wind farms. A two-stage stochastic MILP that treats yaw as a controllable degradation lever.'), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'flex',
+      gap: '8px',
+      flexWrap: 'wrap',
+      marginBottom: '16px'
+    }
+  }, ['Stochastic MILP', 'Gurobi', 'Yaw Control', 'Rolling Horizon'].map(t => /*#__PURE__*/_react.default.createElement(Pill, {
+    key: t,
+    clr: color.secondary
+  }, t))), /*#__PURE__*/_react.default.createElement(LinkButton, {
+    href: 'research-showcase.html',
+    primary: true
+  }, 'Deep Dive \u2192')),
+  /*#__PURE__*/
+  // RIA Lab card
+  _react.default.createElement(GlassCard, {
+    style: {
+      borderLeft: `4px solid ${color.accent}`
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, {
+    clr: color.accent,
+    style: {
+      marginBottom: '12px'
+    }
+  }, 'Research Group'), /*#__PURE__*/_react.default.createElement('h3', {
+    style: {
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontSize: '1.3rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '8px'
+    }
+  }, 'Renewables & Industrial Analytics'), /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.85rem',
+      color: color.secondary,
+      lineHeight: 1.7,
+      marginBottom: '16px'
+    }
+  }, 'Led by Dr. Ahmed Aziz Ezzat at Rutgers ISE. Four research thrusts spanning AI-based energy forecasting, O&M optimization, ecosystem co-existence, and industrial informatics.'), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '8px',
+      marginBottom: '16px'
+    }
+  }, [{
+    label: 'Thrusts',
+    value: '4'
+  }, {
+    label: 'Funding',
+    value: 'NSF, DOE'
+  }, {
+    label: 'Focus',
+    value: 'Wind Energy'
+  }, {
+    label: 'Methods',
+    value: 'AI + OR'
+  }].map(s => /*#__PURE__*/_react.default.createElement('div', {
+    key: s.label,
+    style: {
+      ...glass.surface,
+      padding: '10px',
+      textAlign: 'center'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.95rem',
+      fontWeight: 700,
+      color: color.text
+    }
+  }, s.value), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.7rem',
+      color: color.tertiary
+    }
+  }, s.label)))), /*#__PURE__*/_react.default.createElement(LinkButton, {
+    href: 'https://sites.rutgers.edu/azizezzat/research/'
+  }, 'RIA Lab \u2192'))),
+  /*#__PURE__*/
+  // Key formula callout
+  _react.default.createElement('div', {
+    className: 'scroll-reveal',
+    style: {
+      ...glass.card,
+      padding: '24px 32px',
+      textAlign: 'center',
+      borderTop: `2px solid ${color.red}`,
+      borderBottom: `2px solid ${color.accent}`
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.75rem',
+      color: color.tertiary,
+      fontWeight: 600,
+      letterSpacing: '1px',
+      textTransform: 'uppercase',
+      marginBottom: '12px'
+    }
+  }, 'POSYDON Objective Function'), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontFamily: "'Cambria Math', 'Latin Modern Math', 'STIX Two Math', Georgia, serif",
+      fontSize: '1.3rem',
+      color: color.text,
+      padding: '12px 0'
+    }
+  }, 'max \u03A0 = \u03A3\u209B p\u209B [ R\u209B \u2212 C\u1D50 \u2212 C\u1DA0 \u2212 C\u1D5B \u2212 C\u02B3 ]'), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.82rem',
+      color: color.secondary,
+      fontStyle: 'italic'
+    }
+  }, 'Maximize profit: revenue minus maintenance, failure, vessel, and recourse costs across all scenarios')))));
+
+  // ============================================================================
+  // SECTION 4: PORTFOLIO
+  // ============================================================================
+  const PortfolioSection = () => {
+    const [filter, setFilter] = (0, _react.useState)('all');
+    const categories = [{
+      id: 'all',
+      label: 'All Projects',
+      count: SHOWCASES.length
+    }, {
+      id: 'research',
+      label: 'Research',
+      count: SHOWCASES.filter(s => s.category === 'research').length
+    }, {
+      id: 'rutgers',
+      label: 'Rutgers ISE',
+      count: SHOWCASES.filter(s => s.category === 'rutgers').length
+    }, {
+      id: 'auc',
+      label: 'AUC',
+      count: SHOWCASES.filter(s => s.category === 'auc').length
+    }];
+    const filtered = filter === 'all' ? SHOWCASES : SHOWCASES.filter(s => s.category === filter);
+    return /*#__PURE__*/_react.default.createElement('section', {
+      id: 'portfolio',
+      style: {
+        padding: '100px 24px',
+        maxWidth: '1200px',
+        margin: '0 auto'
+      }
+    }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+      title: 'Portfolio',
+      subtitle: 'Interactive showcases spanning optimization, machine learning, CFD, FEA, and materials science.'
+    }),
+    /*#__PURE__*/
+    // Filter bar
+    _react.default.createElement('div', {
+      className: 'scroll-reveal',
+      style: {
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '8px',
+        marginBottom: '40px',
+        flexWrap: 'wrap'
+      }
+    }, categories.map(c => /*#__PURE__*/_react.default.createElement('button', {
+      key: c.id,
+      onClick: () => setFilter(c.id),
+      style: {
+        padding: '8px 20px',
+        borderRadius: '10px',
+        fontSize: '0.82rem',
+        fontWeight: 600,
+        border: 'none',
+        cursor: 'pointer',
+        transition: 'all 0.2s ease',
+        background: filter === c.id ? color.accent : 'rgba(0,0,0,0.04)',
+        color: filter === c.id ? color.white : color.secondary
+      }
+    }, `${c.label} (${c.count})`))),
+    /*#__PURE__*/
+    // Grid
+    _react.default.createElement('div', {
+      style: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+        gap: '20px'
+      }
+    }, filtered.map((s, i) => /*#__PURE__*/_react.default.createElement('a', {
+      key: s.title,
+      href: s.link,
+      className: 'showcase-card-hover scroll-reveal',
+      style: {
+        ...glass.card,
+        padding: '24px',
+        textDecoration: 'none',
+        display: 'block',
+        animationDelay: `${i * 0.05}s`,
+        borderTop: `3px solid ${s.color}`,
+        cursor: 'pointer'
+      }
+    }, /*#__PURE__*/_react.default.createElement('div', {
+      style: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        marginBottom: '12px'
+      }
+    }, /*#__PURE__*/_react.default.createElement(Pill, {
+      clr: s.color
+    }, s.institution), /*#__PURE__*/_react.default.createElement('span', {
+      style: {
+        fontSize: '1.1rem',
+        color: s.color,
+        fontWeight: 300
+      }
+    }, '\u2192')), /*#__PURE__*/_react.default.createElement('h3', {
+      style: {
+        fontSize: '1.05rem',
+        fontWeight: 700,
+        color: color.text,
+        marginBottom: '6px'
+      }
+    }, s.title), /*#__PURE__*/_react.default.createElement('p', {
+      style: {
+        fontSize: '0.8rem',
+        color: color.secondary,
+        lineHeight: 1.5,
+        marginBottom: '14px'
+      }
+    }, s.subtitle), /*#__PURE__*/_react.default.createElement('div', {
+      style: {
+        display: 'flex',
+        gap: '6px',
+        flexWrap: 'wrap'
+      }
+    }, s.tags.map(t => /*#__PURE__*/_react.default.createElement('span', {
+      key: t,
+      style: {
+        padding: '3px 8px',
+        borderRadius: '6px',
+        fontSize: '0.68rem',
+        fontWeight: 500,
+        background: 'rgba(0,0,0,0.04)',
+        color: color.tertiary
+      }
+    }, t)))))),
+    /*#__PURE__*/
+    // Full portfolio CTA
+    _react.default.createElement('div', {
+      className: 'scroll-reveal',
+      style: {
+        textAlign: 'center',
+        marginTop: '36px'
+      }
+    }, /*#__PURE__*/_react.default.createElement('a', {
+      href: 'portfolio.html',
+      className: 'btn-primary-hover',
+      style: {
+        display: 'inline-block',
+        padding: '12px 28px',
+        borderRadius: '12px',
+        fontSize: '0.9rem',
+        fontWeight: 600,
+        background: color.accent,
+        color: color.white,
+        textDecoration: 'none',
+        boxShadow: '0 2px 8px rgba(0,113,227,0.25)',
+        transition: 'all 0.3s ease'
+      }
+    }, 'View Full Portfolio Story \u2192')));
+  };
+
+  // ============================================================================
+  // SECTION 5: TEACHING
+  // ============================================================================
+  const TeachingSection = () => (/*#__PURE__*/_react.default.createElement('section', {
+    id: 'teaching',
+    style: {
+      padding: '100px 24px',
+      background: `linear-gradient(180deg, ${color.bg} 0%, rgba(210,16,52,0.03) 50%, ${color.bg} 100%)`
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      maxWidth: '1200px',
+      margin: '0 auto'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    title: 'Teaching',
+    subtitle: 'Graduate Teaching Assistant, Department of Industrial & Systems Engineering at Rutgers University.'
+  }), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '24px',
+      marginBottom: '32px'
+    }
+  }, TEACHING_COURSES.map((c, i) => /*#__PURE__*/_react.default.createElement(GlassCard, {
+    key: c.code,
+    className: 'scroll-reveal',
+    style: {
+      borderLeft: `4px solid ${c.color}`,
+      animationDelay: `${i * 0.15}s`
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      marginBottom: '12px'
+    }
+  }, /*#__PURE__*/_react.default.createElement(Pill, {
+    clr: c.color
+  }, c.semester), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      ...glass.surface,
+      padding: '4px 10px',
+      fontSize: '0.72rem',
+      fontWeight: 600,
+      color: color.secondary
+    }
+  }, `${c.students} students`)), /*#__PURE__*/_react.default.createElement('h3', {
+    style: {
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontSize: '1.2rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '4px'
+    }
+  }, c.code), /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      marginBottom: '4px'
+    }
+  }, c.title), /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.78rem',
+      color: color.tertiary,
+      marginBottom: '16px'
+    }
+  }, `Instructor: ${c.instructor}`), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'flex',
+      gap: '6px',
+      flexWrap: 'wrap',
+      marginBottom: '16px'
+    }
+  }, c.topics.map(t => /*#__PURE__*/_react.default.createElement(Pill, {
+    key: t,
+    clr: color.tertiary
+  }, t)))))),
+  /*#__PURE__*/
+  // Teaching stats + link
+  _react.default.createElement('div', {
+    className: 'scroll-reveal',
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      ...glass.card,
+      padding: '24px 32px'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'flex',
+      gap: '32px'
+    }
+  }, [{
+    value: '330+',
+    label: 'Slides Authored'
+  }, {
+    value: '62+',
+    label: 'Equations'
+  }, {
+    value: '2',
+    label: 'Courses'
+  }, {
+    value: '6',
+    label: 'LaTeX Modules'
+  }].map(s => /*#__PURE__*/_react.default.createElement('div', {
+    key: s.label,
+    style: {
+      textAlign: 'center'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '1.3rem',
+      fontWeight: 700,
+      color: color.text
+    }
+  }, s.value), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.72rem',
+      color: color.tertiary
+    }
+  }, s.label)))), /*#__PURE__*/_react.default.createElement(LinkButton, {
+    href: 'teaching-showcase.html',
+    primary: true
+  }, 'Full Teaching Portfolio \u2192')))));
+
+  // ============================================================================
+  // SECTION 6: PUBLICATIONS & TALKS (COMING SOON)
+  // ============================================================================
+  const PublicationsSection = () => (/*#__PURE__*/_react.default.createElement('section', {
+    id: 'publications',
+    style: {
+      padding: '100px 24px',
+      maxWidth: '1200px',
+      margin: '0 auto'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    title: 'Publications & Talks',
+    subtitle: 'Peer-reviewed work and conference presentations. Growing as research progresses.'
+  }), /*#__PURE__*/_react.default.createElement('div', {
+    className: 'scroll-reveal',
+    style: {
+      ...glass.card,
+      padding: '48px',
+      textAlign: 'center',
+      border: `1px dashed ${color.accentBorder}`
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      width: '64px',
+      height: '64px',
+      borderRadius: '16px',
+      background: color.accentLight,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '0 auto 16px',
+      fontSize: '1.6rem'
+    }
+  }, '\u{1F4DD}'), /*#__PURE__*/_react.default.createElement('h3', {
+    style: {
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontSize: '1.3rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '8px'
+    }
+  }, 'Coming Soon'), /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      maxWidth: '480px',
+      margin: '0 auto',
+      lineHeight: 1.6
+    }
+  }, 'Publications and conference talks will be listed here as they are published. Current research is focused on extending the POSYDON framework for offshore wind farm operations.'))));
+
+  // ============================================================================
+  // SECTION 7: AWARDS & FUNDING (COMING SOON)
+  // ============================================================================
+  const AwardsSection = () => (/*#__PURE__*/_react.default.createElement('section', {
+    id: 'awards',
+    style: {
+      padding: '100px 24px',
+      background: `linear-gradient(180deg, ${color.bg} 0%, rgba(196,154,60,0.04) 50%, ${color.bg} 100%)`
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      maxWidth: '1200px',
+      margin: '0 auto'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    title: 'Awards & Funding',
+    subtitle: 'Recognitions, fellowships, and grant support.'
+  }), /*#__PURE__*/_react.default.createElement('div', {
+    className: 'scroll-reveal',
+    style: {
+      ...glass.card,
+      padding: '48px',
+      textAlign: 'center',
+      border: `1px dashed ${color.gold}44`
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      width: '64px',
+      height: '64px',
+      borderRadius: '16px',
+      background: `${color.gold}11`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '0 auto 16px',
+      fontSize: '1.6rem'
+    }
+  }, '\u{1F3C6}'), /*#__PURE__*/_react.default.createElement('h3', {
+    style: {
+      fontFamily: "'Playfair Display', Georgia, serif",
+      fontSize: '1.3rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '8px'
+    }
+  }, 'Coming Soon'), /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.9rem',
+      color: color.secondary,
+      maxWidth: '480px',
+      margin: '0 auto',
+      lineHeight: 1.6
+    }
+  }, 'Awards, fellowships, and funding information will be added as they are received. Research is supported through the Renewables & Industrial Analytics Lab at Rutgers.')))));
+
+  // ============================================================================
+  // SECTION 8: CONTACT
+  // ============================================================================
+  const ContactSection = () => (/*#__PURE__*/_react.default.createElement('section', {
+    id: 'contact',
+    style: {
+      padding: '100px 24px',
+      maxWidth: '1200px',
+      margin: '0 auto'
+    }
+  }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
+    title: 'Get in Touch',
+    subtitle: 'Open to research collaborations, speaking opportunities, and connecting with fellow researchers.'
+  }), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3, 1fr)',
+      gap: '20px',
+      maxWidth: '800px',
+      margin: '0 auto'
+    }
+  }, [{
+    icon: '\u{2709}\u{FE0F}',
+    label: 'Email',
+    value: 'aosawy@gmail.com',
+    href: 'mailto:aosawy@gmail.com',
+    color: color.accent
+  }, {
+    icon: '\u{1F517}',
+    label: 'LinkedIn',
+    value: 'Connect',
+    href: 'https://www.linkedin.com/in/aosawy/',
+    color: '#0A66C2'
+  }, {
+    icon: '\u{1F4BB}',
+    label: 'GitHub',
+    value: 'aosawy',
+    href: 'https://github.com/aosawy',
+    color: '#333'
+  }].map(c => /*#__PURE__*/_react.default.createElement('a', {
+    key: c.label,
+    href: c.href,
+    target: c.href.startsWith('http') ? '_blank' : undefined,
+    rel: c.href.startsWith('http') ? 'noopener noreferrer' : undefined,
+    className: 'card-hover-effect scroll-reveal',
+    style: {
+      ...glass.card,
+      padding: '28px',
+      textDecoration: 'none',
+      textAlign: 'center',
+      display: 'block'
+    }
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '1.8rem',
+      marginBottom: '10px'
+    }
+  }, c.icon), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.9rem',
+      fontWeight: 700,
+      color: color.text,
+      marginBottom: '4px'
+    }
+  }, c.label), /*#__PURE__*/_react.default.createElement('div', {
+    style: {
+      fontSize: '0.8rem',
+      color: c.color,
+      fontWeight: 500
+    }
+  }, c.value))))));
+
+  // ============================================================================
+  // FOOTER
+  // ============================================================================
+  const Footer = () => (/*#__PURE__*/_react.default.createElement('footer', {
+    style: {
+      padding: '32px 24px',
+      textAlign: 'center',
+      borderTop: `0.5px solid ${color.border}`,
+      background: color.white
+    }
+  }, /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.78rem',
+      color: color.tertiary
+    }
+  }, '\u00A9 2026 Abdelrahman Sawy. Built with passion at Rutgers University.'), /*#__PURE__*/_react.default.createElement('p', {
+    style: {
+      fontSize: '0.72rem',
+      color: color.tertiary,
+      marginTop: '4px',
+      opacity: 0.7
+    }
+  }, 'Department of Industrial & Systems Engineering')));
+
+  // ============================================================================
+  // APP ROOT
+  // ============================================================================
+  const App = () => {
+    const [activeSection, setActiveSection] = (0, _react.useState)('hero');
+    (0, _react.useEffect)(() => {
+      injectStyles();
+    }, []);
+    useScrollReveal();
+
+    // Track active section for nav highlight
+    (0, _react.useEffect)(() => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '-56px 0px 0px 0px'
+      });
+      NAV_SECTIONS.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (el) observer.observe(el);
+      });
+      return () => observer.disconnect();
+    }, []);
+    return /*#__PURE__*/_react.default.createElement('div', {
+      style: {
+        background: color.bg,
+        minHeight: '100vh',
+        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif",
+        color: color.text,
+        WebkitFontSmoothing: 'antialiased'
+      }
+    }, /*#__PURE__*/_react.default.createElement(NavBar, {
+      activeSection
+    }), /*#__PURE__*/_react.default.createElement(HeroSection, null), /*#__PURE__*/_react.default.createElement(AboutSection, null), /*#__PURE__*/_react.default.createElement(ResumeSection, null), /*#__PURE__*/_react.default.createElement(ResearchSection, null), /*#__PURE__*/_react.default.createElement(PortfolioSection, null), /*#__PURE__*/_react.default.createElement(TeachingSection, null), /*#__PURE__*/_react.default.createElement(PublicationsSection, null), /*#__PURE__*/_react.default.createElement(AwardsSection, null), /*#__PURE__*/_react.default.createElement(ContactSection, null), /*#__PURE__*/_react.default.createElement(Footer, null));
+  };
+  var _default = _exports.default = App;
+});
+
+  </script>
+  <script>
+    // Mount the app - the UMD wrapper exports to window.home
+    var App = window.home && window.home.default
+              ? window.home.default
+              : window.home;
+    if (App) {
+      var root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(React.createElement(App));
+    } else {
+      document.getElementById('root').innerHTML = '<p style="padding:2rem;color:red;">Error: Component not found. Check console.</p>';
+      console.error('Available globals:', Object.keys(window).filter(function(k) { return k.indexOf('home') !== -1 || k.indexOf('Home') !== -1; }));
+    }
+  </script>
+</body>
+</html>
