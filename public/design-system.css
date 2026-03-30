@@ -904,6 +904,11 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     padding: 0.75rem !important;
   }
 
+  /* Side-by-side card sections (e.g. Simulation Campaign + Platform Capabilities) — stack */
+  .page-research [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
   /* Research-specific footer margin */
   .page-research .ds-site-footer {
     margin-top: 0 !important;
