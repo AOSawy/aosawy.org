@@ -1,0 +1,444 @@
+/* =============================================================================
+   AOSAWY.ORG — Apple Liquid Glass Design System
+   Shared stylesheet linked from all 14 pages.
+   Pipeline A (4 HTML pages) + Pipeline B (10 Vite/React pages).
+   !important overrides counter Pipeline B's inline style injection.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. GOOGLE FONTS
+----------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+
+/* -----------------------------------------------------------------------------
+   2. CSS CUSTOM PROPERTIES
+----------------------------------------------------------------------------- */
+:root {
+  /* -- Colors -- */
+  --color-bg:            #f5f5f7;
+  --color-text:          #1d1d1f;
+  --color-secondary:     #6e6e73;
+  --color-tertiary:      #86868b;
+  --color-accent:        #0071e3;
+  --color-accent-light:  rgba(0, 113, 227, 0.06);
+  --color-accent-border: rgba(0, 113, 227, 0.15);
+  --color-border:        rgba(0, 0, 0, 0.06);
+
+  /* -- Glass surfaces -- */
+  --card-bg:        rgba(255, 255, 255, 0.65);
+  --card-blur:      saturate(180%) blur(20px);
+  --card-border:    0.5px solid rgba(0, 0, 0, 0.06);
+  --card-radius:    16px;
+  --card-shadow:    0 1px 4px rgba(0, 0, 0, 0.03);
+  --nav-bg:         rgba(255, 255, 255, 0.72);
+  --surface-bg:     rgba(255, 255, 255, 0.45);
+  --surface-blur:   saturate(120%) blur(12px);
+
+  /* -- Typography -- */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-math:    'Cambria Math', 'Latin Modern Math', 'STIX Two Math', Georgia, 'Times New Roman', serif;
+
+  /* -- Font sizes -- */
+  --fs-h1:     clamp(2.4rem, 5.5vw, 3.8rem);
+  --fs-h2:     2rem;
+  --fs-h3:     1.1rem;
+  --fs-body:   0.95rem;
+  --fs-label:  0.73rem;
+  --fs-pill:   0.73rem;
+  --fs-button: 0.85rem;
+  --fs-nav:    0.82rem;
+
+  /* -- Spacing -- */
+  --section-padding:  80px 24px;
+  --card-padding:     24px;
+  --container-max:    1200px;
+
+  /* -- Transitions -- */
+  --transition-fast:   all 0.2s ease;
+  --transition-normal: all 0.3s ease;
+
+  /* -- Button radii -- */
+  --button-radius: 12px;
+  --pill-radius:   100px;
+}
+
+
+/* -----------------------------------------------------------------------------
+   3. BODY FONT OVERRIDE
+   !important forces the design-system font stack over Pipeline B's useEffect
+   which injects system fonts as inline styles on <body>.
+----------------------------------------------------------------------------- */
+body {
+  font-family: var(--font-body) !important;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* -----------------------------------------------------------------------------
+   4. @KEYFRAMES
+----------------------------------------------------------------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 113, 227, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 113, 227, 0.55);
+  }
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   5. SCROLL-REVEAL UTILITY
+----------------------------------------------------------------------------- */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* -----------------------------------------------------------------------------
+   6. FLOATING BACK-NAVIGATION COMPONENT
+   Glass-style fixed button — shared across all showcase pages.
+----------------------------------------------------------------------------- */
+.site-back-nav {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-back-nav a,
+.site-back-nav button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--card-bg);
+  backdrop-filter: var(--card-blur);
+  -webkit-backdrop-filter: var(--card-blur);
+  border: var(--card-border);
+  border-radius: 50px;
+  box-shadow: var(--card-shadow);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-nav);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.site-back-nav a:hover,
+.site-back-nav button:hover {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+  transform: translateY(-1px);
+}
+
+.site-back-nav a:active,
+.site-back-nav button:active {
+  transform: translateY(0);
+}
+
+
+/* -----------------------------------------------------------------------------
+   7. CUSTOM SCROLLBAR
+----------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.30);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+}
+
+
+/* =============================================================================
+   8. RESPONSIVE BREAKPOINTS
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   8a. TABLET  (640px – 1024px)
+----------------------------------------------------------------------------- */
+@media (min-width: 640px) and (max-width: 1024px) {
+  :root {
+    --fs-h1:            clamp(2rem, 4vw, 3rem);
+    --fs-h2:            1.75rem;
+    --section-padding:  64px 24px;
+  }
+
+  /* 3- and 4-column grids collapse to 2 columns */
+  .ds-grid-3,
+  .ds-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Hamburger visible on tablet too */
+  .ds-hamburger {
+    display: flex !important;
+  }
+
+  .ds-nav-links {
+    display: none !important;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------
+   8b. MOBILE  (< 640px)
+----------------------------------------------------------------------------- */
+@media (max-width: 639px) {
+  :root {
+    --fs-h1:            clamp(1.6rem, 6vw, 2.4rem);
+    --fs-h2:            1.5rem;
+    --section-padding:  48px 16px;
+    --card-padding:     16px;
+  }
+
+  /* -- Layout grids → single column -- */
+  .ds-grid-2,
+  .ds-grid-3,
+  .ds-grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* -- Stats grid → 2 columns -- */
+  .ds-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* -- Hero flex stacking -- */
+  .ds-hero-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .ds-hero-photo {
+    width: 140px !important;
+    height: 140px !important;
+    margin: 0 auto 20px !important;
+  }
+
+  .ds-hero-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .ds-hero-buttons > * {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* -- Navigation: hamburger visible, links hidden -- */
+  .ds-hamburger {
+    display: flex !important;
+  }
+
+  .ds-nav-links {
+    display: none !important;
+  }
+
+  /* -- Mobile navigation drawer --
+     Full-screen glass overlay with centered Playfair links */
+  .ds-mobile-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(245, 245, 247, 0.92);
+    backdrop-filter: saturate(180%) blur(24px);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .ds-mobile-drawer.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .ds-mobile-drawer a {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.15s ease;
+  }
+
+  .ds-mobile-drawer a:hover {
+    color: var(--color-accent);
+  }
+
+  /* -- Back-nav smaller on mobile -- */
+  .site-back-nav a,
+  .site-back-nav button {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  /* -------------------------------------------------------------------------
+     Pipeline B inline-style overrides (attribute selectors + !important)
+     These target Vite-bundled React components that set styles via inline
+     style attributes. Attribute selectors are more specific than class
+     selectors but less specific than id or !important.
+  ------------------------------------------------------------------------- */
+
+  /* Grid columns → single column */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Large paddings → reduced */
+  [style*="padding: 80px"],
+  [style*="padding:80px"] {
+    padding: 48px 16px !important;
+  }
+
+  [style*="padding: 64px"],
+  [style*="padding:64px"] {
+    padding: 40px 16px !important;
+  }
+
+  [style*="padding: 60px"],
+  [style*="padding:60px"] {
+    padding: 36px 16px !important;
+  }
+
+  [style*="padding: 48px"],
+  [style*="padding:48px"] {
+    padding: 32px 16px !important;
+  }
+
+  /* 100vh sections → auto height on mobile */
+  [style*="height: 100vh"],
+  [style*="height:100vh"],
+  [style*="min-height: 100vh"],
+  [style*="min-height:100vh"] {
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  /* Large inline font-sizes → clamped */
+  [style*="font-size: 3"],
+  [style*="font-size:3"] {
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+  }
+
+  [style*="font-size: 2"],
+  [style*="font-size:2"] {
+    font-size: clamp(1.2rem, 5vw, 1.75rem) !important;
+  }
+
+  /* Wide-gap flex rows → column stack */
+  [style*="display: flex"][style*="gap: 4"],
+  [style*="display:flex"][style*="gap:4"],
+  [style*="display: flex"][style*="gap: 3"],
+  [style*="display:flex"][style*="gap:3"] {
+    flex-direction: column !important;
+  }
+}
