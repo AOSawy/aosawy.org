@@ -249,8 +249,20 @@ body {
 }
 
 
+/* -----------------------------------------------------------------------------
+   8. RESPONSIVE DEFAULTS  (desktop-first: hidden by default)
+----------------------------------------------------------------------------- */
+.ds-hamburger {
+  display: none;
+}
+
+.ds-mobile-drawer {
+  display: none;
+}
+
+
 /* =============================================================================
-   8. RESPONSIVE BREAKPOINTS
+   9. RESPONSIVE BREAKPOINTS
    ============================================================================= */
 
 /* -----------------------------------------------------------------------------
@@ -276,6 +288,43 @@ body {
 
   .ds-nav-links {
     display: none !important;
+  }
+
+  /* -- Mobile navigation drawer (tablet) -- */
+  .ds-mobile-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(245, 245, 247, 0.92);
+    backdrop-filter: saturate(180%) blur(24px);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .ds-mobile-drawer.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .ds-mobile-drawer a {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.15s ease;
+  }
+
+  .ds-mobile-drawer a:hover {
+    color: var(--color-accent);
   }
 }
 
