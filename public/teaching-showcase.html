@@ -13,6 +13,23 @@
     html, body, #root { width: 100%; min-height: 100vh; }
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif; -webkit-font-smoothing: antialiased; }
   </style>
+  <style>
+    @media (max-width: 639px) {
+      /* Ensure tab nav scrolls horizontally without showing scrollbar */
+      [style*="position: sticky"] {
+        -webkit-overflow-scrolling: touch;
+      }
+      [style*="position: sticky"] > div {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      [style*="position: sticky"] > div::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="root"></div>
@@ -2697,5 +2714,30 @@
   <a href="index.html">&larr; Home</a>
   <a href="portfolio.html">Portfolio</a>
 </div>
+<script>
+(function() {
+  // Wait for React to finish rendering
+  setTimeout(function() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    // Find major content sections and add scroll-reveal
+    var root = document.getElementById('root');
+    if (root && root.firstElementChild) {
+      var sections = root.querySelectorAll('[style*="padding"]');
+      sections.forEach(function(el) {
+        // Only target top-level content sections (not nested small elements)
+        if (el.offsetHeight > 200) {
+          el.classList.add('scroll-reveal');
+          observer.observe(el);
+        }
+      });
+    }
+  }, 500);
+})();
+</script>
 </body>
 </html>
