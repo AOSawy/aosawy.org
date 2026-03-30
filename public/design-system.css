@@ -708,18 +708,40 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     background-position: center !important;
   }
 
-  /* -- Journey image grid: fill width -- */
+  /* Scroll indicator: more bottom space on mobile, below buttons */
+  .ds-scroll-indicator {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin-top: 32px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* -- Journey image grid: full aspect ratio on mobile -- */
   .ds-journey-grid {
     grid-template-columns: 1fr !important;
-    gap: 12px !important;
+    gap: 16px !important;
   }
   .ds-journey-grid > div {
-    min-height: 200px !important;
+    min-height: auto !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
   }
   .ds-journey-grid img {
-    height: 200px !important;
     width: 100% !important;
-    object-fit: cover !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    border-radius: 16px !important;
+  }
+
+  /* Commencement photo: full width on mobile */
+  img[alt*="Commencement"], img[alt*="commencement"], img[alt*="graduation"], img[alt*="Graduation"], img[alt*="Class of 2024"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
     border-radius: 12px !important;
   }
 
