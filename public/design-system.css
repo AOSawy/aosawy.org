@@ -1108,6 +1108,16 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     margin: 0 auto 1rem !important;
   }
 
+  /* Wind Farm Assumptions image: full-width centered, not shrunk by defensive rule */
+  .page-research img[alt="Wind Farm Assumptions"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
   /* RIA logo inside "Visit RIA Lab" button (Lab Director card): cap size on mobile.
      The shared rule `img { height: auto !important }` (line 688) overrides the
      inline height: 28px, causing the image to expand to its natural height (500px+).
