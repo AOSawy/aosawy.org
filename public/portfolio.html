@@ -323,7 +323,8 @@
     }, {
       value: 'RIA',
       label: 'Lab',
-      link: 'https://sites.rutgers.edu/azizezzat/research/'
+      link: 'https://sites.rutgers.edu/azizezzat/research/',
+      image: 'assets/RU/RESEARCH with Prof Aziz/Work/images used/RIA_logo@3x.png'
     }],
     showcases: [{
       title: 'Offshore Wind Farm Operations Research',
@@ -1152,21 +1153,24 @@
       flexWrap: 'wrap'
     }
   }, chapter.stats.map(s => {
-    var inner = [/*#__PURE__*/_react.default.createElement('div', {
-      key: 'v',
-      style: {
-        fontSize: '1.2rem',
-        fontWeight: 700,
-        color: chapter.color
-      }
-    }, s.value), /*#__PURE__*/_react.default.createElement('div', {
+    var inner = [];
+    if (s.image) {
+      inner.push(/*#__PURE__*/_react.default.createElement('img', {
+        key: 'img',
+        src: s.image,
+        alt: s.value,
+        style: { height: '28px', width: 'auto', objectFit: 'contain', marginBottom: '4px' }
+      }));
+    } else {
+      inner.push(/*#__PURE__*/_react.default.createElement('div', {
+        key: 'v',
+        style: { fontSize: '1.2rem', fontWeight: 700, color: chapter.color }
+      }, s.value));
+    }
+    inner.push(/*#__PURE__*/_react.default.createElement('div', {
       key: 'l',
-      style: {
-        fontSize: '0.7rem',
-        color: color.tertiary,
-        marginTop: '2px'
-      }
-    }, s.label)];
+      style: { fontSize: '0.7rem', color: color.tertiary, marginTop: '2px' }
+    }, s.label));
     var boxStyle = {
       ...glass.surface,
       padding: '12px 20px',
@@ -1179,8 +1183,18 @@
         href: s.link,
         target: '_blank',
         rel: 'noopener noreferrer',
-        style: { ...boxStyle, textDecoration: 'none', cursor: 'pointer', transition: 'transform 0.2s ease' }
-      }, inner);
+        className: 'stat-link-card',
+        style: {
+          ...boxStyle,
+          textDecoration: 'none',
+          cursor: 'pointer',
+          transition: 'all 0.25s ease',
+          border: '1.5px solid ' + chapter.color + '33',
+          position: 'relative'
+        }
+      }, inner, /*#__PURE__*/_react.default.createElement('div', {
+        style: { fontSize: '0.6rem', color: chapter.color, marginTop: '4px', fontWeight: 600, letterSpacing: '0.5px' }
+      }, 'Visit \u2192'));
     }
     return /*#__PURE__*/_react.default.createElement('div', {
       key: s.label,

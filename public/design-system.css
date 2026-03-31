@@ -726,6 +726,14 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 }
 
 /* -----------------------------------------------------------------------------
+   9a-post. STAT LINK CARD — hover effect for clickable stat boxes
+----------------------------------------------------------------------------- */
+.stat-link-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* -----------------------------------------------------------------------------
    9a-post. RESEARCH TAB BAR — Wrap buttons on all viewports (no scrollbar)
 ----------------------------------------------------------------------------- */
 .page-research [style*="position: sticky"][style*="top: 56px"] > div {
