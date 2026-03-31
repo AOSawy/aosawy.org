@@ -1460,6 +1460,19 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     transform: none !important;
   }
 
+  /* All 2-column and 3-column grids → single column on mobile */
+  .page-teaching [style*="grid-template-columns: 1fr 1fr"],
+  .page-teaching [style*="grid-template-columns: 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Module cards grid (repeat 3) → 2 columns on mobile */
+  .page-teaching [style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
   /* Teaching stats: stack properly */
   .page-teaching .ds-teaching-stats {
     flex-direction: column !important;
