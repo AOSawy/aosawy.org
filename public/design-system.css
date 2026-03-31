@@ -1029,10 +1029,9 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* DEFENSIVE: No standalone image on research page should exceed card width
-     Prevents oversized logos, diagrams, or figures from breaking layout.
-     Inline images inside flex rows (buttons, links) are excluded via :not(). */
-  .page-research #root img[style*="width: 100%"] {
+  /* DEFENSIVE: No standalone image on research page should exceed card width.
+     Excludes images with specific alt-text overrides (e.g. RIA logo). */
+  .page-research #root img[style*="width: 100%"]:not([alt*="RIA"]) {
     width: auto !important;
     max-width: 240px !important;
     max-height: 200px !important;
