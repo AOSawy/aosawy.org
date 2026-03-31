@@ -1214,7 +1214,7 @@
       marginBottom: '3rem'
     }
   }, /*#__PURE__*/_react.default.createElement(MathBlock, {
-    label: "Chapman\\u2013Kolmogorov Equation",
+    label: "Chapman\u2013Kolmogorov Equation",
     accent: color.accent
   }, ISE338.keyFormulas.chapmanKolmogorov), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Steady-State Distribution",
@@ -1641,19 +1641,19 @@
   }, "PCA seeks directions of maximum variance in high-dimensional data. The i-th principal component is found by solving a constrained optimization problem where the objective is to maximize projected variance subject to unit-norm and orthogonality constraints."), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Step 1: Eigenvalue Problem",
     accent: color.accent
-  }, "Given a p \\u00D7 p covariance matrix \\u03A3, find directions a that maximize projected variance:", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Objective:"), " max V(Z) = a\\u1D40\\u03A3a \xA0\xA0 subject to \xA0 a\\u1D40a = 1"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "Given a p \u00D7 p covariance matrix \u03A3, find directions a that maximize projected variance:", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Objective:"), " max V(Z) = a\u1D40\u03A3a \xA0\xA0 subject to \xA0 a\u1D40a = 1"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Step 2: Lagrangian Formulation",
     accent: color.accent
-  }, "L(a, \\u03BB) = a\\u1D40\\u03A3a \\u2212 \\u03BB(a\\u1D40a \\u2212 1)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "FOC:"), " \\u2202L/\\u2202a = 2\\u03A3a \\u2212 2\\u03BBa = 0 \xA0 \\u21D2 \xA0 \\u03A3a = \\u03BBa"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "L(a, \u03BB) = a\u1D40\u03A3a \u2212 \u03BB(a\u1D40a \u2212 1)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "FOC:"), " \u2202L/\u2202a = 2\u03A3a \u2212 2\u03BBa = 0 \xA0 \u21D2 \xA0 \u03A3a = \u03BBa"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Step 3: Solution",
     accent: color.accent
-  }, "a\\u2081 = eigenvector of \\u03A3 corresponding to the largest eigenvalue \\u03BB\\u2081", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "V(Z\\u2081) = a\\u2081\\u1D40\\u03A3a\\u2081 = \\u03BB\\u2081 \xA0 (variance captured by 1st PC)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "a\u2081 = eigenvector of \u03A3 corresponding to the largest eigenvalue \u03BB\u2081", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "V(Z\u2081) = a\u2081\u1D40\u03A3a\u2081 = \u03BB\u2081 \xA0 (variance captured by 1st PC)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Step 4: Subsequent Components",
     accent: color.accent
-  }, "For i-th PC: max a\\u1D62\\u1D40\\u03A3a\\u1D62 \xA0 s.t. \xA0 a\\u1D62\\u1D40a\\u1D62 = 1, \xA0 a\\u1D62\\u1D40a\\u2C7C = 0 for all j ", '<', " i", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Total variance preserved: \\u03A3V(Z\\u1D62) = \\u03A3\\u03BB\\u1D62 = Tr(\\u03A3)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "For i-th PC: max a\u1D62\u1D40\u03A3a\u1D62 \xA0 s.t. \xA0 a\u1D62\u1D40a\u1D62 = 1, \xA0 a\u1D62\u1D40a\u2C7C = 0 for all j ", '<', " i", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Total variance preserved: \u03A3V(Z\u1D62) = \u03A3\u03BB\u1D62 = Tr(\u03A3)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Proportion of Variance Explained",
     accent: color.accent
-  }, "PVE(q) = (\\u03BB\\u2081 + \\u03BB\\u2082 + ... + \\u03BB\\u2096) / Tr(\\u03A3\\u2093) \xA0\xA0 (select q via scree plot)")), /*#__PURE__*/_react.default.createElement(GlassCard, {
+  }, "PVE(q) = (\u03BB\u2081 + \u03BB\u2082 + ... + \u03BB\u2096) / Tr(\u03A3\u2093) \xA0\xA0 (select q via scree plot)")), /*#__PURE__*/_react.default.createElement(GlassCard, {
     style: {
       marginBottom: '2.5rem',
       borderLeft: `3px solid ${color.red}`
@@ -1675,13 +1675,13 @@
   }, "The MVN distribution is the cornerstone of multivariate statistics. Its conditional distributions are analytically tractable, enabling optimal missing data imputation and Bayesian classification."), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "MVN Probability Density Function",
     accent: color.red
-  }, "p(X) = (2\\u03C0)\\u207B\\u1D56\\u2044\\u00B2 |\\u03A3|\\u207B\\u00BD exp(\\u2212\\u00BD (X\\u2212\\u03BC)\\u1D40 \\u03A3\\u207B\\u00B9 (X\\u2212\\u03BC))", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "where (X\\u2212\\u03BC)\\u1D40\\u03A3\\u207B\\u00B9(X\\u2212\\u03BC) is the ", /*#__PURE__*/_react.default.createElement("strong", null, "Mahalanobis distance")), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "p(X) = (2\u03C0)\u207B\u1D56\u2044\u00B2 |\u03A3|\u207B\u00BD exp(\u2212\u00BD (X\u2212\u03BC)\u1D40 \u03A3\u207B\u00B9 (X\u2212\u03BC))", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "where (X\u2212\u03BC)\u1D40\u03A3\u207B\u00B9(X\u2212\u03BC) is the ", /*#__PURE__*/_react.default.createElement("strong", null, "Mahalanobis distance")), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Conditional Distribution (Partitioned MVN)",
     accent: color.red
-  }, "X\\u2081 | X\\u2082 = x\\u2082 \xA0~\xA0 N(\\u03BC\\u2081|\\u2082, \\u03A3\\u2081|\\u2082)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Conditional mean:"), " \xA0 \\u03BC\\u2081|\\u2082 = \\u03BC\\u2081 + \\u03A3\\u2081\\u2082\\u03A3\\u2082\\u2082\\u207B\\u00B9(x\\u2082 \\u2212 \\u03BC\\u2082)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Conditional variance:"), " \xA0 \\u03A3\\u2081|\\u2082 = \\u03A3\\u2081\\u2081 \\u2212 \\u03A3\\u2081\\u2082\\u03A3\\u2082\\u2082\\u207B\\u00B9\\u03A3\\u2082\\u2081"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "X\u2081 | X\u2082 = x\u2082 \xA0~\xA0 N(\u03BC\u2081|\u2082, \u03A3\u2081|\u2082)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Conditional mean:"), " \xA0 \u03BC\u2081|\u2082 = \u03BC\u2081 + \u03A3\u2081\u2082\u03A3\u2082\u2082\u207B\u00B9(x\u2082 \u2212 \u03BC\u2082)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("strong", null, "Conditional variance:"), " \xA0 \u03A3\u2081|\u2082 = \u03A3\u2081\u2081 \u2212 \u03A3\u2081\u2082\u03A3\u2082\u2082\u207B\u00B9\u03A3\u2082\u2081"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Bivariate Normal Special Case",
     accent: color.red
-  }, "X\\u2081 | X\\u2082 = x\\u2082 \xA0~\xA0 N(\\u03BC\\u2081 + \\u03C1(\\u03C3\\u2081/\\u03C3\\u2082)(x\\u2082 \\u2212 \\u03BC\\u2082), \xA0\\u03C3\\u2081\\u00B2(1 \\u2212 \\u03C1\\u00B2))", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Note: conditional variance \\u03C3\\u2081\\u00B2(1\\u2212\\u03C1\\u00B2) \\u2264 \\u03C3\\u2081\\u00B2 (always reduces uncertainty)")), /*#__PURE__*/_react.default.createElement(GlassCard, {
+  }, "X\u2081 | X\u2082 = x\u2082 \xA0~\xA0 N(\u03BC\u2081 + \u03C1(\u03C3\u2081/\u03C3\u2082)(x\u2082 \u2212 \u03BC\u2082), \xA0\u03C3\u2081\u00B2(1 \u2212 \u03C1\u00B2))", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Note: conditional variance \u03C3\u2081\u00B2(1\u2212\u03C1\u00B2) \u2264 \u03C3\u2081\u00B2 (always reduces uncertainty)")), /*#__PURE__*/_react.default.createElement(GlassCard, {
     style: {
       marginBottom: '2.5rem',
       borderLeft: `3px solid ${color.green}`
@@ -1700,7 +1700,7 @@
       lineHeight: 1.7,
       marginBottom: '1.5rem'
     }
-  }, "When predictors are highly correlated, the OLS estimator (X\\u1D40X)\\u207B\\u00B9 becomes ill-conditioned. PCR replaces the original correlated predictors with uncorrelated principal components, eliminating multicollinearity."), /*#__PURE__*/_react.default.createElement("div", {
+  }, "When predictors are highly correlated, the OLS estimator (X\u1D40X)\u207B\u00B9 becomes ill-conditioned. PCR replaces the original correlated predictors with uncorrelated principal components, eliminating multicollinearity."), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -1709,10 +1709,10 @@
   }, /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Multiple Linear Regression",
     accent: color.green
-  }, "Y = X\\u03B2 + \\u03B5", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "\\u03B2\\u0302 = (X\\u1D40X)\\u207B\\u00B9X\\u1D40Y", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Problem: if X\\u1D40X \\u2248 singular, \\u03B2\\u0302 is unstable"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "Y = X\u03B2 + \u03B5", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "\u03B2\u0302 = (X\u1D40X)\u207B\u00B9X\u1D40Y", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Problem: if X\u1D40X \u2248 singular, \u03B2\u0302 is unstable"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Principal Component Regression",
     accent: color.green
-  }, "Z = XW, \xA0 Y = Z\\u03B3 + \\u03B5", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "\\u03B3\\u0302 = (Z\\u1D40Z)\\u207B\\u00B9Z\\u1D40Y", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Since Cov(Z\\u1D62,Z\\u2C7C) = 0: stable, interpretable"))), /*#__PURE__*/_react.default.createElement(GlassCard, {
+  }, "Z = XW, \xA0 Y = Z\u03B3 + \u03B5", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "\u03B3\u0302 = (Z\u1D40Z)\u207B\u00B9Z\u1D40Y", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Since Cov(Z\u1D62,Z\u2C7C) = 0: stable, interpretable"))), /*#__PURE__*/_react.default.createElement(GlassCard, {
     style: {
       marginBottom: '2.5rem',
       borderLeft: `3px solid ${color.orange}`
@@ -1734,7 +1734,7 @@
   }, "Neighborhood-based collaborative filtering predicts missing ratings by identifying similar users (or items) and computing a weighted average of their known ratings, corrected for rating bias."), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "User-Based CF Prediction",
     accent: color.orange
-  }, "\\u0177\\u1D62\\u2C7C = \\u0233\\u1D62 + \\u03A3\\u2096\\u2208N\\u1D62 sim(i,k) \\u00B7 (y\\u2096\\u2C7C \\u2212 \\u0233\\u2096) / \\u03A3\\u2096\\u2208N\\u1D62 |sim(i,k)|"), /*#__PURE__*/_react.default.createElement("div", {
+  }, "\u0177\u1D62\u2C7C = \u0233\u1D62 + \u03A3\u2096\u2208N\u1D62 sim(i,k) \u00B7 (y\u2096\u2C7C \u2212 \u0233\u2096) / \u03A3\u2096\u2208N\u1D62 |sim(i,k)|"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -1743,10 +1743,10 @@
   }, /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Pearson Correlation",
     accent: color.orange
-  }, "sim(i,k) = \\u03A3(y\\u1D62\\u2C7C\\u2212\\u0233\\u1D62)(y\\u2096\\u2C7C\\u2212\\u0233\\u2096) / \\u221A[\\u03A3(y\\u1D62\\u2C7C\\u2212\\u0233\\u1D62)\\u00B2 \\u03A3(y\\u2096\\u2C7C\\u2212\\u0233\\u2096)\\u00B2]"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "sim(i,k) = \u03A3(y\u1D62\u2C7C\u2212\u0233\u1D62)(y\u2096\u2C7C\u2212\u0233\u2096) / \u221A[\u03A3(y\u1D62\u2C7C\u2212\u0233\u1D62)\u00B2 \u03A3(y\u2096\u2C7C\u2212\u0233\u2096)\u00B2]"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Cosine Similarity",
     accent: color.orange
-  }, "sim(i,k) = (y\\u1D62 \\u00B7 y\\u2096) / (||y\\u1D62|| \\u00B7 ||y\\u2096||)"))));
+  }, "sim(i,k) = (y\u1D62 \u00B7 y\u2096) / (||y\u1D62|| \u00B7 ||y\u2096||)"))));
 
   // ============================================================================
   // TAB: ADVANCED TOPICS
@@ -1756,7 +1756,7 @@
       animation: 'fadeInUp 0.6s ease both'
     }
   }, /*#__PURE__*/_react.default.createElement(SectionTitle, {
-    subtitle: "Graph mining, spatial statistics, and geostatistical prediction \\u2014 constructed from multiple textbooks and research papers"
+    subtitle: "Graph mining, spatial statistics, and geostatistical prediction \u2014 constructed from multiple textbooks and research papers"
   }, "Advanced Topics"), /*#__PURE__*/_react.default.createElement(GlassCard, {
     style: {
       marginBottom: '2.5rem',
@@ -1915,7 +1915,7 @@
       lineHeight: 1.7,
       marginBottom: '0.5rem'
     }
-  }, /*#__PURE__*/_react.default.createElement("strong", null, "3 lecture parts, 179 slides"), " \\u2014 the most comprehensive module. Covers spatial point patterns, autocorrelation testing, autoregressive models, variogram analysis, and kriging \\u2014 the optimal spatial prediction technique."), /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("strong", null, "3 lecture parts, 179 slides"), " \u2014 the most comprehensive module. Covers spatial point patterns, autocorrelation testing, autoregressive models, variogram analysis, and kriging \u2014 the optimal spatial prediction technique."), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'flex',
       gap: '0.5rem',
@@ -1950,7 +1950,7 @@
   }, "K\u0302(d) = (1/", '\u03BB', "\u0302n) ", '\u03A3', '\u1D62', " ", '\u03A3', '\u2C7C\u2260\u1D62', " 1", '{', '\u2016', "s", '\u1D62', " ", '\u2212', " s", '\u2C7C', '\u2016', " ", '\u2264', " d", '}'), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "L-Function (Variance Stabilizing)",
     accent: color.rutgers
-  }, "L(d) = \\u221A(K(d) / \\u03C0) \\u2212 d", /*#__PURE__*/_react.default.createElement("br", null), "Under CSR: L(d) \\u2248 0 for all d")), /*#__PURE__*/_react.default.createElement("div", {
+  }, "L(d) = \u221A(K(d) / \u03C0) \u2212 d", /*#__PURE__*/_react.default.createElement("br", null), "Under CSR: L(d) \u2248 0 for all d")), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       fontSize: '0.75rem',
       color: color.tertiary,
@@ -1969,10 +1969,10 @@
   }, /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Moran's I Statistic",
     accent: color.rutgers
-  }, "I = (n / S\\u2080) \\u00B7 \\u03A3\\u1D62\\u03A3\\u2C7C w\\u1D62\\u2C7C z\\u1D62 z\\u2C7C / \\u03A3\\u1D62 z\\u1D62\\u00B2", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "E\\u2080[I] = \\u22121/(n\\u22121); \xA0 Z\\u1D38 = (I \\u2212 E[I]) / \\u221AVar(I)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "I = (n / S\u2080) \u00B7 \u03A3\u1D62\u03A3\u2C7C w\u1D62\u2C7C z\u1D62 z\u2C7C / \u03A3\u1D62 z\u1D62\u00B2", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "E\u2080[I] = \u22121/(n\u22121); \xA0 Z\u1D38 = (I \u2212 E[I]) / \u221AVar(I)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Geary's C Statistic",
     accent: color.rutgers
-  }, "C = ((n\\u22121) \\u03A3\\u1D62\\u03A3\\u2C7C w\\u1D62\\u2C7C(y\\u1D62\\u2212y\\u2C7C)\\u00B2) / (2S\\u2080 \\u03A3\\u1D62(y\\u1D62\\u2212\\u0233)\\u00B2)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "C ", '<', " 1: positive autocorrelation; C ", '>', " 1: negative")), /*#__PURE__*/_react.default.createElement("div", {
+  }, "C = ((n\u22121) \u03A3\u1D62\u03A3\u2C7C w\u1D62\u2C7C(y\u1D62\u2212y\u2C7C)\u00B2) / (2S\u2080 \u03A3\u1D62(y\u1D62\u2212\u0233)\u00B2)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "C ", '<', " 1: positive autocorrelation; C ", '>', " 1: negative")), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       fontSize: '0.75rem',
       color: color.tertiary,
@@ -1994,10 +1994,10 @@
   }, "y = ", '\u03C1', "Wy + X", '\u03B2', " + ", '\u03B5', /*#__PURE__*/_react.default.createElement("br", null), "Outcome y depends on neighbors", '\u2019', " outcomes Wy"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Spatial Error Model (SEM)",
     accent: color.purple
-  }, "y = X\\u03B2 + u, \xA0 u = \\u03BBWu + \\u03B5", /*#__PURE__*/_react.default.createElement("br", null), "Errors are spatially correlated via W")), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "y = X\u03B2 + u, \xA0 u = \u03BBWu + \u03B5", /*#__PURE__*/_react.default.createElement("br", null), "Errors are spatially correlated via W")), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Spatial Durbin Model (SDM)",
     accent: color.purple
-  }, "y = \\u03C1Wy + X\\u03B2 + WX\\u03B3 + \\u03B5 \xA0\xA0 (combines SAR + spatially lagged predictors)"), /*#__PURE__*/_react.default.createElement("div", {
+  }, "y = \u03C1Wy + X\u03B2 + WX\u03B3 + \u03B5 \xA0\xA0 (combines SAR + spatially lagged predictors)"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       marginTop: '1.5rem',
       fontSize: '0.75rem',
@@ -2010,7 +2010,7 @@
   }, "Geostatistics & Kriging"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Semivariogram",
     accent: color.rutgers
-  }, "\\u03B3(h) = \\u00BD E[(Z(s+h) \\u2212 Z(s))\\u00B2]", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Parameters: Nugget \\u03B3\\u2080 (micro-scale variation), Sill \\u03C3\\u00B2+\\u03B3\\u2080 (total variance), Range a (correlation distance)"), /*#__PURE__*/_react.default.createElement("div", {
+  }, "\u03B3(h) = \u00BD E[(Z(s+h) \u2212 Z(s))\u00B2]", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Parameters: Nugget \u03B3\u2080 (micro-scale variation), Sill \u03C3\u00B2+\u03B3\u2080 (total variance), Range a (correlation distance)"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr 1fr',
@@ -2036,9 +2036,9 @@
     },
     accent: color.rutgers
   })), /*#__PURE__*/_react.default.createElement(MathBlock, {
-    label: "Ordinary Kriging \\u2014 Best Linear Unbiased Predictor (BLUP)",
+    label: "Ordinary Kriging \u2014 Best Linear Unbiased Predictor (BLUP)",
     accent: color.rutgers
-  }, "Z\\u0302(s\\u2080) = \\u03A3\\u1D62 \\u03BB\\u1D62 Z(s\\u1D62), \xA0 subject to \xA0 \\u03A3\\u03BB\\u1D62 = 1 \xA0 (unbiasedness)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Kriging system: [\\u0393 | 1; 1\\u1D40 | 0] [\\u03BB; \\u03C8] = [\\u03B3\\u2080; 1]", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Prediction variance: \\u03C3\\u00B2\\u2096(s\\u2080) = C(0) \\u2212 \\u03BB\\u1D40c\\u2080 + \\u03C8"), /*#__PURE__*/_react.default.createElement("div", {
+  }, "Z\u0302(s\u2080) = \u03A3\u1D62 \u03BB\u1D62 Z(s\u1D62), \xA0 subject to \xA0 \u03A3\u03BB\u1D62 = 1 \xA0 (unbiasedness)", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Kriging system: [\u0393 | 1; 1\u1D40 | 0] [\u03BB; \u03C8] = [\u03B3\u2080; 1]", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Prediction variance: \u03C3\u00B2\u2096(s\u2080) = C(0) \u2212 \u03BB\u1D40c\u2080 + \u03C8"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
@@ -2047,10 +2047,10 @@
   }, /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Simple Kriging (Known Mean)",
     accent: color.rutgers
-  }, "Z\\u0302(s\\u2080) = \\u03BC + \\u03A3\\u03BB\\u1D62(Z(s\\u1D62) \\u2212 \\u03BC)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
+  }, "Z\u0302(s\u2080) = \u03BC + \u03A3\u03BB\u1D62(Z(s\u1D62) \u2212 \u03BC)"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Universal Kriging (With Trend)",
     accent: color.rutgers
-  }, "Z(s) = \\u03A3\\u03B2\\u209Af\\u209A(s) + R(s)", /*#__PURE__*/_react.default.createElement("br", null), "where R(s) is intrinsically stationary residual"))), /*#__PURE__*/_react.default.createElement(GlassCard, {
+  }, "Z(s) = \u03A3\u03B2\u209Af\u209A(s) + R(s)", /*#__PURE__*/_react.default.createElement("br", null), "where R(s) is intrinsically stationary residual"))), /*#__PURE__*/_react.default.createElement(GlassCard, {
     style: {
       marginBottom: '2rem'
     }
@@ -2116,7 +2116,7 @@
     y: "184",
     fill: color.tertiary,
     fontSize: "9"
-  }, "Nugget (\\u03B3\\u2080)"), /*#__PURE__*/_react.default.createElement("line", {
+  }, "Nugget (\u03B3\u2080)"), /*#__PURE__*/_react.default.createElement("line", {
     x1: "50",
     y1: "60",
     x2: "470",
@@ -2129,7 +2129,7 @@
     y: "54",
     fill: color.tertiary,
     fontSize: "9"
-  }, "Sill (\\u03C3\\u00B2+\\u03B3\\u2080)"), /*#__PURE__*/_react.default.createElement("line", {
+  }, "Sill (\u03C3\u00B2+\u03B3\u2080)"), /*#__PURE__*/_react.default.createElement("line", {
     x1: "320",
     y1: "200",
     x2: "320",
@@ -2163,7 +2163,7 @@
     fontSize: "8",
     textAnchor: "middle",
     transform: "rotate(-90, 30, 125)"
-  }, "Partial sill (\\u03C3\\u00B2)"))));
+  }, "Partial sill (\u03C3\u00B2)"))));
 
   // ============================================================================
   // TAB: IMPACT & GROWTH
