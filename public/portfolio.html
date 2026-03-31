@@ -323,8 +323,7 @@
     }, {
       value: 'RIA',
       label: 'Lab',
-      link: 'https://sites.rutgers.edu/azizezzat/research/',
-      image: 'assets/RU/RESEARCH with Prof Aziz/Work/images used/RIA_logo@3x.png'
+      link: 'https://sites.rutgers.edu/azizezzat/research/'
     }],
     showcases: [{
       title: 'Offshore Wind Farm Operations Research',
@@ -1153,24 +1152,13 @@
       flexWrap: 'wrap'
     }
   }, chapter.stats.map(s => {
-    var inner = [];
-    if (s.image) {
-      inner.push(/*#__PURE__*/_react.default.createElement('img', {
-        key: 'img',
-        src: s.image,
-        alt: s.value,
-        style: { height: '28px', width: 'auto', objectFit: 'contain', marginBottom: '4px' }
-      }));
-    } else {
-      inner.push(/*#__PURE__*/_react.default.createElement('div', {
-        key: 'v',
-        style: { fontSize: '1.2rem', fontWeight: 700, color: chapter.color }
-      }, s.value));
-    }
-    inner.push(/*#__PURE__*/_react.default.createElement('div', {
+    var inner = [/*#__PURE__*/_react.default.createElement('div', {
+      key: 'v',
+      style: { fontSize: '1.2rem', fontWeight: 700, color: chapter.color }
+    }, s.value), /*#__PURE__*/_react.default.createElement('div', {
       key: 'l',
       style: { fontSize: '0.7rem', color: color.tertiary, marginTop: '2px' }
-    }, s.label));
+    }, s.label)];
     var boxStyle = {
       ...glass.surface,
       padding: '12px 20px',
