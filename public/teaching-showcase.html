@@ -1270,56 +1270,7 @@
       lineHeight: 1.6,
       margin: 0
     }
-  }, c)))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
-    subtitle: "Assessment structure"
-  }, "Grading Breakdown"), /*#__PURE__*/_react.default.createElement(GlassCard, null, /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '1.5rem',
-      flexWrap: 'wrap'
-    }
-  }, Object.entries(ISE338.grading).map(([key, val]) => {
-    const labels = {
-      hw: 'Homework',
-      exam1: 'Exam 1',
-      exam2: 'Exam 2',
-      project: 'Project'
-    };
-    const colors = {
-      hw: color.accent,
-      exam1: color.green,
-      exam2: color.purple,
-      project: color.orange
-    };
-    return /*#__PURE__*/_react.default.createElement("div", {
-      key: key,
-      style: {
-        textAlign: 'center'
-      }
-    }, /*#__PURE__*/_react.default.createElement("div", {
-      style: {
-        width: '64px',
-        height: '64px',
-        borderRadius: '50%',
-        background: `${colors[key]}15`,
-        border: `2px solid ${colors[key]}`,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '1.1rem',
-        fontWeight: 700,
-        color: colors[key],
-        margin: '0 auto 0.5rem'
-      }
-    }, val, "%"), /*#__PURE__*/_react.default.createElement("div", {
-      style: {
-        fontSize: '0.8rem',
-        color: color.secondary,
-        fontWeight: 500
-      }
-    }, labels[key]));
-  }))));
+  }, c)))));
 
   // ============================================================================
   // TAB: ISE 540
