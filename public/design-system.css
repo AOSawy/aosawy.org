@@ -736,7 +736,8 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 /* -----------------------------------------------------------------------------
    9a-post. RESEARCH TAB BAR — Wrap buttons on all viewports (no scrollbar)
 ----------------------------------------------------------------------------- */
-.page-research [style*="position: sticky"][style*="top: 56px"] > div {
+.page-research [style*="position: sticky"][style*="top: 56px"] > div,
+.page-teaching [style*="position: sticky"][style*="top: 56px"] > div {
   white-space: normal !important;
   overflow-x: visible !important;
   display: flex !important;
@@ -1128,8 +1129,9 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     margin-top: 0 !important;
   }
 
-  /* Tab bar — wrap buttons, not scrollable */
-  .page-research [style*="position: sticky"][style*="top: 56px"] > div {
+  /* Tab bar — wrap buttons, not scrollable (research + teaching) */
+  .page-research [style*="position: sticky"][style*="top: 56px"] > div,
+  .page-teaching [style*="position: sticky"][style*="top: 56px"] > div {
     white-space: normal !important;
     overflow-x: visible !important;
     display: flex !important;
@@ -1137,7 +1139,8 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     gap: 6px !important;
     justify-content: center !important;
   }
-  .page-research [style*="position: sticky"][style*="top: 56px"] > div > button {
+  .page-research [style*="position: sticky"][style*="top: 56px"] > div > button,
+  .page-teaching [style*="position: sticky"][style*="top: 56px"] > div > button {
     padding: 0.4rem 0.7rem !important;
     font-size: 0.7rem !important;
     margin-right: 0 !important;

@@ -2483,7 +2483,24 @@
   // MAIN APP
   // ============================================================================
   const TeachingShowcase = () => {
-    const [activeTab, setActiveTab] = (0, _react.useState)('overview');
+    const validTabs = ['overview','ise338','ise540','slides','equations','advanced','impact'];
+    const hashTab = window.location.hash.replace('#','');
+    const initialTab = validTabs.includes(hashTab) ? hashTab : 'overview';
+    const [activeTab, setActiveTab] = (0, _react.useState)(initialTab);
+    const handleTabChange = (tabId) => {
+      setActiveTab(tabId);
+      window.location.hash = tabId;
+      sessionStorage.setItem('teaching-scroll', '0');
+    };
+    (0, _react.useEffect)(() => {
+      const saveScroll = () => sessionStorage.setItem('teaching-scroll', String(window.scrollY));
+      window.addEventListener('beforeunload', saveScroll);
+      const saved = sessionStorage.getItem('teaching-scroll');
+      if (saved && Number(saved) > 0) { setTimeout(() => window.scrollTo(0, Number(saved)), 100); }
+      const onHash = () => { const t = window.location.hash.replace('#',''); if (validTabs.includes(t)) setActiveTab(t); };
+      window.addEventListener('hashchange', onHash);
+      return () => { window.removeEventListener('beforeunload', saveScroll); window.removeEventListener('hashchange', onHash); };
+    }, []);
     (0, _react.useEffect)(() => {
       const style = document.createElement('style');
       style.textContent = `
@@ -2670,23 +2687,23 @@
         ...glass.nav,
         position: 'sticky',
         top: '56px',
-        zIndex: 50,
-        padding: '12px 0'
+        zIndex: 100,
+        padding: '1rem 0',
+        marginBottom: '2rem'
       }
     }, /*#__PURE__*/_react.default.createElement("div", {
       style: {
         maxWidth: '1200px',
         margin: '0 auto',
-        display: 'flex',
-        gap: '0.5rem',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        padding: '0 2rem'
+        paddingLeft: '1.5rem',
+        paddingRight: '1.5rem',
+        overflowX: 'auto',
+        whiteSpace: 'nowrap'
       }
     }, TABS.map(tab => /*#__PURE__*/_react.default.createElement(TabButton, {
       key: tab.id,
       isActive: activeTab === tab.id,
-      onClick: () => setActiveTab(tab.id)
+      onClick: () => handleTabChange(tab.id)
     }, tab.label)))), /*#__PURE__*/_react.default.createElement("main", {
       style: {
         maxWidth: '1200px',
