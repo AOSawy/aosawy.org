@@ -1391,8 +1391,22 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   /* =========================================================================
      PAGE-PORTFOLIO MOBILE — .page-portfolio scoped
      Only affects portfolio.html
-     (Placeholder — to be filled during portfolio mobile optimization)
      ========================================================================= */
+
+  /* Hero stats: column layout on mobile */
+  .page-portfolio .portfolio-hero-stats {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .page-portfolio .portfolio-hero-stats > div {
+    width: 200px !important;
+  }
+
+  /* Scroll indicator: push to very bottom on mobile */
+  .page-portfolio .portfolio-scroll-indicator {
+    bottom: 12px !important;
+  }
 
 
   /* =========================================================================

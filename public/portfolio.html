@@ -341,19 +341,19 @@
   const TOTAL_STATS = [{
     value: '10',
     label: 'Interactive Showcases',
-    color: color.accent
+    color: '#ffffff'
   }, {
     value: '2',
     label: 'Universities',
-    color: color.auc
+    color: '#ffffff'
   }, {
-    value: '5+',
+    value: '6+',
     label: 'Years of Engineering',
-    color: color.rutgers
+    color: '#ffffff'
   }, {
     value: '3',
     label: 'Awards & Rank #1',
-    color: color.gold
+    color: '#ffffff'
   }];
 
   // ============================================================================
@@ -800,6 +800,7 @@
   /*#__PURE__*/
   // Stats row
   _react.default.createElement('div', {
+    className: 'portfolio-hero-stats',
     style: {
       display: 'flex',
       justifyContent: 'center',
@@ -834,8 +835,8 @@
   /*#__PURE__*/
   // Scroll indicator (standardized)
   _react.default.createElement('div', {
-    className: 'ds-scroll-indicator ds-scroll-indicator--light',
-    style: { position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)' }
+    className: 'ds-scroll-indicator ds-scroll-indicator--light portfolio-scroll-indicator',
+    style: { position: 'absolute', bottom: '16px', left: '50%', transform: 'translateX(-50%)' }
   }, _react.default.createElement('div', { className: 'ds-scroll-mouse' }),
      _react.default.createElement('span', null, 'Scroll'))
   )));
