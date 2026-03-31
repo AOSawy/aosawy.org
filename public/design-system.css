@@ -521,6 +521,29 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   width: auto !important;
 }
 
+/* -----------------------------------------------------------------------------
+   9a-post. RESEARCH HERO CARD — Logo buttons at bottom (all viewports)
+   Moves the RIA + Rutgers logo row to the bottom of the hero card
+   and applies dark background + white glow animation.
+   These selectors are deeply nested and ONLY match inside the hero card.
+----------------------------------------------------------------------------- */
+.page-research .research-hero-content > div:first-child {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.page-research .research-hero-content > div:first-child > div:first-child {
+  order: 10 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0.75rem !important;
+}
+
+.page-research .research-hero-content > div:first-child > div:first-child a {
+  background: rgba(0,0,0,0.55) !important;
+  border: 0.5px solid rgba(255,255,255,0.2) !important;
+  animation: heroButtonGlow 3s ease-in-out infinite !important;
+}
+
 
 /* -----------------------------------------------------------------------------
    9b. MOBILE  (< 640px)
