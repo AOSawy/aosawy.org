@@ -555,6 +555,177 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 
 
 /* -----------------------------------------------------------------------------
+   9a-post. FRAMEWORK EVOLUTION TIMELINE — responsive HTML figure
+----------------------------------------------------------------------------- */
+.fw-evolution-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 1.5rem 0;
+}
+.fw-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.fw-node-circle {
+  width: var(--node-size, 60px);
+  height: var(--node-size, 60px);
+  border-radius: 50%;
+  background: rgba(204,0,0,0.06);
+  border: 2px solid #CC0000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.fw-node-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(204,0,0,0.15);
+}
+.fw-node-name {
+  font-weight: 800;
+  font-size: 0.72rem;
+  color: #CC0000;
+  letter-spacing: 0.02em;
+}
+.fw-node-id {
+  font-size: 0.6rem;
+  color: #CC0000;
+  opacity: 0.7;
+}
+.fw-node-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+.fw-node-year {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.fw-node-desc {
+  font-size: 0.65rem;
+  color: var(--color-tertiary);
+}
+.fw-arrow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  min-width: 80px;
+  flex-shrink: 1;
+}
+.fw-arrow-line {
+  flex: 1;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #CC0000 0, #CC0000 6px, transparent 6px, transparent 10px);
+}
+.fw-arrow-head {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #CC0000;
+}
+.fw-arrow-label {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.62rem;
+  color: var(--color-tertiary);
+  white-space: nowrap;
+}
+
+/* -- Research Interconnections Network -- */
+.ri-network {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.ri-feeds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.ri-feed-card {
+  padding: 0.75rem;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ri-feed-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.ri-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+}
+.ri-arrow-lines {
+  width: 2px;
+  height: 100%;
+  min-height: 200px;
+  background: repeating-linear-gradient(180deg, var(--color-tertiary) 0, var(--color-tertiary) 4px, transparent 4px, transparent 8px);
+  position: relative;
+  opacity: 0.3;
+}
+.ri-arrow-lines::after {
+  content: '\u25B6';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-tertiary);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+.ri-core {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ri-core-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(204,0,0,0.04);
+  border: 2.5px solid #CC0000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+.ri-core-circle:hover {
+  box-shadow: 0 0 30px rgba(204,0,0,0.12);
+}
+.ri-predecessors {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+.ri-pred {
+  font-size: 0.55rem;
+  color: #CC0000;
+  background: rgba(204,0,0,0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
    9a-post. PIPELINE MOBILE CARD — hidden on desktop/tablet, shown on mobile
 ----------------------------------------------------------------------------- */
 .pipeline-mobile-card {
@@ -1140,6 +1311,66 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   }
   .page-research .pipeline-mobile-card {
     display: block !important;
+  }
+
+  /* Framework Evolution Timeline: vertical on mobile */
+  .fw-evolution-timeline {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  .fw-arrow {
+    flex-direction: column !important;
+    min-width: unset !important;
+    min-height: 40px;
+    align-items: center !important;
+  }
+  .fw-arrow-line {
+    width: 2px !important;
+    height: 30px !important;
+    flex: unset !important;
+    background: repeating-linear-gradient(180deg, #CC0000 0, #CC0000 6px, transparent 6px, transparent 10px) !important;
+  }
+  .fw-arrow-head {
+    border-top: 8px solid #CC0000 !important;
+    border-bottom: none !important;
+    border-left: 5px solid transparent !important;
+    border-right: 5px solid transparent !important;
+  }
+  .fw-arrow-label {
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    position: relative !important;
+    margin-left: 1rem;
+    align-self: center;
+  }
+
+  /* Research Interconnections: vertical on mobile */
+  .ri-network {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .ri-arrows {
+    width: 100% !important;
+    height: 30px !important;
+  }
+  .ri-arrow-lines {
+    width: 100% !important;
+    height: 2px !important;
+    min-height: unset !important;
+    background: repeating-linear-gradient(90deg, var(--color-tertiary) 0, var(--color-tertiary) 4px, transparent 4px, transparent 8px) !important;
+  }
+  .ri-arrow-lines::after {
+    right: auto !important;
+    top: auto !important;
+    bottom: -14px !important;
+    left: 50% !important;
+    transform: translateX(-50%) rotate(90deg) !important;
+  }
+  .ri-core-circle {
+    width: 140px !important;
+    height: 140px !important;
+    margin: 0 auto !important;
   }
 
   /* RIA logo inside "Visit RIA Lab" button (Lab Director card): cap size on mobile.
