@@ -1398,6 +1398,12 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     flex-direction: column !important;
   }
 
+  /* Showcase grid: single column on mobile */
+  .page-portfolio .chapter-showcase-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
   /* Hero stats: column layout on mobile */
   .page-portfolio .portfolio-hero-stats {
     flex-direction: column !important;

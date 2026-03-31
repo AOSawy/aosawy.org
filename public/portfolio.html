@@ -141,9 +141,9 @@
     period: '2019 \u2013 2024',
     color: color.auc,
     accentGradient: 'linear-gradient(135deg, #003366 0%, #004488 100%)',
-    narrative: 'It started in Cairo. At the American University in Cairo, the fundamentals were forged \u2014 structural analysis, fluid dynamics, material science, and the art of engineering design. Six projects spanning turbine blades to gearboxes, each one pushing deeper into the mechanics of how things work and why they fail.',
+    narrative: 'It started in Cairo. At the American University in Cairo, the fundamentals were forged \u2014 structural analysis, fluid dynamics, material science, and the art of engineering design. Seven projects spanning turbine blades to gearboxes, each one pushing deeper into the mechanics of how things work and why they fail.',
     stats: [{
-      value: '6',
+      value: '7',
       label: 'Projects'
     }, {
       value: 'BSc',
@@ -151,6 +151,9 @@
     }, {
       value: '5',
       label: 'Labs'
+    }, {
+      value: '162',
+      label: 'Credits Taken'
     }, {
       value: '2024',
       label: 'Graduated'
@@ -1157,56 +1160,23 @@
     }
   }, s.label))))),
   /*#__PURE__*/
-  // Showcase grid with timeline spine
+  // Showcase grid — immersive card layout
   _react.default.createElement('div', {
+    className: 'chapter-showcase-grid',
     style: {
-      position: 'relative',
-      paddingLeft: '40px'
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+      gap: '20px',
+      marginTop: '32px'
     }
   },
-  /*#__PURE__*/
-  // Vertical timeline line
-  _react.default.createElement('div', {
-    style: {
-      position: 'absolute',
-      left: '15px',
-      top: 0,
-      bottom: 0,
-      width: '2px',
-      background: `linear-gradient(${chapter.color}44, ${chapter.color}11)`,
-      borderRadius: '1px'
-    }
-  }),
-  // Showcase cards along the timeline
-  chapter.showcases.map((s, i) => /*#__PURE__*/_react.default.createElement('div', {
+  chapter.showcases.map((s, i) => /*#__PURE__*/_react.default.createElement(ShowcaseCard, {
     key: s.title,
-    className: 'chapter-marker',
-    style: {
-      position: 'relative',
-      marginBottom: i < chapter.showcases.length - 1 ? '24px' : 0
-    }
-  },
-  /*#__PURE__*/
-  // Timeline dot
-  _react.default.createElement('div', {
-    className: 'chapter-dot',
-    style: {
-      position: 'absolute',
-      left: '-33px',
-      top: '28px',
-      width: '12px',
-      height: '12px',
-      borderRadius: '50%',
-      background: chapter.color,
-      border: `3px solid ${color.bg}`,
-      boxShadow: `0 0 0 2px ${chapter.color}44`,
-      zIndex: 2
-    }
-  }), /*#__PURE__*/_react.default.createElement(ShowcaseCard, {
     showcase: s,
     index: i,
     chapterColor: chapter.color
-  })))))));
+  }))))));
+
 
   // ============================================================================
   // ADDITIVE MANUFACTURING — standalone sidebar showcase
@@ -1216,8 +1186,7 @@
     style: {
       maxWidth: '1200px',
       margin: '0 auto',
-      padding: '0 24px 40px',
-      paddingLeft: '64px'
+      padding: '0 24px 40px'
     }
   }, /*#__PURE__*/_react.default.createElement('div', {
     style: {
