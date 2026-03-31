@@ -508,51 +508,17 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   .ds-mobile-drawer a:hover {
     color: var(--color-accent);
   }
-
-  /* -- Media overflow (tablet) -- */
-  img, video, canvas, svg {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Cap RIA logo on tablet (same as mobile) */
-  .page-research img[alt*="RIA - Renewables"],
-  .page-research img[alt="RIA - Renewables & Industrial Analytics"] {
-    max-width: 120px !important;
-    width: 120px !important;
-    height: auto !important;
-    max-height: 120px !important;
-    object-fit: contain !important;
-    display: block !important;
-    margin: 0 auto 1rem !important;
-  }
 }
 
 
 /* -----------------------------------------------------------------------------
-   9b-pre. RESEARCH HERO CARD — Desktop layout (logos at bottom)
-   Matches mobile layout: card is flex-column, logos row moves to bottom.
+   9a-post. RIA LOGO CAP — All viewports
+   The RIALogo React component sets width:100% / maxWidth:220px inline.
+   Cap it to 160px everywhere so it never dominates its card.
 ----------------------------------------------------------------------------- */
-.page-research .research-hero-content > div:first-child {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* Logo links row — move to bottom of card on all viewports */
-.page-research .research-hero-content > div:first-child > div:first-child {
-  order: 10 !important;
-  justify-content: flex-start !important;
-  flex-wrap: wrap !important;
-  gap: 8px !important;
-  margin-bottom: 0 !important;
-  margin-top: 1rem !important;
-}
-
-/* Logo buttons — dark bg + glow on all viewports */
-.page-research .research-hero-content > div:first-child > div:first-child a {
-  background: rgba(0,0,0,0.55) !important;
-  border: 0.5px solid rgba(255,255,255,0.2) !important;
-  animation: heroButtonGlow 3s ease-in-out infinite !important;
+.page-research img[alt*="RIA - Renewables"] {
+  max-width: 160px !important;
+  width: auto !important;
 }
 
 
