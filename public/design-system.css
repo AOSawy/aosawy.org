@@ -1121,6 +1121,12 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     margin: 0 auto !important;
   }
 
+  /* Sensitivity Analysis cards: 3-column grid (1fr 2fr 1fr) → stacked on mobile */
+  .page-research [style*="grid-template-columns: 1fr 2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
   /* RIA logo inside "Visit RIA Lab" button (Lab Director card): cap size on mobile.
      The shared rule `img { height: auto !important }` (line 688) overrides the
      inline height: 28px, causing the image to expand to its natural height (500px+).
