@@ -1108,6 +1108,27 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     margin: 0 auto 1rem !important;
   }
 
+  /* RIA logo inside "Visit RIA Lab" button (Lab Director card): cap size on mobile.
+     The shared rule `img { height: auto !important }` (line 688) overrides the
+     inline height: 28px, causing the image to expand to its natural height (500px+).
+     This selector (specificity 0,2,1) beats the bare `img` rule (0,0,1). */
+  .page-research img[alt="RIA Lab"] {
+    height: 28px !important;
+    width: auto !important;
+    max-width: 100px !important;
+    max-height: 28px !important;
+    object-fit: contain !important;
+  }
+
+  /* Lab Director profile photo: preserve 90px circle on mobile */
+  .page-research img[alt="Dr. Ahmed Aziz Ezzat"] {
+    width: 90px !important;
+    height: 90px !important;
+    max-width: 90px !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+  }
+
 
   /* =========================================================================
      PAGE-PORTFOLIO MOBILE — .page-portfolio scoped
