@@ -555,6 +555,13 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 
 
 /* -----------------------------------------------------------------------------
+   9a-post. PIPELINE MOBILE CARD — hidden on desktop/tablet, shown on mobile
+----------------------------------------------------------------------------- */
+.pipeline-mobile-card {
+  display: none;
+}
+
+/* -----------------------------------------------------------------------------
    9a-post. RESEARCH TAB BAR — Wrap buttons on all viewports (no scrollbar)
 ----------------------------------------------------------------------------- */
 .page-research [style*="position: sticky"][style*="top: 56px"] > div {
@@ -1125,6 +1132,14 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   .page-research [style*="grid-template-columns: 1fr 2fr 1fr"] {
     grid-template-columns: 1fr !important;
     gap: 0.5rem !important;
+  }
+
+  /* Pipeline Overview: hide horizontal SVG, show vertical cards on mobile */
+  .page-research .pipeline-svg-card {
+    display: none !important;
+  }
+  .page-research .pipeline-mobile-card {
+    display: block !important;
   }
 
   /* RIA logo inside "Visit RIA Lab" button (Lab Director card): cap size on mobile.
