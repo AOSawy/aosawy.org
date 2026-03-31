@@ -1053,12 +1053,51 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   }
 
   /* DEFENSIVE: No standalone image on research page should exceed card width.
-     Excludes images with specific alt-text overrides (e.g. RIA logo). */
+     Excludes images with specific alt-text overrides (e.g. RIA logo).
+     Also excludes images inside rounded overflow-hidden card containers
+     (thrust/testbed images) — those are handled by the rule below. */
   .page-research #root img[style*="width: 100%"]:not([alt*="RIA"]) {
     width: auto !important;
     max-width: 240px !important;
     max-height: 200px !important;
     object-fit: contain !important;
+  }
+
+  /* FIX: Images inside rounded card containers (thrust areas, testbed facility
+     cards) should display centered and full-width, not shrunk by the defensive
+     rule above. The extra attribute selectors give higher specificity. */
+  .page-research #root [style*="border-radius: 10px"][style*="overflow: hidden"] > img[style*="width: 100%"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  /* Testbed facility images: allow cover where intended but keep centered */
+  .page-research #root [style*="border-radius: 10px"][style*="overflow: hidden"] > img[style*="object-fit: cover"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 220px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  /* RIA logo (RIALogo component): cap size on mobile, override inline width */
+  .page-research #root img[alt="RIA - Renewables & Industrial Analytics"] {
+    max-width: 120px !important;
+    width: 120px !important;
+    height: auto !important;
+    max-height: 120px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto 1rem !important;
   }
 
 
