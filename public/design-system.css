@@ -536,6 +536,9 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   order: 10 !important;
   margin-bottom: 0 !important;
   margin-top: 0.75rem !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
 }
 
 .page-research .research-hero-content > div:first-child > div:first-child a {
