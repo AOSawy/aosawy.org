@@ -903,8 +903,8 @@
   }, "Teaching Experience"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(4, 1fr)',
-      gap: '1.25rem',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+      gap: '1rem',
       marginBottom: '3rem'
     }
   }, /*#__PURE__*/_react.default.createElement(StatCard, {
@@ -1152,8 +1152,8 @@
   }, ISE338.title), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(4, 1fr)',
-      gap: '1.25rem',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+      gap: '1rem',
       marginBottom: '3rem'
     }
   }, /*#__PURE__*/_react.default.createElement(StatCard, {
@@ -1219,11 +1219,12 @@
   }, mod.topics.map((t, i) => /*#__PURE__*/_react.default.createElement("span", {
     key: i,
     style: {
-      fontSize: '0.8rem',
+      fontSize: '0.875rem',
       color: color.secondary,
-      background: 'rgba(0,0,0,0.03)',
-      padding: '0.25rem 0.75rem',
-      borderRadius: '6px'
+      background: 'rgba(110,110,115,0.1)',
+      padding: '0.375rem 0.875rem',
+      borderRadius: '8px',
+      border: '0.5px solid rgba(110,110,115,0.2)'
     }
   }, t)))))))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
     subtitle: "Core mathematical formulations from the course"
@@ -1354,8 +1355,8 @@
   }, ISE540.title), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(4, 1fr)',
-      gap: '1.25rem',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+      gap: '1rem',
       marginBottom: '3rem'
     }
   }, /*#__PURE__*/_react.default.createElement(StatCard, {
@@ -1501,7 +1502,7 @@
   }, "Worksheets Designed"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
       gap: '1.25rem',
       marginBottom: '3rem'
     }
@@ -1541,11 +1542,12 @@
   }, ws.topics.map((t, i) => /*#__PURE__*/_react.default.createElement("span", {
     key: i,
     style: {
-      fontSize: '0.75rem',
-      color: color.tertiary,
-      background: 'rgba(0,0,0,0.03)',
-      padding: '0.2rem 0.5rem',
-      borderRadius: '4px'
+      fontSize: '0.875rem',
+      color: '#6e6e73',
+      background: 'rgba(110,110,115,0.1)',
+      padding: '0.375rem 0.875rem',
+      borderRadius: '8px',
+      border: '0.5px solid rgba(110,110,115,0.2)'
     }
   }, t)))))), /*#__PURE__*/_react.default.createElement(SectionTitle, {
     subtitle: "Computational homework with real-world datasets"
@@ -1566,8 +1568,8 @@
   }, "Lecture Slides Portfolio"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '1.25rem',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+      gap: '1rem',
       marginBottom: '3rem'
     }
   }, /*#__PURE__*/_react.default.createElement(StatCard, {
@@ -1651,11 +1653,11 @@
   }, mod.topics.map((t, i) => /*#__PURE__*/_react.default.createElement("span", {
     key: i,
     style: {
-      fontSize: '0.8rem',
+      fontSize: '0.875rem',
       color: color.secondary,
       background: `${mod.color}08`,
-      padding: '0.3rem 0.75rem',
-      borderRadius: '6px',
+      padding: '0.375rem 0.875rem',
+      borderRadius: '8px',
       border: `0.5px solid ${mod.color}15`
     }
   }, t)))), /*#__PURE__*/_react.default.createElement("div", {
@@ -2059,13 +2061,13 @@
     }
   }, /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Spatial Autoregressive Model (SAR)",
-    accent: '#7B1FA2'
+    accent: color.purple
   }, "y = ", '\u03C1', "Wy + X", '\u03B2', " + ", '\u03B5', /*#__PURE__*/_react.default.createElement("br", null), "Outcome y depends on neighbors", '\u2019', " outcomes Wy"), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Spatial Error Model (SEM)",
-    accent: '#7B1FA2'
+    accent: color.purple
   }, "y = X\\u03B2 + u, \xA0 u = \\u03BBWu + \\u03B5", /*#__PURE__*/_react.default.createElement("br", null), "Errors are spatially correlated via W")), /*#__PURE__*/_react.default.createElement(MathBlock, {
     label: "Spatial Durbin Model (SDM)",
-    accent: '#7B1FA2'
+    accent: color.purple
   }, "y = \\u03C1Wy + X\\u03B2 + WX\\u03B3 + \\u03B5 \xA0\xA0 (combines SAR + spatially lagged predictors)"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       marginTop: '1.5rem',
@@ -2246,8 +2248,8 @@
   }, "Impact & Growth"), /*#__PURE__*/_react.default.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(4, 1fr)',
-      gap: '1.25rem',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+      gap: '1rem',
       marginBottom: '3rem'
     }
   }, /*#__PURE__*/_react.default.createElement(StatCard, {
