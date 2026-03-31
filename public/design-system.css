@@ -508,6 +508,24 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   .ds-mobile-drawer a:hover {
     color: var(--color-accent);
   }
+
+  /* -- Media overflow (tablet) -- */
+  img, video, canvas, svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Cap RIA logo on tablet (same as mobile) */
+  .page-research img[alt*="RIA - Renewables"],
+  .page-research img[alt="RIA - Renewables & Industrial Analytics"] {
+    max-width: 120px !important;
+    width: 120px !important;
+    height: auto !important;
+    max-height: 120px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto 1rem !important;
+  }
 }
 
 
