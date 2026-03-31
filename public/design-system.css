@@ -1108,8 +1108,11 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     margin: 0 auto 1rem !important;
   }
 
-  /* Wind Farm Assumptions image: full-width centered, not shrunk by defensive rule */
-  .page-research img[alt="Wind Farm Assumptions"] {
+  /* Full-width card images: centered, not shrunk by defensive rule */
+  .page-research img[alt="Wind Farm Assumptions"],
+  .page-research img[alt="MILP Model Structure"],
+  .page-research img[alt="Rolling Horizon Algorithm"],
+  .page-research img[alt="Experiment Pipeline"] {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
