@@ -2524,36 +2524,47 @@
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #1d1d1f 0%, #2c2c2e 30%, #d21034 100%)'
+        background: 'linear-gradient(135deg, #0a0a1a 0%, #0d1b2a 30%, #1b2838 60%, #0a0a1a 100%)'
       }
     }, /*#__PURE__*/_react.default.createElement("div", {
       style: {
         position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        opacity: 0.08
+        inset: 0,
+        overflow: 'hidden',
+        pointerEvents: 'none'
       }
     }, /*#__PURE__*/_react.default.createElement("div", {
       style: {
         position: 'absolute',
         top: '10%',
-        left: '5%',
-        width: '300px',
-        height: '300px',
+        left: '15%',
+        width: '250px',
+        height: '250px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)'
+        background: 'radial-gradient(circle, rgba(0,51,102,0.2) 0%, transparent 70%)',
+        animation: 'float1 14s ease-in-out infinite'
       }
     }), /*#__PURE__*/_react.default.createElement("div", {
       style: {
         position: 'absolute',
-        bottom: '10%',
+        top: '50%',
         right: '10%',
-        width: '400px',
-        height: '400px',
+        width: '200px',
+        height: '200px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(210,16,52,0.4) 0%, transparent 70%)'
+        background: 'radial-gradient(circle, rgba(210,16,52,0.12) 0%, transparent 70%)',
+        animation: 'float2 18s ease-in-out infinite'
+      }
+    }), /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        position: 'absolute',
+        bottom: '15%',
+        left: '40%',
+        width: '180px',
+        height: '180px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(0,113,227,0.15) 0%, transparent 70%)',
+        animation: 'float1 20s ease-in-out infinite 3s'
       }
     })), /*#__PURE__*/_react.default.createElement("div", {
       style: {
@@ -2599,6 +2610,7 @@
         marginRight: 'auto'
       }
     }, "Two semesters of graduate teaching in the Department of Industrial & Systems Engineering, spanning probabilistic modeling, multivariate analysis, graph mining, and spatial statistics."), /*#__PURE__*/_react.default.createElement("div", {
+      className: 'teaching-hero-stats',
       style: {
         display: 'flex',
         justifyContent: 'center',

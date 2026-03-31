@@ -1438,6 +1438,25 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     flex-direction: column !important;
   }
 
+  /* Hero stats: column layout on mobile */
+  .page-teaching .teaching-hero-stats {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .page-teaching .teaching-hero-stats > div {
+    width: 200px !important;
+  }
+
+  /* Scroll indicator: ensure visible on mobile */
+  .page-teaching #hero .ds-scroll-indicator {
+    position: static !important;
+    margin: 24px auto 0 !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+  }
+
   /* Teaching stats: stack properly */
   .page-teaching .ds-teaching-stats {
     flex-direction: column !important;
