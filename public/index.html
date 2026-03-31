@@ -7,9 +7,24 @@
   <title>Abdelrahman O. Sawy — PhD Student, ISE, Rutgers University</title>
   <meta name="description" content="Abdelrahman Sawy — PhD student in Industrial & Systems Engineering at Rutgers University. Specializing in stochastic optimization, machine learning, and AI-driven decision systems for renewable energy." />
   <meta name="author" content="Abdelrahman Sawy" />
-  <meta property="og:title" content="Abdelrahman Sawy | PhD Researcher & Engineer" />
-  <meta property="og:description" content="Industrial & Systems Engineering at Rutgers. Optimization, ML, and renewable energy research." />
-  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0f0f1a">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aosawy.org/">
+  <meta property="og:title" content="Sawy — ISE Researcher & Engineer">
+  <meta property="og:description" content="PhD student in Industrial & Systems Engineering. Optimization, machine learning, and data analytics.">
+  <meta property="og:image" content="https://aosawy.org/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sawy — ISE Researcher & Engineer">
+  <meta name="twitter:description" content="PhD student in Industrial & Systems Engineering. Optimization, machine learning, and data analytics.">
+  <meta name="twitter:image" content="https://aosawy.org/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -129,19 +144,19 @@
   const NAV_SECTIONS = [{
     id: 'hero',
     label: 'Home',
-    page: 'index.html'
+    page: '/'
   }, {
     id: 'research',
     label: 'Research',
-    page: 'research-showcase.html'
+    page: '/research'
   }, {
     id: 'portfolio',
     label: 'Portfolio',
-    page: 'portfolio.html'
+    page: '/portfolio'
   }, {
     id: 'teaching',
     label: 'Teaching',
-    page: 'teaching-showcase.html'
+    page: '/teaching'
   }];
 
   // ============================================================================
@@ -152,7 +167,7 @@
     subtitle: 'POSYDON: Joint Maintenance + Production + Yaw Optimization',
     tags: ['Stochastic MILP', 'Gurobi', 'IEEE TSE'],
     color: '#CC0033',
-    link: 'research-showcase.html',
+    link: '/research',
     category: 'research',
     institution: 'Rutgers ISE'
   }, {
@@ -160,7 +175,7 @@
     subtitle: 'SARIMA-X + Box-Cox for PJM Electricity Markets',
     tags: ['Time Series', 'Forecasting', '1st Place'],
     color: '#CC0033',
-    link: 'ise530-showcase.html',
+    link: '/forecasting',
     category: 'rutgers',
     institution: 'ISE 530'
   }, {
@@ -168,7 +183,7 @@
     subtitle: 'Kriging, Variograms & Geospatial Analysis',
     tags: ['Geostatistics', 'R', 'Spatial Modeling'],
     color: '#CC0033',
-    link: 'ise694-showcase.html',
+    link: '/data-mining',
     category: 'rutgers',
     institution: 'ISE 694'
   }, {
@@ -176,7 +191,7 @@
     subtitle: 'Renewable Energy Policy Feedback Modeling',
     tags: ['Vensim', 'Feedback Loops', 'Policy'],
     color: '#CC0033',
-    link: 'ise507-showcase.html',
+    link: '/data-analytics',
     category: 'rutgers',
     institution: 'ISE 507'
   }, {
@@ -184,7 +199,7 @@
     subtitle: 'Computational Fluid Dynamics of Airfoil',
     tags: ['ANSYS Fluent', 'CFD', 'Aerodynamics'],
     color: '#003366',
-    link: 'naca0024-cfd-showcase.html',
+    link: '/cfd',
     category: 'auc',
     institution: 'AUC'
   }, {
@@ -192,7 +207,7 @@
     subtitle: 'FEA & Optimization of CFRP Structures',
     tags: ['ABAQUS', 'Composites', 'FEA'],
     color: '#003366',
-    link: 'thesis-showcase.html',
+    link: '/thesis',
     category: 'auc',
     institution: 'AUC'
   }, {
@@ -200,7 +215,7 @@
     subtitle: 'Structural Analysis & Element Formulation',
     tags: ['FEM', 'MATLAB', 'Structural'],
     color: '#003366',
-    link: 'fem-showcase.html',
+    link: '/fem',
     category: 'auc',
     institution: 'AUC'
   }, {
@@ -208,7 +223,7 @@
     subtitle: 'FDM Process Parameters & Mechanical Testing',
     tags: ['3D Printing', 'FDM', 'Testing'],
     color: '#003366',
-    link: 'am-showcase.html',
+    link: '/additive',
     category: 'auc',
     institution: 'AUC'
   }, {
@@ -216,7 +231,7 @@
     subtitle: 'Metallography & Fractography Investigation',
     tags: ['Microscopy', 'ASTM', 'Materials'],
     color: '#003366',
-    link: 'failure-analysis-showcase.html',
+    link: '/failure-analysis',
     category: 'auc',
     institution: 'AUC'
   }, {
@@ -224,7 +239,7 @@
     subtitle: 'Senior Capstone: Product Design & Prototyping',
     tags: ['SolidWorks', 'Prototyping', 'Design'],
     color: '#003366',
-    link: 'design-ii-showcase.html',
+    link: '/design',
     category: 'auc',
     institution: 'AUC'
   }];
@@ -241,11 +256,11 @@
     color: color.auc,
     image: 'assets/Home/auc.jpg',
     achievements: [
-      {text: 'Senior thesis: Design of an Electricity-Generating Tripod Turnstile with a 2-Stage Planetary Gearbox', link: 'thesis-showcase.html'},
-      {text: 'CFD analysis of NACA 0024 airfoil', link: 'naca0024-cfd-showcase.html'},
-      {text: 'Camshaft support cap failure analysis', link: 'failure-analysis-showcase.html'},
-      {text: 'Additive manufacturing research', link: 'am-showcase.html'},
-      {text: 'Senior capstone design project', link: 'design-ii-showcase.html'}
+      {text: 'Senior thesis: Design of an Electricity-Generating Tripod Turnstile with a 2-Stage Planetary Gearbox', link: '/thesis'},
+      {text: 'CFD analysis of NACA 0024 airfoil', link: '/cfd'},
+      {text: 'Camshaft support cap failure analysis', link: '/failure-analysis'},
+      {text: 'Additive manufacturing research', link: '/additive'},
+      {text: 'Senior capstone design project', link: '/design'}
     ]
   }, {
     era: 'MSc',
@@ -256,11 +271,11 @@
     color: color.rutgers,
     image: 'assets/Home/CoreBuilding.jpeg',
     achievements: [
-      {text: 'LMP forecasting (ISARIMA-X, 1st place)', link: 'ise530-showcase.html'},
+      {text: 'LMP forecasting (SARIMA-X, 1st place)', link: '/forecasting'},
       {text: 'Graduate Research Assistant \u2014 RIA Lab, Advisor: Dr. Aziz'},
       {text: 'Graduate Teaching Assistant for ISE 338 & ISE 540'},
-      {text: 'Spatial statistics & geostatistics', link: 'ise694-showcase.html'},
-      {text: 'System dynamics modeling', link: 'ise507-showcase.html'}
+      {text: 'Spatial statistics & geostatistics', link: '/data-mining'},
+      {text: 'System dynamics modeling', link: '/data-analytics'}
     ]
   }, {
     era: 'PhD',
@@ -271,7 +286,7 @@
     color: color.rutgers,
     image: 'assets/Home/Rutgers-Weeks-Hall_30-sm.webp',
     achievements: [
-      {text: 'POSYDON framework: offshore wind O&M', link: 'research-showcase.html'},
+      {text: 'POSYDON framework: offshore wind O&M', link: '/research'},
       {text: 'Stochastic MILP optimization'},
       {text: 'AI-based energy forecasting'},
       {text: 'RIA Lab with Dr. Aziz'}
@@ -396,7 +411,8 @@
       transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .scroll-reveal.visible {
+    .scroll-reveal.visible,
+    .scroll-reveal.revealed {
       opacity: 1;
       transform: translateY(0);
     }
@@ -927,7 +943,7 @@
       animation: 'fadeInUp 0.8s ease 1.4s both'
     }
   }, /*#__PURE__*/_react.default.createElement('a', {
-    href: 'portfolio.html',
+    href: '/portfolio',
     className: 'btn-primary-hover',
     style: {
       padding: '14px 32px',
@@ -945,7 +961,7 @@
       animation: 'pulseGlow 3s ease-in-out infinite'
     }
   }, 'View Portfolio \u2192'), /*#__PURE__*/_react.default.createElement('a', {
-    href: 'research-showcase.html',
+    href: '/research',
     className: 'btn-primary-hover',
     style: {
       padding: '14px 32px',
@@ -1511,7 +1527,7 @@
     key: t,
     clr: color.secondary
   }, t))), /*#__PURE__*/_react.default.createElement(LinkButton, {
-    href: 'research-showcase.html',
+    href: '/research',
     primary: true
   }, 'Deep Dive \u2192')),
   /*#__PURE__*/
@@ -1579,7 +1595,7 @@
       color: color.tertiary
     }
   }, s.label)))), /*#__PURE__*/_react.default.createElement('a', {
-    href: 'research-showcase.html',
+    href: '/research',
     style: {
       display: 'inline-flex',
       alignItems: 'center',
@@ -1775,7 +1791,7 @@
         marginTop: '36px'
       }
     }, /*#__PURE__*/_react.default.createElement('a', {
-      href: 'portfolio.html',
+      href: '/portfolio',
       className: 'btn-primary-hover',
       style: {
         display: 'inline-block',
@@ -1920,7 +1936,7 @@
       color: color.tertiary
     }
   }, s.label)))), /*#__PURE__*/_react.default.createElement(LinkButton, {
-    href: 'teaching-showcase.html',
+    href: '/teaching',
     primary: true
   }, 'Full Teaching Portfolio \u2192')))));
 
@@ -2146,13 +2162,13 @@
     /*#__PURE__*/_react.default.createElement('div', { className: 'ds-footer-heading' }, 'Quick Links'),
     /*#__PURE__*/_react.default.createElement('ul', { className: 'ds-footer-links' },
       /*#__PURE__*/_react.default.createElement('li', null,
-        _react.default.createElement('a', { href: 'index.html' }, 'Home')),
+        _react.default.createElement('a', { href: '/' }, 'Home')),
       /*#__PURE__*/_react.default.createElement('li', null,
-        _react.default.createElement('a', { href: 'research-showcase.html' }, 'Research')),
+        _react.default.createElement('a', { href: '/research' }, 'Research')),
       /*#__PURE__*/_react.default.createElement('li', null,
-        _react.default.createElement('a', { href: 'portfolio.html' }, 'Portfolio')),
+        _react.default.createElement('a', { href: '/portfolio' }, 'Portfolio')),
       /*#__PURE__*/_react.default.createElement('li', null,
-        _react.default.createElement('a', { href: 'teaching-showcase.html' }, 'Teaching'))
+        _react.default.createElement('a', { href: '/teaching' }, 'Teaching'))
     )
   ),
   // Column 3 — Connect
