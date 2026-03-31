@@ -1433,6 +1433,11 @@ body:has(.ds-site-header) [style*="position: sticky"] {
      Only affects teaching-showcase.html
      ========================================================================= */
 
+  /* Hero: stack children vertically on mobile (prevents scroll indicator drift) */
+  .page-teaching #hero {
+    flex-direction: column !important;
+  }
+
   /* Teaching stats: stack properly */
   .page-teaching .ds-teaching-stats {
     flex-direction: column !important;
