@@ -831,15 +831,16 @@
       marginTop: '4px',
       fontWeight: 500
     }
-  }, s.label)))),
+  }, s.label))))),
   /*#__PURE__*/
-  // Scroll indicator (standardized)
+  // Scroll indicator — direct child of hero section, absolute to section bottom
   _react.default.createElement('div', {
-    className: 'ds-scroll-indicator ds-scroll-indicator--light portfolio-scroll-indicator',
-    style: { position: 'absolute', bottom: '16px', left: '50%', transform: 'translateX(-50%)' }
+    className: 'ds-scroll-indicator ds-scroll-indicator--light',
+    style: { position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }
   }, _react.default.createElement('div', { className: 'ds-scroll-mouse' }),
      _react.default.createElement('span', null, 'Scroll'))
-  )));
+  )
+);
 
   // ============================================================================
   // CHAPTER TRANSITION — narrative bridge between chapters
