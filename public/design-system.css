@@ -516,9 +516,15 @@ body:has(.ds-site-header) [style*="position: sticky"] {
    The RIALogo React component sets width:100% / maxWidth:220px inline.
    Cap it to 160px everywhere so it never dominates its card.
 ----------------------------------------------------------------------------- */
-.page-research img[alt*="RIA - Renewables"] {
-  max-width: 160px !important;
-  width: auto !important;
+.page-research img[alt*="RIA - Renewables"],
+.page-research img[alt="RIA - Renewables & Industrial Analytics"] {
+  max-width: 120px !important;
+  width: 120px !important;
+  height: auto !important;
+  max-height: 120px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
 }
 
 /* -----------------------------------------------------------------------------
@@ -1065,8 +1071,9 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 
   /* FIX: Images inside rounded card containers (thrust areas, testbed facility
      cards) should display centered and full-width, not shrunk by the defensive
-     rule above. The extra attribute selectors give higher specificity. */
-  .page-research #root [style*="border-radius: 10px"][style*="overflow: hidden"] > img[style*="width: 100%"] {
+     rule above. Matches both 8px (thrust) and 10px (area) border-radius. */
+  .page-research #root [style*="border-radius: 10px"][style*="overflow: hidden"] > img[style*="width: 100%"],
+  .page-research #root [style*="border-radius: 8px"][style*="overflow: hidden"] > img[style*="width: 100%"] {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
@@ -1078,7 +1085,8 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   }
 
   /* Testbed facility images: allow cover where intended but keep centered */
-  .page-research #root [style*="border-radius: 10px"][style*="overflow: hidden"] > img[style*="object-fit: cover"] {
+  .page-research #root [style*="border-radius: 10px"][style*="overflow: hidden"] > img[style*="object-fit: cover"],
+  .page-research #root [style*="border-radius: 8px"][style*="overflow: hidden"] > img[style*="object-fit: cover"] {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
