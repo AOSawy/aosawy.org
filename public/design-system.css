@@ -681,14 +681,7 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   opacity: 0.3;
 }
 .ri-arrow-lines::after {
-  content: '\u25B6';
-  position: absolute;
-  right: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-tertiary);
-  font-size: 0.7rem;
-  opacity: 0.6;
+  content: '';
 }
 .ri-core {
   display: flex;
