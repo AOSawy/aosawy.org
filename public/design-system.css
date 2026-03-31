@@ -549,6 +549,19 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 
 
 /* -----------------------------------------------------------------------------
+   9a-post. RESEARCH TAB BAR — Wrap buttons on all viewports (no scrollbar)
+----------------------------------------------------------------------------- */
+.page-research [style*="position: sticky"][style*="top: 56px"] > div {
+  white-space: normal !important;
+  overflow-x: visible !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  justify-content: center !important;
+}
+
+
+/* -----------------------------------------------------------------------------
    9b. MOBILE  (< 640px)
    Structure: SHARED > PAGE-HOME > PAGE-RESEARCH > PAGE-TEACHING > PAGE-SHOWCASE
    Each page section is scoped with body.page-xxx so rules ONLY affect that page.
