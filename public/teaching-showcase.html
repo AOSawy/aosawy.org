@@ -129,17 +129,17 @@
     text: '#1d1d1f',
     secondary: '#6e6e73',
     tertiary: '#86868b',
-    accent: '#0071e3',
-    accentLight: 'rgba(0,113,227,0.06)',
-    accentBorder: 'rgba(0,113,227,0.15)',
+    accent: '#CC0033',
+    accentLight: 'rgba(204,0,51,0.06)',
+    accentBorder: 'rgba(204,0,51,0.15)',
     border: 'rgba(0,0,0,0.06)',
     white: '#ffffff',
-    red: '#CC0000',
-    green: '#2E7D32',
-    orange: '#e67e22',
-    purple: '#8e44ad',
-    darkRed: '#c0392b',
-    rutgers: '#d21034'
+    red: '#CC0033',
+    green: '#CC0033',
+    orange: '#CC0033',
+    purple: '#CC0033',
+    darkRed: '#CC0033',
+    rutgers: '#CC0033'
   };
   const glass = {
     card: {
@@ -391,7 +391,7 @@
     subtitle: 'Part I: Spectral Theory & Dimensionality Reduction',
     slides: 71,
     lines: 3166,
-    color: '#0071e3',
+    color: '#CC0033',
     topics: ['Eigenvalue problem: Ax = \u03BBx', 'Characteristic equation: |A \u2212 \u03BBI| = 0', 'Spectral decomposition', 'PCA constrained optimization', 'Lagrangian derivation of PCs', 'Proportion of variance explained', 'Scree plot analysis'],
     keyEquations: [{
       label: 'Eigenvalue Problem',
@@ -422,7 +422,7 @@
     subtitle: 'Part II: MLR, PCR & Extensions',
     slides: 73,
     lines: 2800,
-    color: '#2E7D32',
+    color: '#CC0033',
     topics: ['Multiple Linear Regression (MLR)', 'Least squares estimation', 'Multicollinearity and VIF', 'Principal Component Regression (PCR)', 'Sparse PCA', 'Supervised PCA'],
     keyEquations: [{
       label: 'MLR Model',
@@ -447,7 +447,7 @@
     subtitle: 'Conditional Distributions, Bayesian Classification & Imputation',
     slides: 62,
     lines: 2645,
-    color: '#CC0000',
+    color: '#CC0033',
     topics: ['Multivariate Normal Distribution', 'Mahalanobis distance', 'Conditional distributions', 'Bayesian classification (LDA/QDA)', 'Missing data imputation', 'Mean vs. conditional imputation'],
     keyEquations: [{
       label: 'MVN PDF',
@@ -475,7 +475,7 @@
     subtitle: 'Collaborative Filtering & Neighborhood Methods',
     slides: 47,
     lines: 1800,
-    color: '#e67e22',
+    color: '#CC0033',
     topics: ['User-based collaborative filtering', 'Item-based collaborative filtering', 'Pearson correlation similarity', 'Cosine similarity', 'Mean-centered ratings', 'Sparsity analysis', 'RMSE evaluation'],
     keyEquations: [{
       label: 'Sparsity',
@@ -503,7 +503,7 @@
     subtitle: 'Network Data, Centrality & Community Detection',
     slides: 120,
     lines: 4200,
-    color: '#8e44ad',
+    color: '#CC0033',
     topics: ['Adjacency and Laplacian matrices', 'Degree, closeness, betweenness centrality', 'Eigenvector centrality & Katz centrality', 'PageRank algorithm', 'Co-citation & bibliographic coupling', 'Jaccard similarity', 'Modularity & community detection'],
     keyEquations: [{
       label: 'Adjacency Matrix',
@@ -540,7 +540,7 @@
     subtitle: 'Point Patterns, Autocorrelation & Kriging',
     slides: 179,
     lines: 6500,
-    color: '#d21034',
+    color: '#CC0033',
     topics: ['Spatial point patterns & CSR', 'Ripley\u2019s K-function', 'Moran\u2019s I & Geary\u2019s C', 'Spatial weight matrices', 'SAR, SEM, SDM, CAR models', 'Semivariogram & variogram models', 'Ordinary, Simple & Universal Kriging', 'Cokriging'],
     keyEquations: [{
       label: 'Ripley\u2019s K',
@@ -701,24 +701,24 @@
         border: '0.5px solid rgba(110,110,115,0.2)'
       },
       success: {
-        background: 'rgba(46,125,50,0.1)',
-        color: '#2E7D32',
-        border: '0.5px solid rgba(46,125,50,0.2)'
+        background: 'rgba(204,0,51,0.08)',
+        color: '#CC0033',
+        border: '0.5px solid rgba(204,0,51,0.18)'
       },
       danger: {
-        background: 'rgba(204,0,0,0.1)',
-        color: '#CC0000',
-        border: '0.5px solid rgba(204,0,0,0.2)'
+        background: 'rgba(204,0,51,0.08)',
+        color: '#CC0033',
+        border: '0.5px solid rgba(204,0,51,0.18)'
       },
       warning: {
-        background: 'rgba(230,126,34,0.1)',
-        color: '#e67e22',
-        border: '0.5px solid rgba(230,126,34,0.2)'
+        background: 'rgba(204,0,51,0.08)',
+        color: '#CC0033',
+        border: '0.5px solid rgba(204,0,51,0.18)'
       },
       rutgers: {
-        background: 'rgba(210,16,52,0.1)',
-        color: '#d21034',
-        border: '0.5px solid rgba(210,16,52,0.2)'
+        background: 'rgba(204,0,51,0.08)',
+        color: '#CC0033',
+        border: '0.5px solid rgba(204,0,51,0.18)'
       }
     };
     return /*#__PURE__*/_react.default.createElement("span", {
@@ -855,7 +855,7 @@
       marginBottom: '0.5rem'
     },
     onMouseEnter: e => {
-      if (!isActive) e.target.style.background = 'rgba(0,113,227,0.05)';
+      if (!isActive) e.target.style.background = 'rgba(204,0,51,0.05)';
     },
     onMouseLeave: e => {
       if (!isActive) e.target.style.background = 'transparent';
@@ -1433,8 +1433,8 @@
       width: '40px',
       height: '40px',
       borderRadius: '10px',
-      background: w.week === 8 ? 'rgba(204,0,0,0.1)' : color.accentLight,
-      border: `0.5px solid ${w.week === 8 ? 'rgba(204,0,0,0.2)' : color.accentBorder}`,
+      background: w.week === 8 ? 'rgba(204,0,51,0.1)' : color.accentLight,
+      border: `0.5px solid ${w.week === 8 ? 'rgba(204,0,51,0.2)' : color.accentBorder}`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -1480,8 +1480,8 @@
       width: '24px',
       height: '24px',
       borderRadius: '50%',
-      background: i === 0 ? 'rgba(210,16,52,0.1)' : color.accentLight,
-      border: `0.5px solid ${i === 0 ? 'rgba(210,16,52,0.2)' : color.accentBorder}`,
+      background: i === 0 ? 'rgba(204,0,51,0.1)' : color.accentLight,
+      border: `0.5px solid ${i === 0 ? 'rgba(204,0,51,0.2)' : color.accentBorder}`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -1856,21 +1856,21 @@
     }
   }, /*#__PURE__*/_react.default.createElement(Pill, {
     style: {
-      background: 'rgba(142,68,173,0.1)',
-      color: color.purple,
-      border: '0.5px solid rgba(142,68,173,0.2)'
+      background: 'rgba(204,0,51,0.08)',
+      color: color.accent,
+      border: '0.5px solid rgba(204,0,51,0.18)'
     }
   }, "Part 1: Network Fundamentals"), /*#__PURE__*/_react.default.createElement(Pill, {
     style: {
-      background: 'rgba(142,68,173,0.1)',
-      color: color.purple,
-      border: '0.5px solid rgba(142,68,173,0.2)'
+      background: 'rgba(204,0,51,0.08)',
+      color: color.accent,
+      border: '0.5px solid rgba(204,0,51,0.18)'
     }
   }, "Part 2: Node Centrality"), /*#__PURE__*/_react.default.createElement(Pill, {
     style: {
-      background: 'rgba(142,68,173,0.1)',
-      color: color.purple,
-      border: '0.5px solid rgba(142,68,173,0.2)'
+      background: 'rgba(204,0,51,0.08)',
+      color: color.accent,
+      border: '0.5px solid rgba(204,0,51,0.18)'
     }
   }, "Part 3: Similarity & Clustering")), /*#__PURE__*/_react.default.createElement("div", {
     style: {
@@ -2512,7 +2512,7 @@
       @keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
       @keyframes heroFloat { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
       @keyframes heroFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-      @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(210,16,52,0.7); } 50% { box-shadow: 0 0 0 10px rgba(210,16,52,0); } }
+      @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(204,0,51,0.7); } 50% { box-shadow: 0 0 0 10px rgba(204,0,51,0); } }
       * { box-sizing: border-box; }
       body { margin: 0; -webkit-font-smoothing: antialiased; }
       a:hover { opacity: 0.8; }
@@ -2574,7 +2574,7 @@
         width: '200px',
         height: '200px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(210,16,52,0.12) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(204,0,51,0.12) 0%, transparent 70%)',
         animation: 'float2 18s ease-in-out infinite'
       }
     }), /*#__PURE__*/_react.default.createElement("div", {
@@ -2585,7 +2585,7 @@
         width: '180px',
         height: '180px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(0,113,227,0.15) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(204,0,51,0.15) 0%, transparent 70%)',
         animation: 'float1 20s ease-in-out infinite 3s'
       }
     })), /*#__PURE__*/_react.default.createElement("div", {
