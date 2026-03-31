@@ -1495,6 +1495,13 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     gap: 12px !important;
   }
 
+  /* Math content: wrap and shrink on mobile */
+  .page-teaching [style*="Cambria Math"] {
+    font-size: 0.85rem !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
 
   /* =========================================================================
      PAGE-SHOWCASE MOBILE — .page-showcase scoped
