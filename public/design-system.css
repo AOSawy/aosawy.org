@@ -863,10 +863,16 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     text-align: center !important;
   }
 
-  /* Cap RIA logo in overview tab */
-  .page-research img[alt*="RIA - Renewables"] {
-    max-width: 160px !important;
-    width: auto !important;
+  /* Cap RIA logo everywhere on research page (overview + RIA Group tab) */
+  .page-research img[alt*="RIA - Renewables"],
+  .page-research img[alt="RIA - Renewables & Industrial Analytics"] {
+    max-width: 120px !important;
+    width: 120px !important;
+    height: auto !important;
+    max-height: 120px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto 1rem !important;
   }
 
   /* Scroll indicator in research hero */
@@ -1021,6 +1027,16 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   .page-research #root [style*="overflow: hidden"] {
     overflow: auto !important;
     -webkit-overflow-scrolling: touch;
+  }
+
+  /* DEFENSIVE: No standalone image on research page should exceed card width
+     Prevents oversized logos, diagrams, or figures from breaking layout.
+     Inline images inside flex rows (buttons, links) are excluded via :not(). */
+  .page-research #root img[style*="width: 100%"] {
+    width: auto !important;
+    max-width: 240px !important;
+    max-height: 200px !important;
+    object-fit: contain !important;
   }
 
 
