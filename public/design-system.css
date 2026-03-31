@@ -1217,6 +1217,20 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 /* -----------------------------------------------------------------------------
    10. SITE FOOTER
 ----------------------------------------------------------------------------- */
+
+/* Kill padding-bottom on any wrapper that contains the dark footer as last child.
+   This fixes the white gap caused by React inline paddingBottom (e.g. '4rem')
+   on the root wrapper div in research-showcase.html and similar pages.         */
+#root > div:has(> .ds-site-footer:last-child) {
+  padding-bottom: 0 !important;
+}
+
+/* Same fix for Pipeline B pages whose <footer> (no .ds-site-footer class) is the
+   last child inside a wrapper with inline padding.                              */
+#root > div:has(> footer:last-child) {
+  padding-bottom: 0 !important;
+}
+
 .ds-site-footer {
   background: #1d1d1f;
   color: rgba(255,255,255,0.7);
