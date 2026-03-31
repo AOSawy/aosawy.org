@@ -618,7 +618,7 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   align-items: center;
   gap: 0;
   position: relative;
-  min-width: 80px;
+  min-width: 160px;
   flex-shrink: 1;
 }
 .fw-arrow-line {
@@ -1321,12 +1321,12 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   .fw-arrow {
     flex-direction: column !important;
     min-width: unset !important;
-    min-height: 40px;
+    min-height: 55px;
     align-items: center !important;
   }
   .fw-arrow-line {
     width: 2px !important;
-    height: 30px !important;
+    height: 40px !important;
     flex: unset !important;
     background: repeating-linear-gradient(180deg, #CC0000 0, #CC0000 6px, transparent 6px, transparent 10px) !important;
   }
