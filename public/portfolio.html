@@ -264,6 +264,12 @@
     }, {
       value: 'MSc',
       label: 'Degree'
+    }, {
+      value: '30',
+      label: 'Credits Taken'
+    }, {
+      value: '2026',
+      label: 'Graduated'
     }],
     showcases: [{
       title: 'Forecasting Day-Ahead Electricity Prices',
@@ -308,21 +314,16 @@
     title: 'The Frontier',
     subtitle: 'PhD Research \u2014 Renewables & Industrial Analytics',
     period: '2026 \u2013 Present',
-    color: color.accent,
-    accentGradient: 'linear-gradient(135deg, #0071e3 0%, #0099ff 100%)',
+    color: color.rutgers,
+    accentGradient: 'linear-gradient(135deg, #d21034 0%, #e8334f 100%)',
     narrative: 'The PhD began where the masters left off \u2014 at the intersection of optimization and energy systems. Under Dr. Ezzat in the Renewables & Industrial Analytics Lab, the research targets the hardest open problems in offshore wind: jointly optimizing maintenance schedules, power production, and turbine yaw angles under deep uncertainty. This is the POSYDON framework \u2014 and it represents the state of the art.',
     stats: [{
       value: '1',
       label: 'Framework'
     }, {
-      value: 'IEEE',
-      label: 'Published'
-    }, {
-      value: '50+',
-      label: 'Constraints'
-    }, {
       value: 'RIA',
-      label: 'Lab'
+      label: 'Lab',
+      link: 'https://sites.rutgers.edu/azizezzat/research/'
     }],
     showcases: [{
       title: 'Offshore Wind Farm Operations Research',
@@ -1150,27 +1151,42 @@
       gap: '16px',
       flexWrap: 'wrap'
     }
-  }, chapter.stats.map(s => /*#__PURE__*/_react.default.createElement('div', {
-    key: s.label,
-    style: {
+  }, chapter.stats.map(s => {
+    var inner = [/*#__PURE__*/_react.default.createElement('div', {
+      key: 'v',
+      style: {
+        fontSize: '1.2rem',
+        fontWeight: 700,
+        color: chapter.color
+      }
+    }, s.value), /*#__PURE__*/_react.default.createElement('div', {
+      key: 'l',
+      style: {
+        fontSize: '0.7rem',
+        color: color.tertiary,
+        marginTop: '2px'
+      }
+    }, s.label)];
+    var boxStyle = {
       ...glass.surface,
       padding: '12px 20px',
       textAlign: 'center',
       minWidth: '90px'
+    };
+    if (s.link) {
+      return /*#__PURE__*/_react.default.createElement('a', {
+        key: s.label,
+        href: s.link,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        style: { ...boxStyle, textDecoration: 'none', cursor: 'pointer', transition: 'transform 0.2s ease' }
+      }, inner);
     }
-  }, /*#__PURE__*/_react.default.createElement('div', {
-    style: {
-      fontSize: '1.2rem',
-      fontWeight: 700,
-      color: chapter.color
-    }
-  }, s.value), /*#__PURE__*/_react.default.createElement('div', {
-    style: {
-      fontSize: '0.7rem',
-      color: color.tertiary,
-      marginTop: '2px'
-    }
-  }, s.label))))),
+    return /*#__PURE__*/_react.default.createElement('div', {
+      key: s.label,
+      style: boxStyle
+    }, inner);
+  }))),
   /*#__PURE__*/
   // Showcase grid — immersive card layout
   _react.default.createElement('div', {
