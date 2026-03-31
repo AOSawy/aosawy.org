@@ -1393,6 +1393,11 @@ body:has(.ds-site-header) [style*="position: sticky"] {
      Only affects portfolio.html
      ========================================================================= */
 
+  /* Hero: stack children vertically on mobile (prevents scroll indicator drift) */
+  .page-portfolio #hero {
+    flex-direction: column !important;
+  }
+
   /* Hero stats: column layout on mobile */
   .page-portfolio .portfolio-hero-stats {
     flex-direction: column !important;
