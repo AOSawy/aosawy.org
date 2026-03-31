@@ -1221,6 +1221,8 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   background: #1d1d1f;
   color: rgba(255,255,255,0.7);
   padding: 64px 24px 24px;
+  padding-bottom: 80px;
+  margin-bottom: 0;
   font-family: var(--font-body);
 }
 .ds-footer-inner {
