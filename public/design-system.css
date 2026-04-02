@@ -1768,6 +1768,34 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 .ds-footer-bar a:hover {
   color: #0071e3;
 }
+/* Agentic Lab — subtle pill CTA in footer bar */
+.ds-footer-agentic {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+}
+.ds-footer-agentic a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 12px;
+  border-radius: 980px;
+  background: rgba(201,168,76,0.08);
+  border: 0.5px solid rgba(201,168,76,0.18);
+  color: rgba(201,168,76,0.7);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.ds-footer-agentic a:hover {
+  background: rgba(201,168,76,0.15);
+  border-color: rgba(201,168,76,0.35);
+  color: rgba(201,168,76,0.95);
+}
 
 /* -----------------------------------------------------------------------------
    11. PAGE TRANSITION — Fade in on load

@@ -15,3 +15,7 @@
 /forecasting       /ise530-showcase            200
 /data-mining       /ise694-showcase            200
 /agentic-lab       /the-agentic-lab            200
+
+# theagenticlab.net custom domain → Agentic Lab page
+https://theagenticlab.net/*       /agentic-lab  301
+https://www.theagenticlab.net/*   /agentic-lab  301
