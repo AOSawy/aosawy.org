@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="design-system.css">
+  <link rel="canonical" href="https://aosawy.org/portfolio">
+
   <title>Portfolio — Abdelrahman O. Sawy</title>
   <meta name="description" content="Engineering portfolio — 10 interactive showcases spanning optimization, ML, CFD, FEA, and materials science. From AUC to Rutgers." />
   <meta name="author" content="Abdelrahman Sawy" />
@@ -94,8 +96,8 @@
     orange: '#e67e22',
     purple: '#8e44ad',
     darkRed: '#c0392b',
-    rutgers: '#d21034',
-    auc: '#003366',
+    rutgers: '#CC0000',
+    auc: '#0071e3',
     gold: '#C49A3C'
   };
   const glass = {
@@ -140,7 +142,7 @@
     subtitle: 'Mechanical Engineering at AUC',
     period: '2019 \u2013 2024',
     color: color.auc,
-    accentGradient: 'linear-gradient(135deg, #003366 0%, #004488 100%)',
+    accentGradient: 'linear-gradient(135deg, #0071e3 0%, #0071e3 100%)',
     narrative: 'It started in Cairo. At the American University in Cairo, the fundamentals were forged \u2014 structural analysis, fluid dynamics, material science, and the art of engineering design. Seven projects spanning turbine blades to gearboxes, each one pushing deeper into the mechanics of how things work and why they fail.',
     stats: [{
       value: '7',
@@ -166,7 +168,7 @@
       advisor: 'Dr. Khalil El Khodary & Dr. Mohamed Aly',
       semester: 'Spring 2024',
       tags: ['Energy Harvesting', 'Gearbox Design', 'PMDC Generator', 'Fabrication'],
-      color: '#003366',
+      color: '#0071e3',
       link: '/thesis',
       icon: '\u26A1',
       highlight: 'Capstone Thesis'
@@ -178,7 +180,7 @@
       advisor: 'Dr. Ashraf Nassef',
       semester: 'Fall 2023',
       tags: ['Planetary Gears', 'SolidWorks', 'Clutch Design', 'Prototyping'],
-      color: '#003366',
+      color: '#0071e3',
       link: '/design',
       icon: '\u2699\uFE0F',
       highlight: null
@@ -190,7 +192,7 @@
       advisor: 'Dr. Khalil ElKhodary',
       semester: 'Fall 2023',
       tags: ['ANSYS', 'Thermal-Structural', 'FEM', 'Turbine Blade'],
-      color: '#003366',
+      color: '#0071e3',
       link: '/fem',
       icon: '\u{1F525}',
       highlight: null
@@ -202,7 +204,7 @@
       advisor: 'Prof. Omar Abdelaziz',
       semester: 'Spring 2023',
       tags: ['ANSYS Fluent', 'CFD', 'Aerodynamics', 'Wind Turbine'],
-      color: '#003366',
+      color: '#0071e3',
       link: '/cfd',
       icon: '\u{1F32C}\uFE0F',
       highlight: null
@@ -214,7 +216,7 @@
       advisor: 'Dr. Hanadi Salem',
       semester: 'Spring 2023',
       tags: ['Fractography', 'Metallography', 'ASTM', 'Grey Cast Iron'],
-      color: '#003366',
+      color: '#0071e3',
       link: '/failure-analysis',
       icon: '\u{1F52C}',
       highlight: null
@@ -226,7 +228,7 @@
       advisor: 'Dr. Maki K. Habib',
       semester: 'Spring 2023',
       tags: ['Transfer Functions', 'Laplace', 'MATLAB', 'Vehicle Dynamics'],
-      color: '#003366',
+      color: '#0071e3',
       link: '/dynamics',
       icon: '\u{1F697}',
       highlight: null
@@ -238,7 +240,7 @@
       advisor: 'Prof. Hanadi Salem, Dr. Ashraf Nassef',
       semester: 'Spring 2024',
       tags: ['CATIA V5', 'FDM', '3D Scanning', '8 Projects'],
-      color: '#003366',
+      color: '#0071e3',
       link: '/additive',
       icon: '\u{1F5A8}\uFE0F',
       highlight: null
@@ -250,7 +252,7 @@
     subtitle: 'Industrial & Systems Engineering at Rutgers',
     period: '2024 \u2013 2026',
     color: color.rutgers,
-    accentGradient: 'linear-gradient(135deg, #d21034 0%, #e8334f 100%)',
+    accentGradient: 'linear-gradient(135deg, #CC0000 0%, #CC0000 100%)',
     narrative: 'The shift from mechanical to industrial and systems engineering was deliberate. At Rutgers, the toolkit expanded \u2014 optimization replaced stress analysis, machine learning displaced hand calculations, and stochastic models replaced deterministic assumptions. Three courses, three competitions, three showcases that mark the pivot from building things to optimizing systems.',
     stats: [{
       value: '3',
@@ -315,7 +317,7 @@
     subtitle: 'PhD Research \u2014 Renewables & Industrial Analytics',
     period: '2026 \u2013 Present',
     color: color.rutgers,
-    accentGradient: 'linear-gradient(135deg, #d21034 0%, #e8334f 100%)',
+    accentGradient: 'linear-gradient(135deg, #CC0000 0%, #CC0000 100%)',
     narrative: 'The PhD began where the masters left off \u2014 at the intersection of optimization and energy systems. Under Dr. Ezzat in the Renewables & Industrial Analytics Lab, the research targets the hardest open problems in offshore wind: jointly optimizing maintenance schedules, power production, and turbine yaw angles under deep uncertainty. This is the POSYDON framework \u2014 and it represents the state of the art.',
     stats: [{
       value: '1',
@@ -347,7 +349,7 @@
     advisor: 'Prof. Hanadi Salem, Dr. Ashraf Nassef',
     semester: 'Spring 2024',
     tags: ['CATIA V5', 'FDM', '3D Scanning', '8 Projects'],
-    color: '#003366',
+    color: '#0071e3',
     link: '/additive',
     icon: '\u{1F5A8}\uFE0F',
     highlight: null
@@ -1494,36 +1496,73 @@
   // ============================================================================
   // FOOTER
   // ============================================================================
-  const Footer = () => (/*#__PURE__*/_react.default.createElement('footer', { className: 'ds-site-footer' },
-    _react.default.createElement('div', { className: 'ds-footer-inner' },
-      _react.default.createElement('div', null,
-        _react.default.createElement('h3', { className: 'ds-footer-heading' }, 'A. Sawy'),
-        _react.default.createElement('p', { className: 'ds-footer-text' }, 'PhD Student, Industrial & Systems Engineering', _react.default.createElement('br'), 'Rutgers University, New Brunswick, NJ')
-      ),
-      _react.default.createElement('div', null,
-        _react.default.createElement('h3', { className: 'ds-footer-heading' }, 'Quick Links'),
-        _react.default.createElement('ul', { className: 'ds-footer-links' },
-          _react.default.createElement('li', null, _react.default.createElement('a', { href: '/' }, 'Home')),
-          _react.default.createElement('li', null, _react.default.createElement('a', { href: '/research' }, 'Research')),
-          _react.default.createElement('li', null, _react.default.createElement('a', { href: '/portfolio' }, 'Portfolio')),
-          _react.default.createElement('li', null, _react.default.createElement('a', { href: '/teaching' }, 'Teaching'))
-        )
-      ),
-      _react.default.createElement('div', null,
-        _react.default.createElement('h3', { className: 'ds-footer-heading' }, 'Connect'),
-        _react.default.createElement('ul', { className: 'ds-footer-links' },
-          _react.default.createElement('li', null, _react.default.createElement('a', { href: 'mailto:a.sawy@rutgers.edu' }, '\u2709 a.sawy@rutgers.edu')),
-          _react.default.createElement('li', null, _react.default.createElement('a', { href: 'https://linkedin.com/in/aosawy', target: '_blank', rel: 'noopener noreferrer' }, '\uD83D\uDD17 LinkedIn')),
-          _react.default.createElement('li', null, _react.default.createElement('a', { href: 'https://github.com/aosawy', target: '_blank', rel: 'noopener noreferrer' }, '\uD83D\uDCBB GitHub')),
-          _react.default.createElement('li', null, _react.default.createElement('a', { href: 'tel:+18482097088' }, '\u260E +1 (848) 209-7088'))
-        )
-      )
-    ),
-    _react.default.createElement('div', { className: 'ds-footer-bar' },
-      _react.default.createElement('span', null, '\u00A9 2026 Abdelrahman O. Sawy. Built with purpose.'),
-      _react.default.createElement('a', { href: 'https://theagenticlab.com', target: '_blank', rel: 'noopener noreferrer' }, 'Founder, The Agentic Lab\u00AE')
+  const Footer = () => (/*#__PURE__*/_react.default.createElement('footer', {
+    className: 'ds-site-footer'
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    className: 'ds-footer-inner'
+  },
+  // Column 1 — About
+  /*#__PURE__*/_react.default.createElement('div', null,
+    /*#__PURE__*/_react.default.createElement('div', {
+      className: 'ds-footer-heading',
+      style: { fontFamily: "'Playfair Display', Georgia, serif" }
+    }, 'A. Sawy'),
+    /*#__PURE__*/_react.default.createElement('p', { className: 'ds-footer-text' },
+      'PhD Student, Industrial & Systems Engineering'),
+    /*#__PURE__*/_react.default.createElement('p', { className: 'ds-footer-text' },
+      'Rutgers University, New Brunswick, NJ')
+  ),
+  // Column 2 — Quick Links
+  /*#__PURE__*/_react.default.createElement('div', null,
+    /*#__PURE__*/_react.default.createElement('div', { className: 'ds-footer-heading' }, 'Quick Links'),
+    /*#__PURE__*/_react.default.createElement('ul', { className: 'ds-footer-links' },
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: '/' }, 'Home')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: '/research' }, 'Research')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: '/portfolio' }, 'Portfolio')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: '/teaching' }, 'Teaching'))
     )
-  ));
+  ),
+  // Column 3 — Connect
+  /*#__PURE__*/_react.default.createElement('div', null,
+    /*#__PURE__*/_react.default.createElement('div', { className: 'ds-footer-heading' }, 'Connect'),
+    /*#__PURE__*/_react.default.createElement('ul', { className: 'ds-footer-links' },
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: 'mailto:a.sawy@rutgers.edu' },
+          _react.default.createElement('svg', { width: 14, height: 14, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2, style: { verticalAlign: 'middle', marginRight: '6px' } },
+            _react.default.createElement('rect', { x: 2, y: 4, width: 20, height: 16, rx: 2 }),
+            _react.default.createElement('path', { d: 'M22 4L12 13 2 4' })
+          ), 'a.sawy@rutgers.edu')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: 'https://www.linkedin.com/in/aosawy/', target: '_blank', rel: 'noopener noreferrer' },
+          _react.default.createElement('svg', { width: 14, height: 14, viewBox: '0 0 24 24', fill: 'currentColor', style: { verticalAlign: 'middle', marginRight: '6px' } },
+            _react.default.createElement('path', { d: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' })
+          ), 'LinkedIn')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: 'https://github.com/aosawy', target: '_blank', rel: 'noopener noreferrer' },
+          _react.default.createElement('svg', { width: 14, height: 14, viewBox: '0 0 24 24', fill: 'currentColor', style: { verticalAlign: 'middle', marginRight: '6px' } },
+            _react.default.createElement('path', { d: 'M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12' })
+          ), 'GitHub')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', {
+          href: 'tel:+18482097088',
+          style: { display: 'inline-flex', alignItems: 'center', gap: '8px' }
+        },
+          _react.default.createElement('svg', { width: 16, height: 16, viewBox: '0 0 24 24', fill: 'currentColor', style: { opacity: 0.7 } },
+            _react.default.createElement('path', { d: 'M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z' })
+          ),
+          '+1 (848) 209-7088'))
+    )
+  )),
+  // Bottom bar
+  /*#__PURE__*/_react.default.createElement('div', { className: 'ds-footer-bar' },
+    /*#__PURE__*/_react.default.createElement('span', null, '\u00A9 2026 Abdelrahman O. Sawy. Built with purpose.'),
+    /*#__PURE__*/_react.default.createElement('span', null, 'Founder, ',
+      _react.default.createElement('a', { href: '/agentic-lab' }, 'The Agentic Lab\u00AE'))
+  )));
 
   // ============================================================================
   // APP ROOT
@@ -1596,5 +1635,6 @@
       document.getElementById('root').innerHTML = '<p style="padding:2rem;color:red;">Error: Portfolio component not found.</p>';
     }
   </script>
+<script src="/scroll-behavior.js" defer></script>
 </body>
 </html>

@@ -23,6 +23,8 @@
   <meta name="twitter:image" content="https://aosawy.org/og-image.png">
   <meta name="description" content="Teaching portfolio — Graduate Teaching Assistant at Rutgers ISE. Two semesters spanning probabilistic models, computational methods, graph mining, and spatial statistics.">
     <link rel="stylesheet" href="design-system.css">
+  <link rel="canonical" href="https://aosawy.org/teaching">
+
   <title>Teaching — Abdelrahman O. Sawy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -54,21 +56,21 @@
 <!-- Unified Site Header -->
 <nav class="ds-site-header" id="siteHeader">
   <div class="ds-header-inner">
-    <a href="/" class="ds-header-logo"><img src="assets/Home/ProfilePicCircle.jpg" alt="" class="ds-header-avatar">A. Sawy</a>
+    <a href="/" class="ds-header-logo"><img src="assets/Home/ProfilePicCircle.jpg" alt="Abdelrahman O. Sawy" class="ds-header-avatar">A. Sawy</a>
     <div class="ds-nav-links">
       <a href="/">Home</a>
       <a href="/research">Research</a>
       <a href="/portfolio">Portfolio</a>
       <a href="/teaching">Teaching</a>
     </div>
-    <button class="ds-hamburger" onclick="document.getElementById('siteMobileDrawer').classList.toggle('open'); this.classList.toggle('open'); document.body.classList.toggle('drawer-open');">
+    <button class="ds-hamburger" aria-label="Toggle navigation" onclick="document.getElementById('siteMobileDrawer').classList.toggle('open'); this.classList.toggle('open'); document.body.classList.toggle('drawer-open');">
       <div class="ds-hamburger-lines"><span></span><span></span><span></span></div>
     </button>
   </div>
 </nav>
 <div class="ds-mobile-drawer" id="siteMobileDrawer" onclick="if(event.target===this){document.getElementById('siteMobileDrawer').classList.remove('open');document.querySelector('.ds-hamburger').classList.remove('open');document.body.classList.remove('drawer-open');}">
 
-  <button class="ds-drawer-close" onclick="document.getElementById('siteMobileDrawer').classList.remove('open'); document.querySelector('.ds-hamburger').classList.remove('open'); document.body.classList.remove('drawer-open');">&times;</button>
+  <button class="ds-drawer-close" aria-label="Close navigation" onclick="document.getElementById('siteMobileDrawer').classList.remove('open'); document.querySelector('.ds-hamburger').classList.remove('open'); document.body.classList.remove('drawer-open');">&times;</button>
   <a href="/" onclick="document.getElementById('siteMobileDrawer').classList.remove('open'); document.querySelector('.ds-hamburger').classList.remove('open'); document.body.classList.remove('drawer-open');">Home</a>
   <a href="/research" onclick="document.getElementById('siteMobileDrawer').classList.remove('open'); document.querySelector('.ds-hamburger').classList.remove('open'); document.body.classList.remove('drawer-open');">Research</a>
   <a href="/portfolio" onclick="document.getElementById('siteMobileDrawer').classList.remove('open'); document.querySelector('.ds-hamburger').classList.remove('open'); document.body.classList.remove('drawer-open');">Portfolio</a>
@@ -129,17 +131,17 @@
     text: '#1d1d1f',
     secondary: '#6e6e73',
     tertiary: '#86868b',
-    accent: '#CC0033',
-    accentLight: 'rgba(204,0,51,0.06)',
-    accentBorder: 'rgba(204,0,51,0.15)',
+    accent: '#0071e3',
+    accentLight: 'rgba(0,113,227,0.06)',
+    accentBorder: 'rgba(0,113,227,0.15)',
     border: 'rgba(0,0,0,0.06)',
     white: '#ffffff',
-    red: '#CC0033',
-    green: '#CC0033',
-    orange: '#CC0033',
-    purple: '#CC0033',
-    darkRed: '#CC0033',
-    rutgers: '#CC0033'
+    red: '#0071e3',
+    green: '#0071e3',
+    orange: '#0071e3',
+    purple: '#0071e3',
+    darkRed: '#0071e3',
+    rutgers: '#0071e3'
   };
   const glass = {
     card: {
@@ -391,7 +393,7 @@
     subtitle: 'Part I: Spectral Theory & Dimensionality Reduction',
     slides: 71,
     lines: 3166,
-    color: '#CC0033',
+    color: '#0071e3',
     topics: ['Eigenvalue problem: Ax = \u03BBx', 'Characteristic equation: |A \u2212 \u03BBI| = 0', 'Spectral decomposition', 'PCA constrained optimization', 'Lagrangian derivation of PCs', 'Proportion of variance explained', 'Scree plot analysis'],
     keyEquations: [{
       label: 'Eigenvalue Problem',
@@ -422,7 +424,7 @@
     subtitle: 'Part II: MLR, PCR & Extensions',
     slides: 73,
     lines: 2800,
-    color: '#CC0033',
+    color: '#0071e3',
     topics: ['Multiple Linear Regression (MLR)', 'Least squares estimation', 'Multicollinearity and VIF', 'Principal Component Regression (PCR)', 'Sparse PCA', 'Supervised PCA'],
     keyEquations: [{
       label: 'MLR Model',
@@ -447,7 +449,7 @@
     subtitle: 'Conditional Distributions, Bayesian Classification & Imputation',
     slides: 62,
     lines: 2645,
-    color: '#CC0033',
+    color: '#0071e3',
     topics: ['Multivariate Normal Distribution', 'Mahalanobis distance', 'Conditional distributions', 'Bayesian classification (LDA/QDA)', 'Missing data imputation', 'Mean vs. conditional imputation'],
     keyEquations: [{
       label: 'MVN PDF',
@@ -475,7 +477,7 @@
     subtitle: 'Collaborative Filtering & Neighborhood Methods',
     slides: 47,
     lines: 1800,
-    color: '#CC0033',
+    color: '#0071e3',
     topics: ['User-based collaborative filtering', 'Item-based collaborative filtering', 'Pearson correlation similarity', 'Cosine similarity', 'Mean-centered ratings', 'Sparsity analysis', 'RMSE evaluation'],
     keyEquations: [{
       label: 'Sparsity',
@@ -503,7 +505,7 @@
     subtitle: 'Network Data, Centrality & Community Detection',
     slides: 120,
     lines: 4200,
-    color: '#CC0033',
+    color: '#0071e3',
     topics: ['Adjacency and Laplacian matrices', 'Degree, closeness, betweenness centrality', 'Eigenvector centrality & Katz centrality', 'PageRank algorithm', 'Co-citation & bibliographic coupling', 'Jaccard similarity', 'Modularity & community detection'],
     keyEquations: [{
       label: 'Adjacency Matrix',
@@ -540,7 +542,7 @@
     subtitle: 'Point Patterns, Autocorrelation & Kriging',
     slides: 179,
     lines: 6500,
-    color: '#CC0033',
+    color: '#0071e3',
     topics: ['Spatial point patterns & CSR', 'Ripley\u2019s K-function', 'Moran\u2019s I & Geary\u2019s C', 'Spatial weight matrices', 'SAR, SEM, SDM, CAR models', 'Semivariogram & variogram models', 'Ordinary, Simple & Universal Kriging', 'Cokriging'],
     keyEquations: [{
       label: 'Ripley\u2019s K',
@@ -701,24 +703,24 @@
         border: '0.5px solid rgba(110,110,115,0.2)'
       },
       success: {
-        background: 'rgba(204,0,51,0.08)',
-        color: '#CC0033',
-        border: '0.5px solid rgba(204,0,51,0.18)'
+        background: 'rgba(0,113,227,0.08)',
+        color: '#0071e3',
+        border: '0.5px solid rgba(0,113,227,0.18)'
       },
       danger: {
-        background: 'rgba(204,0,51,0.08)',
-        color: '#CC0033',
-        border: '0.5px solid rgba(204,0,51,0.18)'
+        background: 'rgba(0,113,227,0.08)',
+        color: '#0071e3',
+        border: '0.5px solid rgba(0,113,227,0.18)'
       },
       warning: {
-        background: 'rgba(204,0,51,0.08)',
-        color: '#CC0033',
-        border: '0.5px solid rgba(204,0,51,0.18)'
+        background: 'rgba(0,113,227,0.08)',
+        color: '#0071e3',
+        border: '0.5px solid rgba(0,113,227,0.18)'
       },
       rutgers: {
-        background: 'rgba(204,0,51,0.08)',
-        color: '#CC0033',
-        border: '0.5px solid rgba(204,0,51,0.18)'
+        background: 'rgba(0,113,227,0.08)',
+        color: '#0071e3',
+        border: '0.5px solid rgba(0,113,227,0.18)'
       }
     };
     return /*#__PURE__*/_react.default.createElement("span", {
@@ -855,7 +857,7 @@
       marginBottom: '0.5rem'
     },
     onMouseEnter: e => {
-      if (!isActive) e.target.style.background = 'rgba(204,0,51,0.05)';
+      if (!isActive) e.target.style.background = 'rgba(0,113,227,0.05)';
     },
     onMouseLeave: e => {
       if (!isActive) e.target.style.background = 'transparent';
@@ -1362,8 +1364,8 @@
       width: '40px',
       height: '40px',
       borderRadius: '10px',
-      background: w.week === 8 ? 'rgba(204,0,51,0.1)' : color.accentLight,
-      border: `0.5px solid ${w.week === 8 ? 'rgba(204,0,51,0.2)' : color.accentBorder}`,
+      background: w.week === 8 ? 'rgba(0,113,227,0.1)' : color.accentLight,
+      border: `0.5px solid ${w.week === 8 ? 'rgba(0,113,227,0.2)' : color.accentBorder}`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -1409,8 +1411,8 @@
       width: '24px',
       height: '24px',
       borderRadius: '50%',
-      background: i === 0 ? 'rgba(204,0,51,0.1)' : color.accentLight,
-      border: `0.5px solid ${i === 0 ? 'rgba(204,0,51,0.2)' : color.accentBorder}`,
+      background: i === 0 ? 'rgba(0,113,227,0.1)' : color.accentLight,
+      border: `0.5px solid ${i === 0 ? 'rgba(0,113,227,0.2)' : color.accentBorder}`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -1785,21 +1787,21 @@
     }
   }, /*#__PURE__*/_react.default.createElement(Pill, {
     style: {
-      background: 'rgba(204,0,51,0.08)',
+      background: 'rgba(0,113,227,0.08)',
       color: color.accent,
-      border: '0.5px solid rgba(204,0,51,0.18)'
+      border: '0.5px solid rgba(0,113,227,0.18)'
     }
   }, "Part 1: Network Fundamentals"), /*#__PURE__*/_react.default.createElement(Pill, {
     style: {
-      background: 'rgba(204,0,51,0.08)',
+      background: 'rgba(0,113,227,0.08)',
       color: color.accent,
-      border: '0.5px solid rgba(204,0,51,0.18)'
+      border: '0.5px solid rgba(0,113,227,0.18)'
     }
   }, "Part 2: Node Centrality"), /*#__PURE__*/_react.default.createElement(Pill, {
     style: {
-      background: 'rgba(204,0,51,0.08)',
+      background: 'rgba(0,113,227,0.08)',
       color: color.accent,
-      border: '0.5px solid rgba(204,0,51,0.18)'
+      border: '0.5px solid rgba(0,113,227,0.18)'
     }
   }, "Part 3: Similarity & Clustering")), /*#__PURE__*/_react.default.createElement("div", {
     style: {
@@ -2422,7 +2424,7 @@
     const handleTabChange = (tabId) => {
       setActiveTab(tabId);
       window.location.hash = tabId;
-      sessionStorage.setItem('teaching-scroll', '0');
+      sessionStorage.removeItem('teaching-scroll');
     };
     (0, _react.useEffect)(() => {
       const saveScroll = () => sessionStorage.setItem('teaching-scroll', String(window.scrollY));
@@ -2441,7 +2443,7 @@
       @keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
       @keyframes heroFloat { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
       @keyframes heroFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-      @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(204,0,51,0.7); } 50% { box-shadow: 0 0 0 10px rgba(204,0,51,0); } }
+      @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(0,113,227,0.7); } 50% { box-shadow: 0 0 0 10px rgba(0,113,227,0); } }
       * { box-sizing: border-box; }
       body { margin: 0; -webkit-font-smoothing: antialiased; }
       a:hover { opacity: 0.8; }
@@ -2503,7 +2505,7 @@
         width: '200px',
         height: '200px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(204,0,51,0.12) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(0,113,227,0.12) 0%, transparent 70%)',
         animation: 'float2 18s ease-in-out infinite'
       }
     }), /*#__PURE__*/_react.default.createElement("div", {
@@ -2514,7 +2516,7 @@
         width: '180px',
         height: '180px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(204,0,51,0.15) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(0,113,227,0.15) 0%, transparent 70%)',
         animation: 'float1 20s ease-in-out infinite 3s'
       }
     })), /*#__PURE__*/_react.default.createElement("div", {
@@ -2641,36 +2643,73 @@
         margin: '0 auto',
         padding: '3rem 2rem 4rem'
       }
-    }, tabContent[activeTab]), /*#__PURE__*/_react.default.createElement('footer', { className: 'ds-site-footer' },
-  _react.default.createElement('div', { className: 'ds-footer-inner' },
-    _react.default.createElement('div', null,
-      _react.default.createElement('h3', { className: 'ds-footer-heading' }, 'A. Sawy'),
-      _react.default.createElement('p', { className: 'ds-footer-text' }, 'PhD Student, Industrial & Systems Engineering', _react.default.createElement('br'), 'Rutgers University, New Brunswick, NJ')
-    ),
-    _react.default.createElement('div', null,
-      _react.default.createElement('h3', { className: 'ds-footer-heading' }, 'Quick Links'),
-      _react.default.createElement('ul', { className: 'ds-footer-links' },
-        _react.default.createElement('li', null, _react.default.createElement('a', { href: '/' }, 'Home')),
-        _react.default.createElement('li', null, _react.default.createElement('a', { href: '/research' }, 'Research')),
-        _react.default.createElement('li', null, _react.default.createElement('a', { href: '/portfolio' }, 'Portfolio')),
-        _react.default.createElement('li', null, _react.default.createElement('a', { href: '/teaching' }, 'Teaching'))
-      )
-    ),
-    _react.default.createElement('div', null,
-      _react.default.createElement('h3', { className: 'ds-footer-heading' }, 'Connect'),
-      _react.default.createElement('ul', { className: 'ds-footer-links' },
-        _react.default.createElement('li', null, _react.default.createElement('a', { href: 'mailto:a.sawy@rutgers.edu' }, '\u2709 a.sawy@rutgers.edu')),
-        _react.default.createElement('li', null, _react.default.createElement('a', { href: 'https://linkedin.com/in/aosawy', target: '_blank', rel: 'noopener noreferrer' }, '\uD83D\uDD17 LinkedIn')),
-        _react.default.createElement('li', null, _react.default.createElement('a', { href: 'https://github.com/aosawy', target: '_blank', rel: 'noopener noreferrer' }, '\uD83D\uDCBB GitHub')),
-        _react.default.createElement('li', null, _react.default.createElement('a', { href: 'tel:+18482097088' }, '\u260E +1 (848) 209-7088'))
-      )
+    }, tabContent[activeTab]), /*#__PURE__*/_react.default.createElement('footer', {
+    className: 'ds-site-footer'
+  }, /*#__PURE__*/_react.default.createElement('div', {
+    className: 'ds-footer-inner'
+  },
+  // Column 1 — About
+  /*#__PURE__*/_react.default.createElement('div', null,
+    /*#__PURE__*/_react.default.createElement('div', {
+      className: 'ds-footer-heading',
+      style: { fontFamily: "'Playfair Display', Georgia, serif" }
+    }, 'A. Sawy'),
+    /*#__PURE__*/_react.default.createElement('p', { className: 'ds-footer-text' },
+      'PhD Student, Industrial & Systems Engineering'),
+    /*#__PURE__*/_react.default.createElement('p', { className: 'ds-footer-text' },
+      'Rutgers University, New Brunswick, NJ')
+  ),
+  // Column 2 — Quick Links
+  /*#__PURE__*/_react.default.createElement('div', null,
+    /*#__PURE__*/_react.default.createElement('div', { className: 'ds-footer-heading' }, 'Quick Links'),
+    /*#__PURE__*/_react.default.createElement('ul', { className: 'ds-footer-links' },
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: '/' }, 'Home')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: '/research' }, 'Research')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: '/portfolio' }, 'Portfolio')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: '/teaching' }, 'Teaching'))
     )
   ),
-  _react.default.createElement('div', { className: 'ds-footer-bar' },
-    _react.default.createElement('span', null, '\u00A9 2026 Abdelrahman O. Sawy. Built with purpose.'),
-    _react.default.createElement('a', { href: 'https://theagenticlab.com', target: '_blank', rel: 'noopener noreferrer' }, 'Founder, The Agentic Lab\u00AE')
-  )
-));
+  // Column 3 — Connect
+  /*#__PURE__*/_react.default.createElement('div', null,
+    /*#__PURE__*/_react.default.createElement('div', { className: 'ds-footer-heading' }, 'Connect'),
+    /*#__PURE__*/_react.default.createElement('ul', { className: 'ds-footer-links' },
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: 'mailto:a.sawy@rutgers.edu' },
+          _react.default.createElement('svg', { width: 14, height: 14, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2, style: { verticalAlign: 'middle', marginRight: '6px' } },
+            _react.default.createElement('rect', { x: 2, y: 4, width: 20, height: 16, rx: 2 }),
+            _react.default.createElement('path', { d: 'M22 4L12 13 2 4' })
+          ), 'a.sawy@rutgers.edu')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: 'https://www.linkedin.com/in/aosawy/', target: '_blank', rel: 'noopener noreferrer' },
+          _react.default.createElement('svg', { width: 14, height: 14, viewBox: '0 0 24 24', fill: 'currentColor', style: { verticalAlign: 'middle', marginRight: '6px' } },
+            _react.default.createElement('path', { d: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' })
+          ), 'LinkedIn')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', { href: 'https://github.com/aosawy', target: '_blank', rel: 'noopener noreferrer' },
+          _react.default.createElement('svg', { width: 14, height: 14, viewBox: '0 0 24 24', fill: 'currentColor', style: { verticalAlign: 'middle', marginRight: '6px' } },
+            _react.default.createElement('path', { d: 'M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12' })
+          ), 'GitHub')),
+      /*#__PURE__*/_react.default.createElement('li', null,
+        _react.default.createElement('a', {
+          href: 'tel:+18482097088',
+          style: { display: 'inline-flex', alignItems: 'center', gap: '8px' }
+        },
+          _react.default.createElement('svg', { width: 16, height: 16, viewBox: '0 0 24 24', fill: 'currentColor', style: { opacity: 0.7 } },
+            _react.default.createElement('path', { d: 'M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z' })
+          ),
+          '+1 (848) 209-7088'))
+    )
+  )),
+  // Bottom bar
+  /*#__PURE__*/_react.default.createElement('div', { className: 'ds-footer-bar' },
+    /*#__PURE__*/_react.default.createElement('span', null, '\u00A9 2026 Abdelrahman O. Sawy. Built with purpose.'),
+    /*#__PURE__*/_react.default.createElement('span', null, 'Founder, ',
+      _react.default.createElement('a', { href: 'mailto:sales@theagenticlab.net', target: '_blank', rel: 'noopener noreferrer' }, 'The Agentic Lab\u00AE'))
+  )));
   };
   var _default = _exports.default = TeachingShowcase;
 });
@@ -2714,5 +2753,6 @@
   }, 500);
 })();
 </script>
+<script src="/scroll-behavior.js" defer></script>
 </body>
 </html>

@@ -372,11 +372,9 @@ body {
   color: var(--color-text);
   cursor: pointer;
 }
-/* Scroll-lock when mobile drawer is open */
+/* Scroll-lock when mobile drawer is open — no jump */
 body.drawer-open {
   overflow: hidden !important;
-  position: fixed;
-  width: 100%;
 }
 /* Pages with injected site header need top padding */
 body:has(.ds-site-header) #root {
@@ -1540,16 +1538,18 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     padding: 32px 16px !important;
   }
 
-  /* 100vh sections — auto height */
-  .page-showcase [style*="height: 100vh"],
-  .page-showcase [style*="height:100vh"],
-  .page-showcase [style*="min-height: 100vh"],
-  .page-showcase [style*="min-height:100vh"] {
+  /* 100vh sections — shrink for mobile (exclude hero headers and #root direct children) */
+  .page-showcase [style*="height: 100vh"]:not(header):not(#root > *),
+  .page-showcase [style*="height:100vh"]:not(header):not(#root > *),
+  .page-showcase [style*="min-height: 100vh"]:not(header):not(#root > *),
+  .page-showcase [style*="min-height:100vh"]:not(header):not(#root > *) {
     height: auto !important;
     min-height: auto !important;
     padding-top: 60px !important;
     padding-bottom: 40px !important;
   }
+
+  /* Hero video + scroll indicator overrides are in per-page <style> blocks (sh-* classes) */
 
   /* Large font-sizes — clamped */
   .page-showcase [style*="font-size: 3"],
@@ -1575,9 +1575,8 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     background-position: center !important;
   }
 
-  /* Buttons: full width */
-  .page-showcase [style*="borderRadius: '980px'"],
-  .page-showcase [style*="border-radius: 980px"] {
+  /* CTA Buttons in content sections: full width */
+  .page-showcase section [style*="border-radius: 980px"] {
     width: 100% !important;
     text-align: center !important;
     justify-content: center !important;
@@ -1596,15 +1595,26 @@ body:has(.ds-site-header) [style*="position: sticky"] {
     padding-right: 16px !important;
   }
 
-  /* Tab nav: horizontal scroll with momentum */
+  /* Tab bar — wrap + center, matching research page exactly */
   .page-showcase [style*="position: sticky"] {
-    padding: 8px 12px !important;
+    padding: 8px 0 !important;
   }
-  .page-showcase [style*="position: sticky"] button,
-  .page-showcase [style*="position: sticky"] a {
-    font-size: 0.75rem !important;
-    padding: 6px 12px !important;
-    white-space: nowrap;
+  .page-showcase [style*="position: sticky"] > div {
+    white-space: normal !important;
+    overflow-x: visible !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    justify-content: center !important;
+    padding: 0 12px !important;
+  }
+  .page-showcase [style*="position: sticky"] > div > button,
+  .page-showcase [style*="position: sticky"] > div > a {
+    padding: 0.4rem 0.7rem !important;
+    font-size: 0.7rem !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap !important;
   }
 
   /* 3D model viewers & canvas */
@@ -1615,6 +1625,50 @@ body:has(.ds-site-header) [style*="position: sticky"] {
   .page-showcase model-viewer {
     max-width: 100% !important;
     max-height: 300px !important;
+  }
+
+  /* Images — prevent overflow */
+  .page-showcase img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Tables — natural layout, parent div handles horizontal scroll */
+  .page-showcase table {
+    display: table !important;
+    width: max-content !important;
+    min-width: 100% !important;
+  }
+  .page-showcase table th,
+  .page-showcase table td {
+    font-size: 0.8rem !important;
+    padding: 6px 10px !important;
+  }
+
+  /* -- Image cards: show full image, no cropping -- */
+  .page-showcase main img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    max-height: none !important;
+  }
+  .page-showcase main div:has(> img) {
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* -- 3D viewer: trim white gap on mobile -- */
+  .page-showcase div:has(> model-viewer) {
+    height: 300px !important;
+  }
+  .page-showcase model-viewer {
+    height: 300px !important;
+  }
+
+  /* -- Footer mobile -- */
+  .ds-footer-inner {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
 
 } /* end @media (max-width: 639px) */
@@ -1698,4 +1752,307 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 }
 .ds-footer-bar a:hover {
   color: #0071e3;
+}
+
+/* -----------------------------------------------------------------------------
+   11. PAGE TRANSITION — Fade in on load
+----------------------------------------------------------------------------- */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body {
+  animation: pageFadeIn 0.4s ease-out;
+}
+
+/* -----------------------------------------------------------------------------
+   12. TAB BUTTON TRANSITIONS
+----------------------------------------------------------------------------- */
+.page-showcase #root button,
+.page-research #root button,
+.page-teaching #root button {
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* -----------------------------------------------------------------------------
+   13. SCROLL-TO-TOP BUTTON
+----------------------------------------------------------------------------- */
+.ds-scroll-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border: 0.5px solid rgba(0,0,0,0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+.ds-scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.ds-scroll-top:hover {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.ds-scroll-top svg {
+  width: 20px;
+  height: 20px;
+  stroke: #1d1d1f;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* -----------------------------------------------------------------------------
+   14. BREADCRUMB — Back to Portfolio
+----------------------------------------------------------------------------- */
+.ds-breadcrumb {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 900;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+.ds-breadcrumb.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.ds-breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 980px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border: 0.5px solid rgba(0,0,0,0.08);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  color: #1d1d1f;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+.ds-breadcrumb a:hover {
+  background: rgba(255,255,255,0.95);
+  color: #0071e3;
+}
+.ds-breadcrumb svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+@media (max-width: 639px) {
+  .ds-breadcrumb { bottom: 20px; left: 16px; }
+  .ds-breadcrumb a { font-size: 0.7rem; padding: 5px 10px; }
+  .ds-scroll-top { bottom: 20px; right: 16px; width: 40px; height: 40px; }
+}
+
+/* -----------------------------------------------------------------------------
+   15. FOCUS INDICATORS — Keyboard Accessibility
+----------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 2px;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.ds-scroll-top:focus-visible,
+.ds-breadcrumb a:focus-visible {
+  outline-offset: 3px;
+  border-radius: 980px;
+}
+
+/* -----------------------------------------------------------------------------
+   16. SKIP TO CONTENT LINK
+----------------------------------------------------------------------------- */
+.ds-skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 10000;
+  padding: 10px 20px;
+  background: #0071e3;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.ds-skip-link:focus {
+  top: 0;
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+
+/* -----------------------------------------------------------------------------
+   17. READING PROGRESS INDICATOR
+----------------------------------------------------------------------------- */
+.ds-reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0071e3, #CC0000);
+  z-index: 10001;
+  width: 0%;
+  transition: width 50ms linear;
+  pointer-events: none;
+}
+
+/* -----------------------------------------------------------------------------
+   18. STORY NAVIGATION — Next/Previous Page
+----------------------------------------------------------------------------- */
+.ds-story-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px;
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+.ds-story-nav a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 0.5px solid rgba(0,0,0,0.06);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  text-decoration: none;
+  color: #1d1d1f;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ds-story-nav a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.ds-story-nav a.next { text-align: right; }
+.ds-story-nav .label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #86868b;
+  font-weight: 600;
+}
+.ds-story-nav .title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0071e3;
+}
+@media (max-width: 639px) {
+  .ds-story-nav { flex-direction: column; padding: 32px 16px; }
+  .ds-story-nav a { text-align: left !important; }
+  .ds-story-nav a.next { text-align: right !important; }
+}
+
+/* -----------------------------------------------------------------------------
+   19. IMAGE LIGHTBOX
+----------------------------------------------------------------------------- */
+.ds-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  cursor: zoom-out;
+}
+.ds-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.ds-lightbox img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+.ds-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+.ds-lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+/* Mark clickable images */
+.page-showcase main img {
+  cursor: zoom-in;
+}
+
+/* -----------------------------------------------------------------------------
+   20. PRINT STYLESHEET
+----------------------------------------------------------------------------- */
+@media print {
+  body { background: #fff !important; }
+  .ds-site-header, .ds-site-footer, .ds-hamburger, .ds-mobile-drawer,
+  .ds-scroll-top, .ds-breadcrumb, .ds-reading-progress, .ds-story-nav,
+  .ds-scroll-indicator, .ds-skip-link, .sh-hero video,
+  .ds-lightbox, .ds-lightbox-close { display: none !important; }
+  .sh-hero { min-height: auto !important; height: auto !important; padding: 24px !important; }
+  main { padding: 0 !important; }
+  * { box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+  img { max-width: 100% !important; page-break-inside: avoid; }
+  table { page-break-inside: avoid; }
+}
+
+/* -----------------------------------------------------------------------------
+   21. ACCESSIBILITY — Reduced Motion
+----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

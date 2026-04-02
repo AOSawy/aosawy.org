@@ -4,9 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="design-system.css">
+  <link rel="canonical" href="https://aosawy.org/">
+
   <title>Abdelrahman O. Sawy — PhD Student, ISE, Rutgers University</title>
   <meta name="description" content="Abdelrahman Sawy — PhD student in Industrial & Systems Engineering at Rutgers University. Specializing in stochastic optimization, machine learning, and AI-driven decision systems for renewable energy." />
   <meta name="author" content="Abdelrahman Sawy" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abdelrahman O. Sawy",
+    "url": "https://aosawy.org",
+    "jobTitle": "PhD Student, Industrial & Systems Engineering",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Rutgers University",
+      "url": "https://www.rutgers.edu"
+    },
+    "knowsAbout": ["Stochastic Optimization", "Machine Learning", "Data Analytics", "Renewable Energy Systems"],
+    "sameAs": [
+      "https://scholar.google.com/citations?user=YOUR_ID",
+      "https://www.linkedin.com/in/aosawy"
+    ]
+  }
+  </script>
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -95,7 +116,7 @@
     purple: '#8e44ad',
     darkRed: '#c0392b',
     rutgers: '#CC0033',
-    auc: '#003366',
+    auc: '#0071e3',
     gold: '#C49A3C'
   };
   const glass = {
@@ -198,7 +219,7 @@
     title: 'NACA 0024 CFD Analysis',
     subtitle: 'Computational Fluid Dynamics of Airfoil',
     tags: ['ANSYS Fluent', 'CFD', 'Aerodynamics'],
-    color: '#003366',
+    color: '#0071e3',
     link: '/cfd',
     category: 'auc',
     institution: 'AUC'
@@ -206,7 +227,7 @@
     title: 'Thesis: Composite Aerostructures',
     subtitle: 'FEA & Optimization of CFRP Structures',
     tags: ['ABAQUS', 'Composites', 'FEA'],
-    color: '#003366',
+    color: '#0071e3',
     link: '/thesis',
     category: 'auc',
     institution: 'AUC'
@@ -214,7 +235,7 @@
     title: 'Finite Element Method',
     subtitle: 'Structural Analysis & Element Formulation',
     tags: ['FEM', 'MATLAB', 'Structural'],
-    color: '#003366',
+    color: '#0071e3',
     link: '/fem',
     category: 'auc',
     institution: 'AUC'
@@ -222,7 +243,7 @@
     title: 'Additive Manufacturing',
     subtitle: 'FDM Process Parameters & Mechanical Testing',
     tags: ['3D Printing', 'FDM', 'Testing'],
-    color: '#003366',
+    color: '#0071e3',
     link: '/additive',
     category: 'auc',
     institution: 'AUC'
@@ -230,7 +251,7 @@
     title: 'Failure Analysis',
     subtitle: 'Metallography & Fractography Investigation',
     tags: ['Microscopy', 'ASTM', 'Materials'],
-    color: '#003366',
+    color: '#0071e3',
     link: '/failure-analysis',
     category: 'auc',
     institution: 'AUC'
@@ -238,7 +259,7 @@
     title: 'Engineering Design II',
     subtitle: 'Senior Capstone: Product Design & Prototyping',
     tags: ['SolidWorks', 'Prototyping', 'Design'],
-    color: '#003366',
+    color: '#0071e3',
     link: '/design',
     category: 'auc',
     institution: 'AUC'
@@ -1046,7 +1067,7 @@
       display: 'inline-block',
       padding: '3px 10px',
       borderRadius: '6px',
-      background: i === 0 ? '#003366' : i === 1 ? '#CC0033' : '#CC0033',
+      background: i === 0 ? '#0071e3' : i === 1 ? '#CC0033' : '#CC0033',
       color: color.white,
       fontSize: '0.7rem',
       fontWeight: 700,
@@ -1267,12 +1288,12 @@
             borderRadius: '980px',
             fontSize: '0.7rem',
             fontWeight: 500,
-            color: '#003366',
+            color: '#0071e3',
             textDecoration: 'none',
             transition: 'all 0.2s ease'
           }
         },
-          /*#__PURE__*/_react.default.createElement('svg', { width: 14, height: 14, viewBox: '0 0 24 24', fill: '#003366' },
+          /*#__PURE__*/_react.default.createElement('svg', { width: 14, height: 14, viewBox: '0 0 24 24', fill: '#0071e3' },
             /*#__PURE__*/_react.default.createElement('path', { d: 'M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z' })
           ),
           'AUC Profile'
@@ -2206,7 +2227,7 @@
   /*#__PURE__*/_react.default.createElement('div', { className: 'ds-footer-bar' },
     /*#__PURE__*/_react.default.createElement('span', null, '\u00A9 2026 Abdelrahman O. Sawy. Built with purpose.'),
     /*#__PURE__*/_react.default.createElement('span', null, 'Founder, ',
-      _react.default.createElement('a', { href: 'mailto:sales@theagenticlab.net', target: '_blank', rel: 'noopener noreferrer' }, 'The Agentic Lab\u00AE'))
+      _react.default.createElement('a', { href: '/agentic-lab' }, 'The Agentic Lab\u00AE'))
   )));
 
   // ============================================================================
@@ -2261,10 +2282,8 @@
     if (App) {
       var root = ReactDOM.createRoot(document.getElementById('root'));
       root.render(React.createElement(App));
-    } else {
-      document.getElementById('root').innerHTML = '<p style="padding:2rem;color:red;">Error: Component not found. Check console.</p>';
-      console.error('Available globals:', Object.keys(window).filter(function(k) { return k.indexOf('home') !== -1 || k.indexOf('Home') !== -1; }));
     }
   </script>
+<script src="/scroll-behavior.js" defer></script>
 </body>
 </html>
