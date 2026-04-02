@@ -381,12 +381,20 @@ body:has(.ds-site-header) #root {
   padding-top: 72px;
 }
 /* Fallback for browsers without :has() support — ALL page types */
-body.page-home #root,
-body.page-portfolio #root,
 body.page-showcase #root,
 body.page-research #root,
 body.page-teaching #root {
   padding-top: 72px;
+}
+/* Full-viewport hero pages: hero goes BEHIND glass header, push content down inside */
+body.page-home #root,
+body.page-portfolio #root {
+  padding-top: 0;
+}
+body.page-home #hero,
+body.page-home #root > div > section:first-child,
+body.page-portfolio #root > div > section:first-child {
+  padding-top: 100px !important;
 }
 /* Sticky elements below the fixed header */
 body:has(.ds-site-header) [style*="position: sticky"] {
