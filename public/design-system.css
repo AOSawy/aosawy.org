@@ -376,25 +376,18 @@ body {
 body.drawer-open {
   overflow: hidden !important;
 }
-/* Pages with injected site header need top padding */
-body:has(.ds-site-header) #root {
-  padding-top: 72px;
-}
-/* Fallback for browsers without :has() support — ALL page types */
-body.page-showcase #root,
-body.page-research #root,
-body.page-teaching #root {
-  padding-top: 72px;
-}
-/* Full-viewport hero pages: hero goes BEHIND glass header, push content down inside */
-body.page-home #root,
-body.page-portfolio #root {
-  padding-top: 0;
-}
-body.page-home #hero,
-body.page-home #root > div > section:first-child,
-body.page-portfolio #root > div > section:first-child {
-  padding-top: 100px !important;
+/* ── Header / Hero Spacing ──────────────────────────────────────────────
+   ALL pages: hero background extends behind the glass header (no gap).
+   Text content inside the hero starts below the 56px header.
+   box-sizing: border-box makes padding eat INTO the 100vh, so
+   flex alignItems:center centres within the remaining space.          */
+
+/* Hero sections — internal top padding pushes text below the header */
+#hero,
+#research-hero,
+#root > div > section:first-of-type {
+  padding-top: 72px !important;
+  box-sizing: border-box !important;
 }
 /* Sticky elements below the fixed header */
 body:has(.ds-site-header) [style*="position: sticky"] {

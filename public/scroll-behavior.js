@@ -103,6 +103,14 @@
     next.click();
   });
 
+  // === HERO HEADER-CLEARANCE (belt-and-suspenders for CSS fix) ===
+  function ensureHeroPadding() {
+    var hero = document.getElementById('hero') || document.getElementById('research-hero');
+    if (!hero) return;
+    hero.style.paddingTop = '72px';
+    hero.style.boxSizing = 'border-box';
+  }
+
   // === INIT FEATURES ON DOM READY ===
   function init() {
     createSkipLink();
@@ -111,6 +119,8 @@
     createReadingProgress();
     createLightbox();
     createStoryNav();
+    // Run after React renders — hero may not exist at DOMContentLoaded
+    setTimeout(ensureHeroPadding, 500);
   }
 
   if (document.readyState === 'loading') {
