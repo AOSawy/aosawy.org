@@ -1768,14 +1768,14 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 .ds-footer-bar a:hover {
   color: #0071e3;
 }
-/* Agentic Lab — off-white pill in footer bar */
+/* Agentic Lab — visible off-white pill in footer bar */
 a.ds-footer-agentic-pill {
   display: inline-block !important;
-  padding: 6px 20px !important;
+  padding: 7px 22px !important;
   border-radius: 980px !important;
-  background: rgba(255,255,255,0.08) !important;
-  border: 1px solid rgba(255,255,255,0.12) !important;
-  color: rgba(255,255,255,0.55) !important;
+  background: rgba(255,255,255,0.15) !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  color: rgba(255,255,255,0.7) !important;
   font-size: 0.73rem !important;
   font-weight: 500 !important;
   letter-spacing: 0.2px !important;
@@ -1783,9 +1783,9 @@ a.ds-footer-agentic-pill {
   transition: all 0.3s ease !important;
 }
 a.ds-footer-agentic-pill:hover {
-  background: rgba(255,255,255,0.14) !important;
-  border-color: rgba(255,255,255,0.22) !important;
-  color: rgba(255,255,255,0.85) !important;
+  background: rgba(255,255,255,0.22) !important;
+  border-color: rgba(255,255,255,0.35) !important;
+  color: rgba(255,255,255,0.95) !important;
 }
 
 /* -----------------------------------------------------------------------------
