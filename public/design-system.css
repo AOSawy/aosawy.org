@@ -1768,35 +1768,34 @@ body:has(.ds-site-header) [style*="position: sticky"] {
 .ds-footer-bar a:hover {
   color: #0071e3;
 }
-/* Agentic Lab — glass pill CTA in footer bar */
-.ds-footer-agentic {
+/* Agentic Lab — accent pill button in footer bar
+   Uses .ds-footer-bar prefix to override the generic footer-bar link styles */
+.ds-footer-bar .ds-footer-agentic {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 0.2px;
+  color: rgba(255,255,255,0.35);
 }
-.ds-footer-agentic a {
+.ds-footer-bar .ds-footer-agentic a {
   display: inline-flex;
   align-items: center;
-  padding: 5px 16px;
+  padding: 6px 18px;
   border-radius: 980px;
-  background: rgba(255,255,255,0.06);
-  border: 0.5px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.5);
-  font-size: 0.72rem;
+  background: rgba(0,113,227,0.12);
+  border: 0.5px solid rgba(0,113,227,0.3);
+  color: rgba(0,113,227,0.9);
+  font-size: 0.73rem;
   font-weight: 500;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   text-decoration: none;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
-.ds-footer-agentic a:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.85);
+.ds-footer-bar .ds-footer-agentic a:hover {
+  background: #0071e3;
+  border-color: #0071e3;
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,113,227,0.25);
 }
 
 /* -----------------------------------------------------------------------------
