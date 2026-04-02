@@ -390,6 +390,11 @@ body.drawer-open {
   padding-top: 72px !important;
   box-sizing: border-box !important;
 }
+/* Neutralise legacy negative-margin hack on showcase wrappers.
+   Previously compensated for #root { padding-top: 72px } which is now removed. */
+#root .sh-wrapper {
+  margin-top: 0 !important;
+}
 /* Sticky elements below the fixed header */
 body:has(.ds-site-header) [style*="position: sticky"] {
   top: 56px !important;
