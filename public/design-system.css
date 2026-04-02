@@ -380,6 +380,12 @@ body.drawer-open {
 body:has(.ds-site-header) #root {
   padding-top: 56px;
 }
+/* Fallback for browsers without :has() support */
+body.page-showcase #root,
+body.page-research #root,
+body.page-teaching #root {
+  padding-top: 56px;
+}
 /* Sticky elements below the fixed header */
 body:has(.ds-site-header) [style*="position: sticky"] {
   top: 56px !important;
@@ -1922,8 +1928,11 @@ a:focus-visible {
   background: linear-gradient(90deg, #0071e3, #CC0000);
   z-index: 10001;
   width: 0%;
-  transition: width 50ms linear;
   pointer-events: none;
+  /* iOS: always visible above everything, survive toolbar hide/show */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: width;
 }
 
 /* -----------------------------------------------------------------------------
