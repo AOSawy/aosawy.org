@@ -14,8 +14,8 @@
 /data-analytics    /ise507-showcase            200
 /forecasting       /ise530-showcase            200
 /data-mining       /ise694-showcase            200
-/agentic-lab       /the-agentic-lab            200
 
-# theagenticlab.net custom domain → Agentic Lab page
-https://theagenticlab.net/*       /agentic-lab  301
-https://www.theagenticlab.net/*   /agentic-lab  301
+# The Agentic Lab moved to its own domain (2026-09-07)
+/agentic-lab            https://theagenticlab.net   301
+/the-agentic-lab        https://theagenticlab.net   301
+/the-agentic-lab.html   https://theagenticlab.net   301
