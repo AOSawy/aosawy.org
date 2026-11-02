@@ -334,8 +334,8 @@ body {
 .ds-header-avatar {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
+  border-radius: 0;
+  object-fit: contain;
   margin-right: 10px;
   vertical-align: middle;
 }
